@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <meta charset='utf-8'>
+    <title>HTML Ruby Markup Extensions</title>
+    <script src='http://www.w3.org/Tools/respec/respec-w3c-common' async></script>
+    <script class='remove'>
+      var respecConfig = {
+              specStatus:   "unofficial"
+          ,   shortName:    "html-ruby-extensions"
+          ,   editors:      [{ name: "Robin Berjon", url: "http://berjon.com/",
+                               company: "W3C", companyURL: "http://w3.org/" }]
+          ,   wg:           "HTML Working Group"
+          ,   wgURI:        "http://www.w3.org/html/wg/"
+          ,   wgPublicList: "public-html"
+          ,   wgPatentURI:  "http://www.w3.org/2004/01/pp-impl/40318/status"
+          ,   edDraftURI:   "http://darobin.github.com/html-ruby/"
+        };
+    </script> 
+  </head>
+  <body>
+    <section id='abstract'>
+      <p>
+        The ruby markup model currently described in the HTML specification is limited in its
+        support for a number of features, notably jukugo and double-sided ruby, as well as inline
+        ruby. This specification addresses these issues by introducing new elements and changing
+        the ruby processing model. Specific care has been taken to ensure that authoring remains
+        as simple as possible.
+      </p>
+    </section>
+    <section id='sotd'>
+      <p>
+        This specification is a proposed extension specification to HTML and has no official
+        standing whatsoever.
+      </p>
+    </section>
+    <section>
+      <h2>Changes compared to the current ruby model</h2>
+      <p>
+        The following changes are made to HTML by this document:
+      </p>
+      <ul>
+        <li><code>ruby</code> nested inside <code>ruby</code> no longer represents anything;</li>
+        <li>new <code>rb</code> and <code>rtc</code> elements have been introduced;</li>
+        <li>
+          the algorithm for processing ruby markup has been changed (note that if this
+          extension is rejected, the original algorithm will still need to be modified because
+          it is buggy);
+        </li>
+        <li>the HTML parsing algorithm has been changed to take the new elements into account.</li>
+      </ul>
+    </section>
+    <!-- 
+      TODO:
+        - one section per element
+        - port algorithm
+        - parsing algorithm
+        - any other mention of ruby
+      
+      UCs:
+        - http://lists.w3.org/Archives/Public/www-style/2011Feb/0804.html
+    -->
+
+    
+    
+    <!-- 
+    var makeRange = function (el, start, end) {
+        var newRange = range.makeRange();
+        newRange.setStart(el, start);
+        newRange.setEnd(el, end);
+        return newRange;
+    };
+
+    // new variant
+    ruby.newSegmentAndCategoriseRubyElement = function (el) {
+        var runs = []
+        ,   root = el
+        ,   index = 0
+        ,   currentAutomaticBaseNodes = []
+        ,   currentAutomaticBaseRangeStart = null
+        ,   currentBases = []
+        ,   currentBasesRangeStart = null
+        ,   currentBasesRange = null
+        ,   currentAnnotations = []
+        ,   currentAnnotationsRangeStart = null
+        ,   currentAnnotationsRange = null
+        ,   currentCompoundAnnotations = []
+        ;
+        
+        // if it isn't a ruby element, return
+        if (!helpers.isElementCalled(el, "ruby")) return;
+        // if it has a ruby ancestor, return
+        if (helpers.getAncestor(root, "ruby")) return;
+        
+        
+        // commit a run
+        // Data model:
+        //  - the root ruby contains a sequence of ruby runs
+        //  - a ruby run contains:
+        //      - a run of zero or more bases and their intervening space (some of those bases may be automatic)
+        //      - between zero and two compound annotations (zero or one of which may be automatic)
+        // - a run is described by:
+        //      - a list of bases (each of which is linked to an annotation if applicable)
+        //      - a range representing the bases run (this includes white space and rp)
+        //      - a first compound annotation
+        //      - a second compound annotation
+        // - a compound annotation is described by:
+        //      - a list of annotations (some of which may be automatic)
+        //      - a range representing that compound annotation (including spaces and rp)
+        var commitRun = function () {
+            commitAutomaticBase();
+            if (currentBases.length === 0 &&
+                currentAnnotations.length === 0 &&
+                currentCompoundAnnotations.length === 0) return;
+            commitBaseRange();
+            commitAnnotations();
+            runs.push({
+                bases:                      currentBases
+            ,   baseRange:                  currentBasesRange
+            ,   firstCompoundAnnotations:   currentCompoundAnnotations[0] || null
+            ,   secondCompoundAnnotations:  currentCompoundAnnotations[1] || null
+            });
+            currentBases = [];
+            currentBasesRangeStart = null;
+            currentBasesRange = null;
+            currentCompoundAnnotations = [];
+        };
+
+        // commit annotations to a compound
+        var commitAnnotations = function () {
+            if (currentAnnotations.length && !currentAnnotationsRange) {
+                currentAnnotationsRange = makeRange(root, currentAnnotationsRangeStart, index);
+            }
+            if (currentAnnotations.length) {
+                currentCompoundAnnotations.push({
+                    annotations:    currentAnnotations
+                ,   range:          currentAnnotationsRange
+                });
+            }
+            currentAnnotations = [];
+            currentAnnotationsRangeStart = null;
+            currentAnnotationsRange = null;
+        };
+        
+        // commit bases to a range
+        var commitBaseRange = function () {
+            if (currentBases.length && !currentBasesRange) {
+                currentBasesRange = makeRange(root, currentBasesRangeStart, index);
+            }
+        };
+
+        // commit an automatic base
+        // if the whole content is IEWS nothing happens
+        var commitAutomaticBase = function () {
+            if (!currentAutomaticBaseNodes.length) return;
+            // check that we have something that's not just IEWS
+            // XXX should we need to make sure it's not rp either?
+            // if (!currentAutomaticBaseNodes.every(function (n) {
+            //     return helpers.isInterElementWhitespace(n) || helpers.isElementCalled(n, "rp");
+            // }))
+            if (!currentAutomaticBaseNodes.every(helpers.isInterElementWhitespace)) {
+                if (!currentBases.length) currentBasesRangeStart = currentAutomaticBaseRangeStart;
+                currentBases.push({ range: makeRange(root, currentAutomaticBaseRangeStart, index) });
+            }
+            currentAutomaticBaseNodes = [];
+            currentAutomaticBaseRangeStart = null;
+        };
+
+        // what happens when we reach the end
+        var endMode = function () {
+            commitRun();
+            return runs;
+        };
+
+        // process each child of the ruby element in turn
+        var processRubyChild = function () {
+            if (root.childNodes.length <= index) return endMode();
+            var currentChild = root.childNodes.item(index);
+
+            // nodes that aren't text or elements
+            if (currentChild.nodeType !== helpers.TEXT_NODE && currentChild.nodeType !== helpers.ELEMENT_NODE) {
+                index++;
+                return processRubyChild();
+            }
+
+            // rp
+            // This just gets skipped which causes it to show up in whatever range we
+            // are currently processing. This is deliberate.
+            if (helpers.isElementCalled(currentChild, "rp")) {
+                index++;
+                return processRubyChild();
+            }
+
+            // rt
+            if (helpers.isElementCalled(currentChild, "rt")) {
+                // if we have automatic bases, commit them
+                commitAutomaticBase();
+                // commit base to a range
+                commitBaseRange();
+                // if there are two compounds already, commit the run
+                if (currentCompoundAnnotations.length === 2) commitRun();
+                // if we're the first, we start a range
+                if (!currentAnnotations.length) currentAnnotationsRangeStart = index;
+                // add an annotation
+                currentAnnotations.push({ range: makeRange(root, index, index + 1) });
+                index++;
+                return processRubyChild();
+            }
+
+            // rtc
+            if (helpers.isElementCalled(currentChild, "rtc")) {
+                // if we have automatic bases, commit them
+                commitAutomaticBase();
+                // commit base to a range
+                commitBaseRange();
+                // if there are current annotations, commit them to a coumpound
+                commitAnnotations();
+                // if there are two compounds already, commit the run
+                if (currentCompoundAnnotations.length === 2) commitRun();
+                // add a compound
+                //  this involves processing its children to produce a list of annotations as ranges
+                //  inside of this there can be automatic annotations
+                var annotations = ruby.processRTCElement(currentChild);
+                currentCompoundAnnotations.push({
+                    annotations:    annotations
+                ,   range:          makeRange(root, index, index + 1)
+                });
+                // yes, we do this again (same check, different situation)
+                if (currentCompoundAnnotations.length === 2) commitRun();
+                index++;
+                return processRubyChild();
+            }
+
+            // special processing for IEWS
+            if (helpers.isInterElementWhitespace(currentChild)) {
+                // if we have current annotations, don't start an automatic base
+                if (currentAnnotations.length) {
+                    index++;
+                    return processRubyChild();
+                }
+                // we can reach this stage if we've just closed an RTC
+                // the problem is that IEWS in this position could be the start of a base, in
+                // which case it needs to be part of the base (we keep going)
+                // or could be proper IEWS before another <rt>, in which case it just needs to
+                // be ignored (as in the previous conditional)
+                // if we have two compounds already, keep going as this is base material
+                if (currentCompoundAnnotations.length !== 2) {
+                    var lookaheadIndex = index;
+                    // otherwise peek ahead, for each step:
+                    var peekAhead = function () {
+                        lookaheadIndex++;
+                        // if ever the end is reached, keep going it doesn't matter
+                        if (root.childNodes.length === lookaheadIndex) return;
+                        var peekChild = root.childNodes.item(lookaheadIndex);
+                        // if IEWS, then keep peeking
+                        if (helpers.isInterElementWhitespace(peekChild)) return peekAhead();
+                        // if rt, rtc, or rp, drop as above since we don't want an automatic base
+                        if (helpers.isElementCalled(peekChild, "rt") ||
+                            helpers.isElementCalled(peekChild, "rtc") ||
+                            helpers.isElementCalled(peekChild, "rp")) {
+                            index = lookaheadIndex;
+                            return processRubyChild();
+                        }
+                        // else it's text, rb, or an arbitrary element that should go into a base
+                        // so we can just let it flow
+                    };
+                    peekAhead();
+                }
+            }
+
+            // if there are annotations, commit the run
+            if (currentAnnotations.length || currentCompoundAnnotations.length) commitRun();
+
+            // rb
+            if (helpers.isElementCalled(currentChild, "rb")) {
+                // if we have automatic bases, commit them
+                commitAutomaticBase();
+                // if we're the first, start a range
+                if (!currentBases.length) currentBasesRangeStart = index;
+                // add a base
+                currentBases.push({ range: makeRange(root, index, index + 1) });
+                index++;
+                return processRubyChild();
+            }
+
+            // all the rest
+            // if we're the first, start a range
+            if (!currentAutomaticBaseNodes.length) currentAutomaticBaseRangeStart = index;
+            // add a node
+            currentAutomaticBaseNodes.push(currentChild);
+            // anything else is candidate to be part of the base
+            index++;
+            return processRubyChild();
+        };
+        return processRubyChild();
+    };
+    // XXX we don't currently associate bases and annotations, but that can be automatic
+    // using position in their respective lists (I assume)
+    
+    // process an rtc element's children
+    ruby.processRTCElement = function (el) {
+        var index = 0
+        ,   root = el
+        ,   currentAutomaticAnnotationNodes = []
+        ,   currentAutomaticAnnotationRangeStart = null
+        ,   annotations = []
+        ;
+        
+        // commit an automatic annotation
+        var commitAutomaticAnnotation = function () {
+            if (!currentAutomaticAnnotationNodes.length) return;
+            // check that we have something that's not IEWS
+            if (!currentAutomaticAnnotationNodes.every(helpers.isInterElementWhitespace)) {
+                annotations.push({ range: makeRange(root, currentAutomaticAnnotationRangeStart, index) });
+            }
+            currentAutomaticAnnotationNodes = [];
+            currentAutomaticAnnotationRangeStart = null;
+        };
+
+        var rtcEndMode = function () {
+            commitAutomaticAnnotation();
+            return annotations;
+        };
+        
+        var processRTCChild = function () {
+            if (root.childNodes.length === index) return rtcEndMode();
+            var currentChild = root.childNodes.item(index);
+            
+            // rt
+            if (helpers.isElementCalled(currentChild, "rt")) {
+                commitAutomaticAnnotation();
+                annotations.push({ range: makeRange(root, index, index + 1) });
+                index++;
+                return processRTCChild();
+            }
+            
+            // other children
+            if (!currentAutomaticAnnotationNodes.length) currentAutomaticAnnotationRangeStart = index;
+            currentAutomaticAnnotationNodes.push(currentChild);
+            index++;
+            return processRTCChild();
+        };
+        return processRTCChild();
+    };
+    -->
+  </body>
+</html>
