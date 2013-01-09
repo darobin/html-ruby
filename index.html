@@ -50,6 +50,7 @@
         <li>the HTML parsing algorithm has been changed to take the new elements into account.</li>
       </ul>
     </section>
+    
     <!-- 
       TODO:
         - one section per element
@@ -61,6 +62,80 @@
         - http://lists.w3.org/Archives/Public/www-style/2011Feb/0804.html
     -->
 
+    <section>
+      <h2>The <dfn><code>ruby</code></dfn> element</h2>
+      <!-- XXX
+        - take content model, basic prose, etc.
+        - new examples
+        - adapt prose to new model
+      -->
+      <p>
+        At any particular time, the segmentation and categorisation of content of a 
+        <code><a>ruby</a></code> element is the result that would be obtained from 
+        running the following algorithm:
+      </p>
+      <!-- core algo -->
+      <ol>
+        <li>Let <var>root</var> be the <code><a>ruby</a></code> element for which the algorithm is being run.</li>
+        <!-- XXX the data model may be better explained above (also note they can be null) -->
+        <li>
+          Let <var>ruby segments</var> be an empty list. Each segment in this list is defined by
+          a list of bases each of which is a DOM range, a base DOM range containing all bases for this
+          segment, a first compound annotation, and a second compound annotation.
+        </li>
+        <li>Let <var>current bases</var> be an empty list of DOM ranges.</li>
+        <li>Let <var>current bases range</var> be null.</li>
+        <li>Let <var>current bases range start</var> be null.</li>
+        <li>Let <var>current annotations</var> be an empty list of DOM ranges.</li>
+        <!-- XXX I don't think that the below captures the model correctly -->
+        <li>Let <var>current compound annotations</var> be an empty list of lists of DOM ranges.</li>
+      </ol>
+      <!-- XXX -->
+      <p>
+        When the steps above say to <dfn>commit a ruby segment</dfn>, it means to run the 
+        following steps at that point in the algorithm:
+      </p>
+      <ol>
+        <li>Run the steps to <a>commit an automatic base</a>.</li>
+        <li>
+          If <var>current bases</var>, <var>current annotations</var>, and <var>current compound annotations</var>
+          are all empty, abort these steps.
+        </li>
+        <li>Run the steps to <a>commit a base range</a>.</li>
+        <li>Run the steps to <a>commit commit current annotations</a>.</li>
+        <li>
+          Create a new ruby segment. Its list of bases is <var>current bases</var>, its
+          base DOM range is <var>current bases range</var>, and its first and second
+          compound annotations are respectively the first and second items of
+          <var>current compound annotations</var>.
+        </li>
+        <li>Let <var>current bases</var> be an empty list.</li>
+        <li>Let <var>current bases range</var> be null.</li>
+        <li>Let <var>current bases range start</var> be null.</li>
+        <li>Let <var>current compound annotations</var> be an empty list.</li>
+      </ol>
+      <!-- 
+      var commitRun = function () {
+          commitAutomaticBase();
+          if (currentBases.length === 0 &&
+              currentAnnotations.length === 0 &&
+              currentCompoundAnnotations.length === 0) return;
+          commitBaseRange();
+          commitAnnotations();
+          runs.push({
+              bases:                      currentBases
+          ,   baseRange:                  currentBasesRange
+          ,   firstCompoundAnnotations:   currentCompoundAnnotations[0] || null
+          ,   secondCompoundAnnotations:  currentCompoundAnnotations[1] || null
+          });
+          currentBases = [];
+          currentBasesRangeStart = null;
+          currentBasesRange = null;
+          currentCompoundAnnotations = [];
+      };
+      -->
+    </section>
+    
     
     
     <!-- 
@@ -92,39 +167,6 @@
         // if it has a ruby ancestor, return
         if (helpers.getAncestor(root, "ruby")) return;
         
-        
-        // commit a run
-        // Data model:
-        //  - the root ruby contains a sequence of ruby runs
-        //  - a ruby run contains:
-        //      - a run of zero or more bases and their intervening space (some of those bases may be automatic)
-        //      - between zero and two compound annotations (zero or one of which may be automatic)
-        // - a run is described by:
-        //      - a list of bases (each of which is linked to an annotation if applicable)
-        //      - a range representing the bases run (this includes white space and rp)
-        //      - a first compound annotation
-        //      - a second compound annotation
-        // - a compound annotation is described by:
-        //      - a list of annotations (some of which may be automatic)
-        //      - a range representing that compound annotation (including spaces and rp)
-        var commitRun = function () {
-            commitAutomaticBase();
-            if (currentBases.length === 0 &&
-                currentAnnotations.length === 0 &&
-                currentCompoundAnnotations.length === 0) return;
-            commitBaseRange();
-            commitAnnotations();
-            runs.push({
-                bases:                      currentBases
-            ,   baseRange:                  currentBasesRange
-            ,   firstCompoundAnnotations:   currentCompoundAnnotations[0] || null
-            ,   secondCompoundAnnotations:  currentCompoundAnnotations[1] || null
-            });
-            currentBases = [];
-            currentBasesRangeStart = null;
-            currentBasesRange = null;
-            currentCompoundAnnotations = [];
-        };
 
         // commit annotations to a compound
         var commitAnnotations = function () {
