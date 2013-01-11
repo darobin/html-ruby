@@ -74,7 +74,6 @@
         <code><a>ruby</a></code> element is the result that would be obtained from 
         running the following algorithm:
       </p>
-      <!-- core algo -->
       <ol>
         <li>Let <var>root</var> be the <code><a>ruby</a></code> element for which the algorithm is being run.</li>
         <li>Let <var>index</var> be 0.</li>
@@ -294,7 +293,7 @@
         </li>
         <li>
           If <var>current automatic base nodes</var> contains nodes that are not <code>Text</code>
-          nodes, or is a <code>Text</code> node that is not <a>inter-element whitespace</a>, then
+          nodes, or <code>Text</code> nodes that are not <a>inter-element whitespace</a>, then
           run these substeps:
           <ol>
             <li>
@@ -315,59 +314,103 @@
       </ol>
     </section>
     
-    
-    
-    <!-- 
-    // new variant
-
-    // XXX we don't currently associate bases and annotations, but that can be automatic
-    // using position in their respective lists (I assume)
-    
-    // process an rtc element's children
-    ruby.processRTCElement = function (el) {
-        var index = 0
-        ,   root = el
-        ,   currentAutomaticAnnotationNodes = []
-        ,   currentAutomaticAnnotationRangeStart = null
-        ,   annotations = []
-        ;
+    <section>
+      <h2>The <dfn><code>rb</code></dfn> element</h2>
+      <!-- XXX
+        - element description usual stuff
+      -->
+      <p>
         
-        // commit an automatic annotation
-        var commitAutomaticAnnotation = function () {
-            if (!currentAutomaticAnnotationNodes.length) return;
-            // check that we have something that's not IEWS
-            if (!currentAutomaticAnnotationNodes.every(helpers.isInterElementWhitespace)) {
-                annotations.push({ range: makeRange(root, currentAutomaticAnnotationRangeStart, index) });
-            }
-            currentAutomaticAnnotationNodes = [];
-            currentAutomaticAnnotationRangeStart = null;
-        };
-
-        var rtcEndMode = function () {
-            commitAutomaticAnnotation();
-            return annotations;
-        };
+      </p>
+    </section>
+    
+    <section>
+      <h2>The <dfn><code>rt</code></dfn> element</h2>
+      <!-- XXX
+        - element description usual stuff
+      -->
+      <p>
         
-        var processRTCChild = function () {
-            if (root.childNodes.length === index) return rtcEndMode();
-            var currentChild = root.childNodes.item(index);
-            
-            // rt
-            if (helpers.isElementCalled(currentChild, "rt")) {
-                commitAutomaticAnnotation();
-                annotations.push({ range: makeRange(root, index, index + 1) });
-                index++;
-                return processRTCChild();
-            }
-            
-            // other children
-            if (!currentAutomaticAnnotationNodes.length) currentAutomaticAnnotationRangeStart = index;
-            currentAutomaticAnnotationNodes.push(currentChild);
-            index++;
-            return processRTCChild();
-        };
-        return processRTCChild();
-    };
-    -->
+      </p>
+    </section>
+    
+    <section>
+      <h2>The <dfn><code>rtc</code></dfn> element</h2>
+      <!-- XXX
+        - element description usual stuff
+      -->
+      <p>
+        When an <code><a>rtc</a></code> element is processed as part of the segmentation
+        and categorisation of content for a <code><a>ruby</a></code> element, 
+        the following algorithm defines how to <dfn>process an <code><a>rtc</a></code> element</dfn>:
+      </p>
+      <ol>
+        <li>Let <var>root</var> be the <code><a>rtc</a></code> element for which the algorithm is being run.</li>
+        <li>Let <var>index</var> be 0.</li>
+        <li>Let <var>annotations</var> be an empty list of DOM ranges.</li>
+        <li>Let <var>current automatic annotation nodes</var> be an empty list of DOM nodes.</li>
+        <li>Let <var>current automatic annotation range start</var> be null.</li>
+        <li>
+          <i>Process an rtc child</i>: If <var>index</var> is equal to or greater than the number of
+          child nodes in <var>root</var>, then run the steps to <a>commit an automatic annotation</a>,
+          return <var>annotations</var>, and abort these steps.
+        </li>
+        <li>
+          Let <var>current child</var> be the <var>index</var>th node in <var>root</var>.
+        </li>
+        <li>
+          If <var>current child</var> is an <code><a>rt</a></code> element, then run these substeps:
+          <ol>
+            <li>Run the steps to <a>commit an automatic annotation</a>.</li>
+            <li>
+              Create a new DOM range whose <span title="concept-range-start">start</a> is the 
+              <span title="concept-range-bp">boundary point</a> (<var>root</var>, <var>index</var>) and 
+              whose <span title="concept-range-end">end</a> is the 
+              <span title="concept-range-bp">boundary point</a> (<var>root</var>, <var>index</var> plus one), and
+              append it at the end of <var>annotations</var>.
+            </li>
+            <li>Increment <var>index</var> by one and jump to the step labelled <i>process an rtc child</i>.</li>
+          </ol>
+        </li>
+        <li>
+          If <var>current automatic annotation nodes</var> is empty, set <var>current automatic annotation
+          range start</var> to the value of <var>index</var>.
+        </li>
+        <li>
+          Append <var>current child</var> at the end of <var>current automatic annotation nodes</var>.
+        </li>
+        <li>Increment <var>index</var> by one and jump to the step labelled <i>process an rtc child</i>.</li>
+      </ol>
+      <p>
+        When the steps above say to <dfn>commit an automatic annotation</dfn>, it means to run the 
+        following steps at that point in the algorithm:
+      </p>
+      <ol>
+        <li>
+          If <var>current automatic annotation nodes</var> is empty, abort these steps.
+        </li>
+        <li>
+          If <var>current automatic annotation nodes</var> contains nodes that are not <code>Text</code>
+          nodes, or <code>Text</code> nodes that are not <a>inter-element whitespace</a>, then
+          create a new DOM range whose <span title="concept-range-start">start</a> is the 
+          <span title="concept-range-bp">boundary point</a> (<var>root</var>, <var>current automatic annotation
+          range start</var>) and whose <span title="concept-range-end">end</a> is the 
+          <span title="concept-range-bp">boundary point</a> (<var>root</var>, <var>index</var>), and
+          append it at the end of <var>annotations</var>.
+        </li>
+        <li>Let <var>current automatic annotation nodes</var> be an empty list of DOM nodes.</li>
+        <li>Let <var>current automatic annotation range start</var> be null.</li>
+      </ol>
+    </section>
+    
+    <section>
+      <h2>The <dfn><code>rp</code></dfn> element</h2>
+      <!-- XXX
+        - element description usual stuff
+      -->
+      <p>
+        
+      </p>
+    </section>
   </body>
 </html>
