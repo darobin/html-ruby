@@ -77,6 +77,7 @@
       <!-- core algo -->
       <ol>
         <li>Let <var>root</var> be the <code><a>ruby</a></code> element for which the algorithm is being run.</li>
+        <li>Let <var>index</var> be 0.</li>
         <!-- XXX the data model may be better explained above (also note they can be null) -->
         <li>
           Let <var>ruby segments</var> be an empty list. Each segment in this list is defined by
@@ -87,255 +88,240 @@
         <li>Let <var>current bases range</var> be null.</li>
         <li>Let <var>current bases range start</var> be null.</li>
         <li>Let <var>current annotations</var> be an empty list of DOM ranges.</li>
-        <!-- XXX I don't think that the below captures the model correctly -->
-        <li>Let <var>current compound annotations</var> be an empty list of lists of DOM ranges.</li>
+        <li>Let <var>current annotations range</var> be null.</li>
+        <li>Let <var>current annotations range start</var> be null.</li>
+        <li>Let <var>current compound annotations</var> be an empty list.</li>
+        <li>Let <var>current automatic base nodes</var> be an empty list of DOM Nodes.</li>
+        <li>Let <var>current automatic base range start</var> be null.</li>
+        <li>If <var>root</var> has a <code>ruby</code> element ancestor, then abort these steps.</li>
+        <li>
+          <i>Process a ruby child</i>: If <var>index</var> is equal to or greater than the number of
+          child nodes in <var>root</var>, then run the steps to <span>commit a ruby segment</span>,
+          return <var>ruby segments</var>, and abort these steps.
+        </li>
+        <li>
+          Let <var>current child</var> be the <var>index</var>th node in <var>root</var>.
+        </li>
+        <li>
+          If <var>current child</var> is not a <span>Text</span> node and is not an <span>Element</span>
+          node, then increment <var>index</var> by one and jump to the step labelled <i>process a ruby child</i>.
+        </li>
+        <li>
+          If <var>current child</var> is an <code>rp</code> element, then increment <var>index</var> by one and 
+          jump to the step labelled <i>process a ruby child</i>.
+        </li>
+        <li>
+          If <var>current child</var> is an <code>rt</code> element, then run these substeps:
+          <ol>
+            <li>Run the steps to <span>commit an automatic base</span>.</li>
+            <li>Run the steps to <span>commit the base range</span>.</li>
+            <li>
+              If <var>current compound annotations</var> contains two elements, then run the steps to
+              <span>commit a ruby segment</span>.
+            </li>
+            <li>
+              If <var>current annotations</var> is empty, set <var>current annotations range start</var> to
+              the value of <var>index</var>.
+            </li>
+            <li>
+              Create a new DOM range whose <span title="concept-range-start">start</span> is the 
+              <span title="concept-range-bp">boundary point</span> (<var>root</var>, <var>index</var>) 
+              and whose <span title="concept-range-end">end</span> is the 
+              <span title="concept-range-bp">boundary point</span> (<var>root</var>, <var>index</var> plus one), and
+              append it at the end of <var>current annotations</var>.
+            </li>
+            <li>Increment <var>index</var> by one and jump to the step labelled <i>process a ruby child</i>.</li>
+          </ol>
+        </li>
+        <li>
+          If <var>current child</var> is an <code>rtc</code> element, then run these substeps:
+          <ol>
+            <li>Run the steps to <span>commit an automatic base</span>.</li>
+            <li>Run the steps to <span>commit the base range</span>.</li>
+            <li>Run the steps to <span>commit current annotations</span>.</li>
+            <li>
+              If <var>current compound annotations</var> contains two elements, then run the steps to
+              <span>commit a ruby segment</span>.
+            </li>
+            <li>
+              Create a new compound annotation. It is described by the list of annotations returned
+              by running the steps to <span>process an <code>rtc</code> element</span> and a DOM
+              range whose <span title="concept-range-start">start</span> is the 
+              <span title="concept-range-bp">boundary point</span> (<var>root</var>, <var>index</var>) 
+              and whose <span title="concept-range-end">end</span> is the 
+              <span title="concept-range-bp">boundary point</span> (<var>root</var>, <var>index</var> plus one).
+              Append this new compound annotations at the end of <var>current compound annotations</var>.
+            </li>
+            <li>
+              If <var>current compound annotations</var> contains two elements, then run the steps to
+              <span>commit a ruby segment</span>.
+            </li>
+            <li>Increment <var>index</var> by one and jump to the step labelled <i>process a ruby child</i>.</li>
+          </ol>
+        </li>
+        <!--
+                // special processing for IEWS
+                if (helpers.isInterElementWhitespace(currentChild)) {
+                    // if we have current annotations, don't start an automatic base
+                    if (currentAnnotations.length) {
+                        index++;
+                        return processRubyChild();
+                    }
+                    // we can reach this stage if we've just closed an RTC
+                    // the problem is that IEWS in this position could be the start of a base, in
+                    // which case it needs to be part of the base (we keep going)
+                    // or could be proper IEWS before another <rt>, in which case it just needs to
+                    // be ignored (as in the previous conditional)
+                    // if we have two compounds already, keep going as this is base material
+                    if (currentCompoundAnnotations.length !== 2) {
+                        var lookaheadIndex = index;
+                        // otherwise peek ahead, for each step:
+                        var peekAhead = function () {
+                            lookaheadIndex++;
+                            // if ever the end is reached, keep going it doesn't matter
+                            if (root.childNodes.length === lookaheadIndex) return;
+                            var peekChild = root.childNodes.item(lookaheadIndex);
+                            // if IEWS, then keep peeking
+                            if (helpers.isInterElementWhitespace(peekChild)) return peekAhead();
+                            // if rt, rtc, or rp, drop as above since we don't want an automatic base
+                            if (helpers.isElementCalled(peekChild, "rt") ||
+                                helpers.isElementCalled(peekChild, "rtc") ||
+                                helpers.isElementCalled(peekChild, "rp")) {
+                                index = lookaheadIndex;
+                                return processRubyChild();
+                            }
+                            // else it's text, rb, or an arbitrary element that should go into a base
+                            // so we can just let it flow
+                        };
+                        peekAhead();
+                    }
+                }
+
+                // if there are annotations, commit the run
+                if (currentAnnotations.length || currentCompoundAnnotations.length) commitRun();
+
+                // rb
+                if (helpers.isElementCalled(currentChild, "rb")) {
+                    // if we have automatic bases, commit them
+                    commitAutomaticBase();
+                    // if we're the first, start a range
+                    if (!currentBases.length) currentBasesRangeStart = index;
+                    // add a base
+                    currentBases.push({ range: makeRange(root, index, index + 1) });
+                    index++;
+                    return processRubyChild();
+                }
+
+                // all the rest
+                // if we're the first, start a range
+                if (!currentAutomaticBaseNodes.length) currentAutomaticBaseRangeStart = index;
+                // add a node
+                currentAutomaticBaseNodes.push(currentChild);
+                // anything else is candidate to be part of the base
+                index++;
+                return processRubyChild();
+            };
+            return processRubyChild();
+        };
+        -->
       </ol>
-      <!-- XXX -->
       <p>
         When the steps above say to <dfn>commit a ruby segment</dfn>, it means to run the 
         following steps at that point in the algorithm:
       </p>
       <ol>
-        <li>Run the steps to <a>commit an automatic base</a>.</li>
+        <li>Run the steps to <span>commit an automatic base</span>.</li>
         <li>
           If <var>current bases</var>, <var>current annotations</var>, and <var>current compound annotations</var>
           are all empty, abort these steps.
         </li>
-        <li>Run the steps to <a>commit a base range</a>.</li>
-        <li>Run the steps to <a>commit commit current annotations</a>.</li>
+        <li>Run the steps to <span>commit the base range</span>.</li>
+        <li>Run the steps to <span>commit current annotations</span>.</li>
         <li>
-          Create a new ruby segment. Its list of bases is <var>current bases</var>, its
-          base DOM range is <var>current bases range</var>, and its first and second
-          compound annotations are respectively the first and second items of
-          <var>current compound annotations</var>.
+          Create a new ruby segment. It is described by a list of bases set to <var>current bases</var>,
+          a base DOM range set to <var>current bases range</var>, and a first and second
+          compound annotations that are respectively the first and second items of the
+          <var>current compound annotations</var> list. Append this new ruby segment at the end of 
+          <var>ruby segments</var>.
         </li>
         <li>Let <var>current bases</var> be an empty list.</li>
         <li>Let <var>current bases range</var> be null.</li>
         <li>Let <var>current bases range start</var> be null.</li>
         <li>Let <var>current compound annotations</var> be an empty list.</li>
       </ol>
-      <!-- 
-      var commitRun = function () {
-          commitAutomaticBase();
-          if (currentBases.length === 0 &&
-              currentAnnotations.length === 0 &&
-              currentCompoundAnnotations.length === 0) return;
-          commitBaseRange();
-          commitAnnotations();
-          runs.push({
-              bases:                      currentBases
-          ,   baseRange:                  currentBasesRange
-          ,   firstCompoundAnnotations:   currentCompoundAnnotations[0] || null
-          ,   secondCompoundAnnotations:  currentCompoundAnnotations[1] || null
-          });
-          currentBases = [];
-          currentBasesRangeStart = null;
-          currentBasesRange = null;
-          currentCompoundAnnotations = [];
-      };
-      -->
+      <p>
+        When the steps above say to <dfn>commit the base range</dfn>, it means to run the 
+        following steps at that point in the algorithm:
+      </p>
+      <ol>
+        <li>If <var>current bases</var> is empty, abort these steps.</li>
+        <li>If <var>current bases range</var> is not null, abort these steps.</li>
+        <li>
+          Let <var>current bases range</var> be a DOM range whose 
+          <span title="concept-range-start">start</span> is the <span title="concept-range-bp">boundary
+          point</span> (<var>root</var>, <var>current bases range start</var>) and whose 
+          <span title="concept-range-end">end</span> is the <span title="concept-range-bp">boundary point</span>
+          (<var>root</var>, <var>index</var>).
+        </li>
+      </ol>
+      <p>
+        When the steps above say to <dfn>commit current annotations</dfn>, it means to run the 
+        following steps at that point in the algorithm:
+      </p>
+      <ol>
+        <li>
+          If <var>current annotations</var> is not empty and <var>current annotations range</var> is
+          null let <var>current annotations range</var> be a DOM range whose 
+          <span title="concept-range-start">start</span> is the <span title="concept-range-bp">boundary
+          point</span> (<var>root</var>, <var>current annotations range start</var>) and whose 
+          <span title="concept-range-end">end</span> is the <span title="concept-range-bp">boundary point</span>
+          (<var>root</var>, <var>index</var>).
+        </li>
+        <li>
+          If <var>current annotations</var> is not empty, create a new compound annotation. It is described
+          by an annotations list set to <var>current annotations</var> and a range set to <var>current annotations range</var>.
+          Append this new compound annotation at the end of <var>current compound annotations</var>.
+        </li>
+        <li>Let <var>current annotations</var> be an empty list of DOM ranges.</li>
+        <li>Let <var>current annotations range</var> be null.</li>
+        <li>Let <var>current annotations range start</var> be null.</li>
+      </ol>
+      <p>
+        When the steps above say to <dfn>commit an automatic base</dfn>, it means to run the 
+        following steps at that point in the algorithm:
+      </p>
+      <ol>
+        <li>
+          If <var>current automatic base nodes</var> is empty, abort these steps.
+        </li>
+        <li>
+          If <var>current automatic base nodes</var> contains nodes that are not <code>Text</code>
+          nodes, or is a <code>Text</code> node that is not <span>inter-element whitespace</span>, then
+          run these substeps:
+          <ol>
+            <li>
+              It <var>current bases</var> is empty, set <var>current bases range start</var> to the value of
+              <var>current automatic base range start</var>.
+            </li>
+            <li>
+              Create a new DOM range whose <span title="concept-range-start">start</span> is the 
+              <span title="concept-range-bp">boundary point</span> (<var>root</var>, <var>current automatic base 
+              range start</var>) and whose <span title="concept-range-end">end</span> is the 
+              <span title="concept-range-bp">boundary point</span> (<var>root</var>, <var>index</var>), and
+              append it at the end of <var>current bases</var>.
+            </li>
+          </ol>
+          <li>Let <var>current automatic base nodes</var> be an empty list of DOM Nodes.</li>
+          <li>Let <var>current automatic base range start</var> be null.</li>
+        </li>
+      </ol>
     </section>
     
     
     
     <!-- 
-    var makeRange = function (el, start, end) {
-        var newRange = range.makeRange();
-        newRange.setStart(el, start);
-        newRange.setEnd(el, end);
-        return newRange;
-    };
-
     // new variant
-    ruby.newSegmentAndCategoriseRubyElement = function (el) {
-        var runs = []
-        ,   root = el
-        ,   index = 0
-        ,   currentAutomaticBaseNodes = []
-        ,   currentAutomaticBaseRangeStart = null
-        ,   currentBases = []
-        ,   currentBasesRangeStart = null
-        ,   currentBasesRange = null
-        ,   currentAnnotations = []
-        ,   currentAnnotationsRangeStart = null
-        ,   currentAnnotationsRange = null
-        ,   currentCompoundAnnotations = []
-        ;
-        
-        // if it isn't a ruby element, return
-        if (!helpers.isElementCalled(el, "ruby")) return;
-        // if it has a ruby ancestor, return
-        if (helpers.getAncestor(root, "ruby")) return;
-        
 
-        // commit annotations to a compound
-        var commitAnnotations = function () {
-            if (currentAnnotations.length && !currentAnnotationsRange) {
-                currentAnnotationsRange = makeRange(root, currentAnnotationsRangeStart, index);
-            }
-            if (currentAnnotations.length) {
-                currentCompoundAnnotations.push({
-                    annotations:    currentAnnotations
-                ,   range:          currentAnnotationsRange
-                });
-            }
-            currentAnnotations = [];
-            currentAnnotationsRangeStart = null;
-            currentAnnotationsRange = null;
-        };
-        
-        // commit bases to a range
-        var commitBaseRange = function () {
-            if (currentBases.length && !currentBasesRange) {
-                currentBasesRange = makeRange(root, currentBasesRangeStart, index);
-            }
-        };
-
-        // commit an automatic base
-        // if the whole content is IEWS nothing happens
-        var commitAutomaticBase = function () {
-            if (!currentAutomaticBaseNodes.length) return;
-            // check that we have something that's not just IEWS
-            // XXX should we need to make sure it's not rp either?
-            // if (!currentAutomaticBaseNodes.every(function (n) {
-            //     return helpers.isInterElementWhitespace(n) || helpers.isElementCalled(n, "rp");
-            // }))
-            if (!currentAutomaticBaseNodes.every(helpers.isInterElementWhitespace)) {
-                if (!currentBases.length) currentBasesRangeStart = currentAutomaticBaseRangeStart;
-                currentBases.push({ range: makeRange(root, currentAutomaticBaseRangeStart, index) });
-            }
-            currentAutomaticBaseNodes = [];
-            currentAutomaticBaseRangeStart = null;
-        };
-
-        // what happens when we reach the end
-        var endMode = function () {
-            commitRun();
-            return runs;
-        };
-
-        // process each child of the ruby element in turn
-        var processRubyChild = function () {
-            if (root.childNodes.length <= index) return endMode();
-            var currentChild = root.childNodes.item(index);
-
-            // nodes that aren't text or elements
-            if (currentChild.nodeType !== helpers.TEXT_NODE && currentChild.nodeType !== helpers.ELEMENT_NODE) {
-                index++;
-                return processRubyChild();
-            }
-
-            // rp
-            // This just gets skipped which causes it to show up in whatever range we
-            // are currently processing. This is deliberate.
-            if (helpers.isElementCalled(currentChild, "rp")) {
-                index++;
-                return processRubyChild();
-            }
-
-            // rt
-            if (helpers.isElementCalled(currentChild, "rt")) {
-                // if we have automatic bases, commit them
-                commitAutomaticBase();
-                // commit base to a range
-                commitBaseRange();
-                // if there are two compounds already, commit the run
-                if (currentCompoundAnnotations.length === 2) commitRun();
-                // if we're the first, we start a range
-                if (!currentAnnotations.length) currentAnnotationsRangeStart = index;
-                // add an annotation
-                currentAnnotations.push({ range: makeRange(root, index, index + 1) });
-                index++;
-                return processRubyChild();
-            }
-
-            // rtc
-            if (helpers.isElementCalled(currentChild, "rtc")) {
-                // if we have automatic bases, commit them
-                commitAutomaticBase();
-                // commit base to a range
-                commitBaseRange();
-                // if there are current annotations, commit them to a coumpound
-                commitAnnotations();
-                // if there are two compounds already, commit the run
-                if (currentCompoundAnnotations.length === 2) commitRun();
-                // add a compound
-                //  this involves processing its children to produce a list of annotations as ranges
-                //  inside of this there can be automatic annotations
-                var annotations = ruby.processRTCElement(currentChild);
-                currentCompoundAnnotations.push({
-                    annotations:    annotations
-                ,   range:          makeRange(root, index, index + 1)
-                });
-                // yes, we do this again (same check, different situation)
-                if (currentCompoundAnnotations.length === 2) commitRun();
-                index++;
-                return processRubyChild();
-            }
-
-            // special processing for IEWS
-            if (helpers.isInterElementWhitespace(currentChild)) {
-                // if we have current annotations, don't start an automatic base
-                if (currentAnnotations.length) {
-                    index++;
-                    return processRubyChild();
-                }
-                // we can reach this stage if we've just closed an RTC
-                // the problem is that IEWS in this position could be the start of a base, in
-                // which case it needs to be part of the base (we keep going)
-                // or could be proper IEWS before another <rt>, in which case it just needs to
-                // be ignored (as in the previous conditional)
-                // if we have two compounds already, keep going as this is base material
-                if (currentCompoundAnnotations.length !== 2) {
-                    var lookaheadIndex = index;
-                    // otherwise peek ahead, for each step:
-                    var peekAhead = function () {
-                        lookaheadIndex++;
-                        // if ever the end is reached, keep going it doesn't matter
-                        if (root.childNodes.length === lookaheadIndex) return;
-                        var peekChild = root.childNodes.item(lookaheadIndex);
-                        // if IEWS, then keep peeking
-                        if (helpers.isInterElementWhitespace(peekChild)) return peekAhead();
-                        // if rt, rtc, or rp, drop as above since we don't want an automatic base
-                        if (helpers.isElementCalled(peekChild, "rt") ||
-                            helpers.isElementCalled(peekChild, "rtc") ||
-                            helpers.isElementCalled(peekChild, "rp")) {
-                            index = lookaheadIndex;
-                            return processRubyChild();
-                        }
-                        // else it's text, rb, or an arbitrary element that should go into a base
-                        // so we can just let it flow
-                    };
-                    peekAhead();
-                }
-            }
-
-            // if there are annotations, commit the run
-            if (currentAnnotations.length || currentCompoundAnnotations.length) commitRun();
-
-            // rb
-            if (helpers.isElementCalled(currentChild, "rb")) {
-                // if we have automatic bases, commit them
-                commitAutomaticBase();
-                // if we're the first, start a range
-                if (!currentBases.length) currentBasesRangeStart = index;
-                // add a base
-                currentBases.push({ range: makeRange(root, index, index + 1) });
-                index++;
-                return processRubyChild();
-            }
-
-            // all the rest
-            // if we're the first, start a range
-            if (!currentAutomaticBaseNodes.length) currentAutomaticBaseRangeStart = index;
-            // add a node
-            currentAutomaticBaseNodes.push(currentChild);
-            // anything else is candidate to be part of the base
-            index++;
-            return processRubyChild();
-        };
-        return processRubyChild();
-    };
     // XXX we don't currently associate bases and annotations, but that can be automatic
     // using position in their respective lists (I assume)
     
