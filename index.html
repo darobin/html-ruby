@@ -65,7 +65,9 @@
     <!-- 
       TODO:
         - one section per element
-        - port algorithm
+          - ruby
+          - rb
+          - rtc
         - parsing algorithm
         - any other mention of ruby (grep)
       
@@ -338,12 +340,30 @@
     
     <section>
       <h2>The <dfn><code>rt</code></dfn> element</h2>
-      <!-- XXX
-        - element description usual stuff
-      -->
-      <p>
-        
-      </p>
+      <dl class="element">
+        <dt><span title="element-dfn-categories">Categories</span>:</dt>
+        <dd>None.</dd>
+        <dt><span title="element-dfn-contexts">Contexts in which this element can be used</span>:</dt>
+        <dd>As a child of a <code>ruby</code> or of an <code>rtc</code> element.</dd>
+        <dt><span title="element-dfn-content-model">Content model</span>:</dt>
+        <dd><span>Phrasing content</span>.</dd>
+        <dt><span title="element-dfn-attributes">Content attributes</span>:</dt>
+        <dd><span>Global attributes</span></dd>
+        <dt><span title="element-dfn-dom">DOM interface</span>:</dt><!--TOPIC:DOM APIs-->
+        <dd>Uses <code>HTMLElement</code>.</dd>
+      </dl><!--TOPIC:HTML-->
+
+      <p>The <code>rt</code> element marks the ruby text component of a ruby annotation. When it is the
+      child of a <code>ruby</code> element or of an <code>rtc</code> element that is itself the child of
+      a <code>ruby</code> element, it doesn't <span title="represents">represent</span> anything itself, 
+      but its ancestor <code>ruby</code> element uses it as part of determining what <em>it</em>
+      <span>represents</span>.</p>
+
+      <div class="impl">
+        <p>An <code>rt</code> element that is not a child of a <code>ruby</code> element
+        or of an <code>rtc</code> element that is itself the child of a <code>ruby</code> element
+        <span>represents</span> the same thing as its children.</p>
+      </div>
     </section>
     
     <section>
