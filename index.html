@@ -66,7 +66,6 @@
       TODO:
         - one section per element
           - ruby
-          - rtc
         - parsing algorithm
         - any other mention of ruby (grep)
       
@@ -86,7 +85,281 @@
         - adapt prose to new model
         - describe usage of the composing elements
         - if inside <ruby>, represents its children
+        - move examples that are after the algo to before it (should make more sense)
       -->
+      <dl class="element">
+       <dt><span title="element-dfn-categories">Categories</span>:</dt>
+       <dd><span>Flow content</span>.</dd>
+       <dd><span>Phrasing content</span>.</dd>
+       <dd><span>Palpable content</span>.</dd>
+       <dt><span title="element-dfn-contexts">Contexts in which this element can be used</span>:</dt>
+       <dd>Where <span>phrasing content</span> is expected.</dd>
+       <dt><span title="element-dfn-content-model">Content model</span>:</dt>
+       <dd>See prose.</dd>
+       <dt><span title="element-dfn-attributes">Content attributes</span>:</dt>
+       <dd><span>Global attributes</span></dd>
+       <dt><span title="element-dfn-dom">DOM interface</span>:</dt><!--TOPIC:DOM APIs-->
+       <dd>Uses <code>HTMLElement</code>.</dd>
+      </dl><!--TOPIC:HTML-->
+
+      <p>The <code>ruby</code> element allows one or more spans of phrasing content to be marked with
+      ruby annotations. Ruby annotations are short runs of text presented alongside base text, primarily
+      used in East Asian typography as a guide for pronunciation or to include other annotations. In
+      Japanese, this form of typography is also known as <i>furigana</i>.</p>
+
+      <p>The content model of <code>ruby</code> elements consists of one or more of the following
+      sequences:</p>
+
+      <ol class="brief">
+        <li>
+          One or more <span>phrasing content</span> nodes or <code>rb</code> elements.
+        </li>
+        <li>One or the other of the following:
+          <ul class="brief">
+            <li>One or more <code>rt</code> or <code>rtc</code> elements</li>
+            <li>
+              An <code>rp</code> element followed by one or more <code>rt</code> or <code>rtc</code> elements, 
+              followed by an <code>rp</code> element.
+            </li>
+          </ul>
+        </li>
+      </ol>
+
+      <p>The <code>ruby</code>, <code>rb</code>, <code>rtc</code>, and <code>rt</code> elements can be used for 
+      a variety of kinds of annotations, including in particular (though by no means limited to) those described
+      below. For more details on Japanese Ruby in particular, and how to render Ruby for Japanese, see
+      <cite>Requirements for Japanese Text Layout</cite>. <a href="#refsJLREQ">[JLREQ]</a></p>
+
+      <p class="note">At the time of writing, CSS does not yet provide a way to fully control the
+      rendering of the HTML <code>ruby</code> element. It is hoped that CSS will be extended to support
+      the styles described below in due course.</p>
+
+      <!--
+        examples in the following list are derived from:
+          http://www.w3.org/International/datespace/2010/02/jlreq-examples/
+          http://www.w3.org/TR/ruby-use-cases/
+          http://fantasai.inkedblade.net/weblog/2011/ruby/
+      -->
+
+      <dl>
+       <dt>Mono-ruby for individual base characters in Japanese
+       <dd>
+        <p>One or more hiragana or katakana characters (the ruby
+        annotation) are placed with each ideographic character (the base
+        text). This is used to provide readings of kanji characters.
+
+        <div class="example"> <!-- B as in BASE -->
+         <pre>&lt;ruby>B&lt;rt>annotation&lt;/ruby></pre>
+        </div>
+        
+        <p>
+          When no <code>rb</code> element is used, the base is implied, as above. But you can also make
+          it explicit. This can be useful notably for styling, or when consecutive bases are to be treated
+          as a group, as in the jukugo ruby example further down.
+        </p>
+
+        <div class="example">
+         <pre>&lt;ruby>&lt;rb>base&lt;rt>annotation&lt;/ruby></pre>
+        </div>
+
+        <div class="example">
+         <p>In this example, notice how each annotation corresponds to a single base character.
+         <pre>&lt;ruby>&#21531;&lt;rt>&#12367;&#12435;&lt;/ruby>&lt;ruby>&#23376;&lt;rt>&#12375;&lt;/ruby>&#12399;&lt;ruby>&#21644;&lt;rt>&#12431;&lt;/ruby>&#12375;&#12390;&lt;ruby>&#21516;&lt;rt>&#12393;&#12358;&lt;/ruby>&#12380;&#12378;&#12290;</pre>
+         <p lang=ja><ruby>&#21531;<rt>&#12367;&#12435;</ruby><ruby>&#23376;<rt>&#12375;</ruby>&#12399;<ruby>&#21644;<rt>&#12431;</ruby>&#12375;&#12390;<ruby>&#21516;<rt>&#12393;&#12358;</ruby>&#12380;&#12378;&#12290;
+         <p>This example can also be written as follows, using one <code>ruby</code> element with two
+         segments of base text and two annotations (one for each) rather than two back-to-back
+         <code>ruby</code> elements each with one base text segment and annotation (as in the markup
+         above):
+         <pre>&lt;ruby>&#21531;&lt;rt>&#12367;&#12435;&lt;/rt>&#23376;&lt;rt>&#12375;&lt;/ruby>&#12399;&lt;ruby>&#21644;&lt;rt>&#12431;&lt;/ruby>&#12375;&#12390;&lt;ruby>&#21516;&lt;rt>&#12393;&#12358;&lt;/ruby>&#12380;&#12378;&#12290;</pre>
+        </div>
+       </dd>
+       <dt>Group ruby</dt>
+       <dd>
+         <p>
+           Group ruby is often used where phonetic annotations don't map to discreet base characters, or for 
+           semantic glosses that span the whole base text. For example, the word "today" is written with the 
+           characters 今日, literally "this day". But it's pronounced きょう (kyou), which can't be broken down into 
+           a "this" part and a "day" part. In typical rendering, you can't split text that is 
+           annotated with group ruby; it has to wrap as a single unit onto the next line. When a ruby text 
+           annotation maps to a base that is comprised of more than one character, then that base is grouped.
+         </p>
+         <div class='example'>
+          <img src='group.png' width='78' height='88' alt='Group ruby example with きょう annotating 今日'/>
+          <p>
+            Which can be marked up as follows:
+          </p>
+          <pre>&lt;ruby>今日&lt;rt>きょう&lt;/ruby></pre>
+         </div>
+       </dd>
+       <!-- XXX here -->
+       <dt>Jukugo ruby
+       <dd>
+        <p>This is similar to the previous case: each ideographic character in the compound word (the
+        base text) has its reading given in hiragana or katakana characters (the ruby annotation). The
+        difference is that the base text segments form a compound word rather than being separate from
+        each other.
+
+        <div class="example"> <!-- B as in BASE -->
+         <pre>&lt;ruby>B&lt;rt>annotation&lt;/rt>B&lt;rt>annotation&lt;/ruby></pre>
+        </div>
+
+        <div class="example">
+         <p>In this example, notice again how each annotation corresponds to a single base character. In this example, each compound word (jukugo) corresponds to a single <code>ruby</code> element.</p>
+         <p>The rendering here is expected to be that each annotation be placed over (or next to, in vertical text) the corresponding base character, with the annotations not overhanging any of the adjacent characters.</p>
+         <pre>&lt;ruby>&#39740;&lt;rt>&#12365;&lt;/rt>&#38272;&lt;rt>&#12418;&#12435;&lt;/rt>&lt;/ruby>&#12398;&lt;ruby>&#26041;&lt;rt>&#12411;&#12358;&lt;/rt>&#35282;&lt;rt>&#12364;&#12367;&lt;/rt>&lt;/ruby>&#12434;&lt;ruby>&#20957;&lt;rt>&#12366;&#12423;&#12358;&lt;/rt>&#35222;&lt;rt>&#12375;&lt;/rt>&lt;/ruby>&#12377;&#12427;</pre>
+         <p lang=ja><ruby>&#39740;<rt>&#12365;</rt>&#38272;<rt>&#12418;&#12435;</rt></ruby>&#12398;<ruby>&#26041;<rt>&#12411;&#12358;</rt>&#35282;<rt>&#12364;&#12367;</rt></ruby>&#12434;<ruby>&#20957;<rt>&#12366;&#12423;&#12358;</rt>&#35222;<rt>&#12375;</rt></ruby>&#12377;&#12427;
+
+        </div>
+
+       </dd>
+
+
+       <dt>Jukugo-ruby
+
+       <dd>
+
+        <p>This is semantically identical to the previous case (each individual ideographic character in
+        the base compound word has its reading given in an annotation in hiragana or katakana
+        characters), but the rendering is the more complicated Jukugo Ruby rendering.
+
+        <div class="example">
+         <p>This is the same example as above for mono-ruby for compound words. The different rendering is expected to be achieved using different styling (e.g. in CSS), and is not shown here.</p>
+         <pre>&lt;ruby>&#39740;&lt;rt>&#12365;&lt;/rt>&#38272;&lt;rt>&#12418;&#12435;&lt;/rt>&lt;/ruby>&#12398;&lt;ruby>&#26041;&lt;rt>&#12411;&#12358;&lt;/rt>&#35282;&lt;rt>&#12364;&#12367;&lt;/rt>&lt;/ruby>&#12434;&lt;ruby>&#20957;&lt;rt>&#12366;&#12423;&#12358;&lt;/rt>&#35222;&lt;rt>&#12375;&lt;/rt>&lt;/ruby>&#12377;&#12427;</pre>
+         <!-- Once CSS is updated to describe this, invoke the CSS and unhide this -->
+         <!--
+         <p lang=ja><ruby>&#39740;<rt>&#12365;</rt>&#38272;<rt>&#12418;&#12435;</rt></ruby>&#12398;<ruby>&#26041;<rt>&#12411;&#12358;</rt>&#35282;<rt>&#12364;&#12367;</rt></ruby>&#12434;<ruby>&#20957;<rt>&#12366;&#12423;&#12358;</rt>&#35222;<rt>&#12375;</rt></ruby>&#12377;&#12427;
+         -->
+        </div>
+
+        <p class="note">For more details on <a
+        href="http://www.w3.org/TR/jlreq/#positioning_of_jukugoruby">Jukugo Ruby rendering</a>, see
+        Appendix F in the <cite>Requirements for Japanese Text Layout</cite>. <a
+        href="#refsJLREQ">[JLREQ]</a></p>
+
+       </dd>
+
+
+       <dt>Group ruby for describing meanings
+
+       <dd>
+
+        <p>The annotation describes the meaning of the base text, rather than (or in addition to) the
+        pronunciation. As such, both the base text and the annotation can be multiple characters long.
+
+        <div class="example">
+         <pre>&lt;ruby>BASE&lt;rt>annotation&lt;/ruby></pre>
+        </div>
+
+        <div class="example">
+         <p>Here a compound ideographic word has its corresponding katakana given as an annotation.
+         <pre>&lt;ruby>&#22659;&#30028;&#38754;&lt;rt>&#12452;&#12531;&#12479;&#12540;&#12501;&#12455;&#12540;&#12473;&lt;/ruby></pre>
+         <p lang=ja><ruby>&#22659;&#30028;&#38754;<rt>&#12452;&#12531;&#12479;&#12540;&#12501;&#12455;&#12540;&#12473;</ruby>
+        </div>
+
+        <div class="example">
+         <p>Here a compound ideographic word has its translation in English provided as an annotation.
+         <pre>&lt;ruby lang="ja">&#32232;&#38598;&#32773;&lt;rt lang="en">editor&lt;/ruby></pre>
+         <p><ruby lang="ja">&#32232;&#38598;&#32773;<rt lang="en">editor</ruby>
+        </div>
+
+       </dd>
+
+
+       <dt>Group ruby for Jukuji readings
+
+       <dd>
+
+        <p>A phonetic reading that corresponds to multiple base characters, because a one-to-one mapping
+        would be difficult. (In English, the words "Colonel" and "Lieutenant" are examples of words
+        where a direct mapping of pronunciation to individual letters is, in some dialects, rather
+        unclear.)
+
+        <div class="example">
+         <p>In this example, the name of a species of flowers has a phonetic reading provided using group ruby:
+         <pre>&lt;ruby>&#32043;&#38525;&#33457;&lt;rt>&#12354;&#12376;&#12373;&#12356;&lt;/ruby></pre>
+         <p lang=ja><ruby>&#32043;&#38525;&#33457;<rt>&#12354;&#12376;&#12373;&#12356;</ruby>
+        </div>
+
+       </dd>
+
+
+       <dt>Text with both phonetic and semantic annotations (double-sided ruby)
+
+       <dd>
+
+        <p>Sometimes, ruby styles described above are combined.
+
+        <p>If this results in two annotations covering the same single base segment, then the
+        annotations can just be placed back to back.
+
+        <div class="example">
+         <pre>&lt;ruby>BASE&lt;rt>annotation 1&lt;rt>annotation 2&lt;/ruby></pre>
+        </div>
+
+        <div class="example">
+         <pre>&lt;ruby>B&lt;rt>a&lt;rt>a&lt;/ruby>&lt;ruby>A&lt;rt>a&lt;rt>a&lt;/ruby>&lt;ruby>S&lt;rt>a&lt;rt>a&lt;/ruby>&lt;ruby>E&lt;rt>a&lt;rt>a&lt;/ruby></pre>
+        </div>
+
+        <div class="example">
+
+         <p>In this contrived example, some symbols are given names in English and French.
+
+         <pre>&lt;ruby>
+     &#x2665; &lt;rt> Heart &lt;rt lang=fr> C&oelig;ur
+     &#x2618; &lt;rt> Shamrock &lt;rt lang=fr> Tr&egrave;fle
+     &#x2736; &lt;rt> Star &lt;rt lang=fr> &Eacute;toile
+    &lt;/ruby></pre>
+
+        </div>
+
+        <p>In more complication situations such as following examples, a nested <code>ruby</code>
+        element is used to give the inner annotations, and then that whole <code>ruby</code> is then
+        given an annotation at the "outer" level.
+
+        <div class="example">
+         <pre>&lt;ruby>&lt;ruby>B&lt;rt>a&lt;/rt>A&lt;rt>n&lt;/rt>S&lt;rt>t&lt;/rt>E&lt;rt>n&lt;/rt>&lt;/ruby>&lt;rt>annotation&lt;/ruby></pre>
+        </div>
+
+        <div class="example">
+         <p>Here both a phonetic reading and the meaning are given in ruby annotations. The annotation on the nested <code>ruby</code> element gives a mono-ruby phonetic annotation for each base character, while the annotation in the <code>rt</code> element that is a child of the outer <code>ruby</code> element gives the meaning using hiragana.
+         <pre>&lt;ruby>&lt;ruby>&#26481;&lt;rt>&#12392;&#12358;&lt;/rt>&#21335;&lt;rt>&#12394;&#12435;&lt;/rt>&lt;/ruby>&lt;rt>&#12383;&#12388;&#12415;&lt;/rt>&lt;/ruby>&#12398;&#26041;&#35282;</pre>
+         <p lang=ja><ruby><ruby>&#26481;<rt>&#12392;&#12358;</rt>&#21335;<rt>&#12394;&#12435;</rt></ruby><rt>&#12383;&#12388;&#12415;</rt></ruby>&#12398;&#26041;&#35282;
+        </div>
+
+        <div class="example">
+         <p>This is the same example, but the meaning is given in English instead of Japanese:
+         <pre>&lt;ruby>&lt;ruby>&#26481;&lt;rt>&#12392;&#12358;&lt;/rt>&#21335;&lt;rt>&#12394;&#12435;&lt;/rt>&lt;/ruby>&lt;rt lang=en>Southeast&lt;/rt>&lt;/ruby>&#12398;&#26041;&#35282;</pre>
+         <p lang=ja><ruby><ruby>&#26481;<rt>&#12392;&#12358;</rt>&#21335;<rt>&#12394;&#12435;</rt></ruby><rt lang=en>Southeast</rt></ruby>&#12398;&#26041;&#35282;
+        </div>
+
+       </dd>
+
+      </dl>
+
+      <hr>
+
+      <p>Within a <code>ruby</code> element that does not have a <code>ruby</code> element ancestor,
+      content is segmented and segments are placed into three categories: base text segments, annotation
+      segments, and ignored segments. Ignored segments do not form part of the document's semantics
+      (they consist of some <span>inter-element whitespace</span> and <code>rp</code> elements, the
+      latter of which are used for legacy user agents that do not support ruby at all). Base text
+      segments can overlap (with a limit of two segments overlapping any one position in the DOM, and
+      with any segment having an earlier start point than an overlapping segment also having an equal or
+      later end point, and any segment have a later end point than an overlapping segment also having an
+      equal or earlier start point<!-- if anyone can find a better way of phrasing this parenthetical,
+      do let me know! -->). Annotation segments correspond to <code>rt</code> elements. Each annotation
+      segment can be associated with a base text segment, and each base text segment can have annotation
+      segments associated with it. (In a conforming document, each base text segment is associated with
+      at least one annotation segment, and each annotation segment is associated with one base text
+      segment.) A <code>ruby</code> element <span>represents</span> the union of the segments of base
+      text it contains, along with the mapping from those base text segments to annotation segments.
+      Segments are described in terms of DOM ranges; annotation segment ranges always consist of exactly
+      one element. <a href="#refsDOM">[DOM]</a></p>
+
+
+
+
+
       <p>
         At any particular time, the segmentation and categorisation of content of a 
         <code><a>ruby</a></code> element is the result that would be obtained from 
@@ -356,6 +629,7 @@
         <p>An <code>rb</code> element that is not a child of a <code>ruby</code> element
         <span>represents</span> the same thing as its children.</p>
       </div>
+      <!-- XXX insert example of when it is useful (jukugo) -->
     </section>
     
     <section>
@@ -410,6 +684,8 @@
         <p>An <code>rtc</code> element that is not a child of a <code>ruby</code> element
         <span>represents</span> the same thing as its children.</p>
       </div>
+
+      <!-- XXX insert example of when it is useful (double-sided ruby) -->
 
       <p>
         When an <code><a>rtc</a></code> element is processed as part of the segmentation
