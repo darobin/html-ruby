@@ -63,6 +63,7 @@
     </section>
     
     <!-- 
+      XXX
       TODO:
         - one section per element
           - ruby
@@ -80,12 +81,8 @@
     <section>
       <h2>The <dfn><code>ruby</code></dfn> element</h2>
       <!-- XXX
-        - take content model, basic prose, etc.
-        - new examples
-        - adapt prose to new model
-        - describe usage of the composing elements
-        - if inside <ruby>, represents its children
         - move examples that are after the algo to before it (should make more sense)
+        - add example for inlining fallback as well
       -->
       <dl class="element">
        <dt><span title="element-dfn-categories">Categories</span>:</dt>
@@ -191,7 +188,6 @@
           <pre>&lt;ruby>今日&lt;rt>きょう&lt;/ruby></pre>
          </div>
        </dd>
-       <!-- XXX here -->
        <dt>Jukugo ruby
        <dd>
          <p>
@@ -298,28 +294,39 @@
 
       <hr>
 
-      <p>Within a <code>ruby</code> element that does not have a <code>ruby</code> element ancestor,
-      content is segmented and segments are placed into three categories: base text segments, annotation
-      segments, and ignored segments. Ignored segments do not form part of the document's semantics
-      (they consist of some <span>inter-element whitespace</span> and <code>rp</code> elements, the
-      latter of which are used for legacy user agents that do not support ruby at all). Base text
-      segments can overlap (with a limit of two segments overlapping any one position in the DOM, and
-      with any segment having an earlier start point than an overlapping segment also having an equal or
-      later end point, and any segment have a later end point than an overlapping segment also having an
-      equal or earlier start point<!-- if anyone can find a better way of phrasing this parenthetical,
-      do let me know! -->). Annotation segments correspond to <code>rt</code> elements. Each annotation
-      segment can be associated with a base text segment, and each base text segment can have annotation
-      segments associated with it. (In a conforming document, each base text segment is associated with
-      at least one annotation segment, and each annotation segment is associated with one base text
-      segment.) A <code>ruby</code> element <span>represents</span> the union of the segments of base
-      text it contains, along with the mapping from those base text segments to annotation segments.
-      Segments are described in terms of DOM ranges; annotation segment ranges always consist of exactly
-      one element. <a href="#refsDOM">[DOM]</a></p>
-
-
-
-
-
+      <p>
+        Within a ruby element, content is parcelled into a series of ruby segments. Each ruby segment
+        is described by:
+      </p>
+      <ul>
+        <li>
+          Zero or more bases, each of which is a DOM range that may contain text nodes or an
+          <code>rb</code> element.
+        </li>
+        <li>
+          A base range, that is a range including all the bases.
+        </li>
+        <li>
+          Between zero and two ruby text containers which may correspond to explicit <code>rtc</code>
+          elements, or to sequences of <code>rt</code> elements implicitly recognised as containers.
+        </li>
+      </ul>
+      <p>
+        Each ruby text container is described by zero or more ruby text annotations each of which is a 
+        DOM range that may contain text nodes or an <code>rb</code> element, and an annotations range
+        that is a range including all the annotations for that container.
+      </p>
+      <p>
+        Furthermore, a ruby element contains ignored segments. Ignored segments do not form part of the
+        document's semantics (they consist of some <span>inter-element whitespace</span> and <code>rp</code>
+        elements, the latter of which are used for legacy user agents that do not support ruby at all).
+      </p>
+      <p>
+        Each ruby text annotation in each ruby text container of a ruby segment is paired with the base
+        at the same offset. If there are more bases than ruby text annotations for a given container, then
+        its last annotation spans the remaining bases. If there are more ruby text annotations than there
+        are bases, they are not paired.
+      </p>
       <p>
         At any particular time, the segmentation and categorisation of content of a 
         <code><a>ruby</a></code> element is the result that would be obtained from 
@@ -328,12 +335,7 @@
       <ol>
         <li>Let <var>root</var> be the <code><a>ruby</a></code> element for which the algorithm is being run.</li>
         <li>Let <var>index</var> be 0.</li>
-        <!-- XXX the data model may be better explained above (also note they can be null) -->
-        <li>
-          Let <var>ruby segments</var> be an empty list. Each segment in this list is defined by
-          a list of bases each of which is a DOM range, a base DOM range containing all bases for this
-          segment, a first compound annotation, and a second compound annotation.
-        </li>
+        <li>Let <var>ruby segments</var> be an empty list.</li>
         <li>Let <var>current bases</var> be an empty list of DOM ranges.</li>
         <li>Let <var>current bases range</var> be null.</li>
         <li>Let <var>current bases range start</var> be null.</li>
@@ -589,7 +591,6 @@
         <p>An <code>rb</code> element that is not a child of a <code>ruby</code> element
         <span>represents</span> the same thing as its children.</p>
       </div>
-      <!-- XXX insert example of when it is useful (jukugo) -->
     </section>
     
     <section>
@@ -644,9 +645,6 @@
         <p>An <code>rtc</code> element that is not a child of a <code>ruby</code> element
         <span>represents</span> the same thing as its children.</p>
       </div>
-
-      <!-- XXX insert example of when it is useful (double-sided ruby) -->
-
       <p>
         When an <code><a>rtc</a></code> element is processed as part of the segmentation
         and categorisation of content for a <code><a>ruby</a></code> element, 
