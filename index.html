@@ -184,7 +184,7 @@
            annotation maps to a base that is comprised of more than one character, then that base is grouped.
          </p>
          <div class='example'>
-          <img src='group.png' width='78' height='88' alt='Group ruby example with きょう annotating 今日'/>
+          <img src='group.png' width='78' height='88' alt='Group ruby example with きょう annotating 今日'>
           <p>
             Which can be marked up as follows:
           </p>
@@ -194,49 +194,37 @@
        <!-- XXX here -->
        <dt>Jukugo ruby
        <dd>
-        <p>This is similar to the previous case: each ideographic character in the compound word (the
-        base text) has its reading given in hiragana or katakana characters (the ruby annotation). The
-        difference is that the base text segments form a compound word rather than being separate from
-        each other.
-
-        <div class="example"> <!-- B as in BASE -->
-         <pre>&lt;ruby>B&lt;rt>annotation&lt;/rt>B&lt;rt>annotation&lt;/ruby></pre>
-        </div>
-
-        <div class="example">
-         <p>In this example, notice again how each annotation corresponds to a single base character. In this example, each compound word (jukugo) corresponds to a single <code>ruby</code> element.</p>
-         <p>The rendering here is expected to be that each annotation be placed over (or next to, in vertical text) the corresponding base character, with the annotations not overhanging any of the adjacent characters.</p>
-         <pre>&lt;ruby>&#39740;&lt;rt>&#12365;&lt;/rt>&#38272;&lt;rt>&#12418;&#12435;&lt;/rt>&lt;/ruby>&#12398;&lt;ruby>&#26041;&lt;rt>&#12411;&#12358;&lt;/rt>&#35282;&lt;rt>&#12364;&#12367;&lt;/rt>&lt;/ruby>&#12434;&lt;ruby>&#20957;&lt;rt>&#12366;&#12423;&#12358;&lt;/rt>&#35222;&lt;rt>&#12375;&lt;/rt>&lt;/ruby>&#12377;&#12427;</pre>
-         <p lang=ja><ruby>&#39740;<rt>&#12365;</rt>&#38272;<rt>&#12418;&#12435;</rt></ruby>&#12398;<ruby>&#26041;<rt>&#12411;&#12358;</rt>&#35282;<rt>&#12364;&#12367;</rt></ruby>&#12434;<ruby>&#20957;<rt>&#12366;&#12423;&#12358;</rt>&#35222;<rt>&#12375;</rt></ruby>&#12377;&#12427;
-
-        </div>
-
+         <p>
+          <em>Jukugo</em> refers to a Japanese compound noun, ie. a word made up of more than one kanji character.
+          <em>Jukugo ruby</em> is a term that is used not to describe ruby annotations over jukugo text, but rather 
+          to describe ruby with a behaviour slightly different from mono or group ruby. Jukugo ruby is similar to mono
+          ruby, in that there is a strong association between ruby text and individual base characters, but the
+          ruby text is typically rendered as grouped together over multiple ideographs when they are on the same line.
+         </p>
+         <div class='example'>
+          <p>
+            The distinction is captured in this example:
+          </p>
+          <img src='mono-or-jukugo.png' width='185' height='88' alt='Alternate styles of presenting kana phonetics for 上手, "skill".'>
+          <p>
+            Which can be marked up as follows:
+          </p>
+          <pre>&lt;ruby>&lt;rb>上&lt;rb>手&lt;rt>じよう&lt;rt>ず&lt;/ruby></pre>
+          <p>
+            In this example, each <code>rt</code> element is paired with its respective
+            <code>rb</code> element, the difference with an interleaved <code>rb</code>/<code>rt</code>
+            approach being that the sequences of both base text and ruby annotations are
+            implicitly placed in common containers so that the grouping information is captured.
+          </p>
+         </div>
+         <p class="note">
+           For more details on <a href="http://www.w3.org/TR/jlreq/#positioning_of_jukugoruby">Jukugo Ruby rendering</a>,
+           see Appendix F in the <cite>Requirements for Japanese Text Layout</cite> <a href="#refsJLREQ">[JLREQ]</a>
+           and Use Case C: Jukugo ruby in the <cite></cite>
+         </p>
        </dd>
 
 
-       <dt>Jukugo-ruby
-
-       <dd>
-
-        <p>This is semantically identical to the previous case (each individual ideographic character in
-        the base compound word has its reading given in an annotation in hiragana or katakana
-        characters), but the rendering is the more complicated Jukugo Ruby rendering.
-
-        <div class="example">
-         <p>This is the same example as above for mono-ruby for compound words. The different rendering is expected to be achieved using different styling (e.g. in CSS), and is not shown here.</p>
-         <pre>&lt;ruby>&#39740;&lt;rt>&#12365;&lt;/rt>&#38272;&lt;rt>&#12418;&#12435;&lt;/rt>&lt;/ruby>&#12398;&lt;ruby>&#26041;&lt;rt>&#12411;&#12358;&lt;/rt>&#35282;&lt;rt>&#12364;&#12367;&lt;/rt>&lt;/ruby>&#12434;&lt;ruby>&#20957;&lt;rt>&#12366;&#12423;&#12358;&lt;/rt>&#35222;&lt;rt>&#12375;&lt;/rt>&lt;/ruby>&#12377;&#12427;</pre>
-         <!-- Once CSS is updated to describe this, invoke the CSS and unhide this -->
-         <!--
-         <p lang=ja><ruby>&#39740;<rt>&#12365;</rt>&#38272;<rt>&#12418;&#12435;</rt></ruby>&#12398;<ruby>&#26041;<rt>&#12411;&#12358;</rt>&#35282;<rt>&#12364;&#12367;</rt></ruby>&#12434;<ruby>&#20957;<rt>&#12366;&#12423;&#12358;</rt>&#35222;<rt>&#12375;</rt></ruby>&#12377;&#12427;
-         -->
-        </div>
-
-        <p class="note">For more details on <a
-        href="http://www.w3.org/TR/jlreq/#positioning_of_jukugoruby">Jukugo Ruby rendering</a>, see
-        Appendix F in the <cite>Requirements for Japanese Text Layout</cite>. <a
-        href="#refsJLREQ">[JLREQ]</a></p>
-
-       </dd>
 
 
        <dt>Group ruby for describing meanings
