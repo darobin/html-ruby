@@ -63,15 +63,6 @@
     </section>
     
     <!-- 
-      XXX
-      TODO:
-        - parsing algorithm
-        - any other mention of ruby (grep) and other elements
-      
-      CHANGE IN ALGO:
-        - compound -> container
-        - annotation -> ruby text
-      
       UCs:
         - http://lists.w3.org/Archives/Public/www-style/2011Feb/0804.html
     -->
@@ -358,7 +349,7 @@
         <li>Let <var>current annotations</var> be an empty list of DOM ranges.</li>
         <li>Let <var>current annotations range</var> be null.</li>
         <li>Let <var>current annotations range start</var> be null.</li>
-        <li>Let <var>current compound annotations</var> be an empty list.</li>
+        <li>Let <var>current annotation containers</var> be an empty list.</li>
         <li>Let <var>current automatic base nodes</var> be an empty list of DOM Nodes.</li>
         <li>Let <var>current automatic base range start</var> be null.</li>
         <li>If <var>root</var> has a <code><a>ruby</a></code> element ancestor, then abort these steps.</li>
@@ -384,7 +375,7 @@
             <li>Run the steps to <a>commit an automatic base</a>.</li>
             <li>Run the steps to <a>commit the base range</a>.</li>
             <li>
-              If <var>current compound annotations</var> contains two elements, then run the steps to
+              If <var>current annotation containers</var> contains two elements, then run the steps to
               <a>commit a ruby segment</a>.
             </li>
             <li>
@@ -408,20 +399,20 @@
             <li>Run the steps to <a>commit the base range</a>.</li>
             <li>Run the steps to <a>commit current annotations</a>.</li>
             <li>
-              If <var>current compound annotations</var> contains two elements, then run the steps to
+              If <var>current annotation containers</var> contains two elements, then run the steps to
               <a>commit a ruby segment</a>.
             </li>
             <li>
-              Create a new compound annotation. It is described by the list of annotations returned
+              Create a new annotation container. It is described by the list of annotations returned
               by running the steps to <a>process an <code>rtc</code> element</a> and a DOM
               range whose <span title="concept-range-start">start</a> is the 
               <span title="concept-range-bp">boundary point</a> (<var>root</var>, <var>index</var>) 
               and whose <span title="concept-range-end">end</a> is the 
               <span title="concept-range-bp">boundary point</a> (<var>root</var>, <var>index</var> plus one).
-              Append this new compound annotations at the end of <var>current compound annotations</var>.
+              Append this new annotation container at the end of <var>current annotation containers</var>.
             </li>
             <li>
-              If <var>current compound annotations</var> contains two elements, then run the steps to
+              If <var>current annotation containers</var> contains two elements, then run the steps to
               <a>commit a ruby segment</a>.
             </li>
             <li>Increment <var>index</var> by one and jump to the step labelled <i>process a ruby child</i>.</li>
@@ -436,7 +427,7 @@
               step labelled <i>process a ruby child</i>.
             </li>
             <li>
-              If <var>current compound annotations</var> does not contain two elements, then run the following
+              If <var>current annotation containers</var> does not contain two elements, then run the following
               substeps:
               <ol>
                 <li>Let <var>lookahead index</var> be set to the value of <var>index</var>.</li>
@@ -462,7 +453,7 @@
           </ol>
         </li>
         <li>
-          If <var>current annotations</var> is not empty or if <var>current compound annotations</var> is not
+          If <var>current annotations</var> is not empty or if <var>current annotation containers</var> is not
           empty, then run the steps to <a>commit a ruby segment</a>.
         </li>
         <li>
@@ -498,7 +489,7 @@
       <ol>
         <li>Run the steps to <a>commit an automatic base</a>.</li>
         <li>
-          If <var>current bases</var>, <var>current annotations</var>, and <var>current compound annotations</var>
+          If <var>current bases</var>, <var>current annotations</var>, and <var>current annotation containers</var>
           are all empty, abort these steps.
         </li>
         <li>Run the steps to <a>commit the base range</a>.</li>
@@ -506,14 +497,14 @@
         <li>
           Create a new ruby segment. It is described by a list of bases set to <var>current bases</var>,
           a base DOM range set to <var>current bases range</var>, and a first and second
-          compound annotations that are respectively the first and second items of the
-          <var>current compound annotations</var> list. Append this new ruby segment at the end of 
+          annotation containers that are respectively the first and second items of the
+          <var>current annotation containers</var> list. Append this new ruby segment at the end of 
           <var>ruby segments</var>.
         </li>
         <li>Let <var>current bases</var> be an empty list.</li>
         <li>Let <var>current bases range</var> be null.</li>
         <li>Let <var>current bases range start</var> be null.</li>
-        <li>Let <var>current compound annotations</var> be an empty list.</li>
+        <li>Let <var>current annotation containers</var> be an empty list.</li>
       </ol>
       <p>
         When the steps above say to <dfn>commit the base range</dfn>, it means to run the 
@@ -544,9 +535,9 @@
           (<var>root</var>, <var>index</var>).
         </li>
         <li>
-          If <var>current annotations</var> is not empty, create a new compound annotation. It is described
+          If <var>current annotations</var> is not empty, create a new annotation container. It is described
           by an annotations list set to <var>current annotations</var> and a range set to <var>current annotations range</var>.
-          Append this new compound annotation at the end of <var>current compound annotations</var>.
+          Append this new annotation container at the end of <var>current annotation containers</var>.
         </li>
         <li>Let <var>current annotations</var> be an empty list of DOM ranges.</li>
         <li>Let <var>current annotations range</var> be null.</li>
@@ -798,6 +789,40 @@
 
         <pre>&#x2665;: Heart, <span lang=fr>C&oelig;ur</span>. &#x2618;: Shamrock, <span lang=fr>Tr&egrave;fle</span>. &#x2736;: Star, <span lang=fr>&Eacute;toile</span>.</pre>
       </div>
+    </section>
+    <section>
+      <h2>Miscellaneous Changes</h2>
+      <p>
+        In <a href='http://www.w3.org/html/wg/drafts/html/master/text-level-semantics.html#usage-summary'>Usage summary</a>,
+        add <code>rb</code> and <code>rtc</code> to the table.
+      </p>
+      <p>
+        Changes are required to [[WEBVTT]] in order to match this model.
+      </p>
+      <p>
+        In the parsing algorithm, “A start tag whose tag name is one of: "rp", "rt"” needs to include
+        "rb" and "rtc". Closing tag handling for <code>rt</code> and <code>rp</code> need be complemented
+        with the new elements, and they need to be added to
+        <a href='http://www.w3.org/html/wg/drafts/html/master/syntax.html#closing-elements-that-have-implied-end-tags'>Closing 
+        elements that have implied end tags</a>. There are several other occurrences of "rp" and "rt"
+        in the parsing algorithm that need to see these elements added.
+      </p>
+      <p>
+        The CSS for <a href='http://www.w3.org/html/wg/drafts/html/master/rendering.html#phrasing-content-0'>Phrasing content</a>
+        needs to include style for <code>rb</code> and <code>rtc</code>, and the following prose
+        needs to take them into account. Note that the CSS Ruby Module
+        [[CSS3RUBY]] is currently in sore need of fixing such that any reliance on it is hazardous at best.
+      </p>
+      <p>
+        <code>rb</code> needs to be removed from
+        <a href='http://www.w3.org/html/wg/drafts/html/master/obsolete.html#non-conforming-features'>Non-conforming features</a>.
+      </p>
+      <p>
+        The <a href='http://www.w3.org/html/wg/drafts/html/master/iana.html#elements-1'>Elements</a> appendix
+        needs updating to include the new elements, as will the
+        <a href='http://www.w3.org/html/wg/drafts/html/master/iana.html#element-interfaces'>Element interfaces</a>
+        appendix.
+      </p>
     </section>
   </body>
 </html>
