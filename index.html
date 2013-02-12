@@ -182,29 +182,6 @@
           <pre>&lt;ruby>今日&lt;rt>きょう&lt;/ruby></pre>
          </div>
        </dd>
-       <dt>Inline ruby</dt>
-       <dd>
-         <p>
-           In some contexts, for instance when the font size or line height are too small for ruby to be
-           readable, it is desirable to inline the ruby annotation such that it appears in parentheses after
-           the text it annotates. This also provides a convenient fallback strategy for user agents that
-           do not support rendering ruby annotations.
-         </p>
-         <div class='example'>
-          <p>
-            Inlining takes grouping into account. For example, Tokyo is written with two kanji characters,
-            東, which is pronounced とう, and 京, which is pronounced きょう. Each base character should be annotated 
-            individually, but the fallback should be 東京(とうきょう) not 東(とう)京(きょう). This can be marked up as
-            follows:
-          </p>
-          <pre>&lt;ruby>東&lt;rb>京&lt;rt>とう&lt;rt>きょう&lt;/ruby></pre>
-          <p>
-            This is also a case in which the <code>rp</code> element is useful. It can be inserted into
-            the above example to provide the appropriate fallback when ruby layout is not supported:
-          </p>
-          <pre>&lt;ruby>東&lt;rb>京<rp>(</rp>&lt;rt>とう&lt;rt>きょう<rp>)</rp>&lt;/ruby></pre>
-         </div>
-       </dd>
        <dt>Jukugo ruby
        <dd>
          <p>
@@ -237,7 +214,29 @@
            <a href="#refsRubyUC">[RUBY-UC]</a>.
          </p>
        </dd>
-
+       <dt>Inline ruby</dt>
+       <dd>
+         <p>
+           In some contexts, for instance when the font size or line height are too small for ruby to be
+           readable, it is desirable to inline the ruby annotation such that it appears in parentheses after
+           the text it annotates. This also provides a convenient fallback strategy for user agents that
+           do not support rendering ruby annotations.
+         </p>
+         <div class='example'>
+          <p>
+            Inlining takes grouping into account. For example, Tokyo is written with two kanji characters,
+            東, which is pronounced とう, and 京, which is pronounced きょう. Each base character should be annotated 
+            individually, but the fallback should be 東京(とうきょう) not 東(とう)京(きょう). This can be marked up as
+            follows:
+          </p>
+          <pre>&lt;ruby>東&lt;rb>京&lt;rt>とう&lt;rt>きょう&lt;/ruby></pre>
+          <p>
+            This is also a case in which the <code>rp</code> element is useful. It can be inserted into
+            the above example to provide the appropriate fallback when ruby layout is not supported:
+          </p>
+          <pre>&lt;ruby>東&lt;rb>京&lt;rp>(&lt;/rp>&lt;rt>とう&lt;rt>きょう&lt;rp>)&lt;/rp>&lt;/ruby></pre>
+         </div>
+       </dd>
        <dt>Text with both phonetic and semantic annotations (double-sided ruby)
        <dd>
          <p>
