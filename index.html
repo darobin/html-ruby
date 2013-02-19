@@ -65,6 +65,10 @@
     <!-- 
       UCs:
         - http://lists.w3.org/Archives/Public/www-style/2011Feb/0804.html
+        
+      XXX TODO:
+        - clarify current state of implementation
+        - clarify that this addresses issues raised in RUBY-UC
     -->
 
     <section>
@@ -146,19 +150,21 @@
 
         <div class="example">
          <p>In this example, notice how each annotation corresponds to a single base character.
-         <pre>&lt;ruby>&#21531;&lt;rt>&#12367;&#12435;&lt;/ruby>&lt;ruby>&#23376;&lt;rt>&#12375;&lt;/ruby>&#12399;&lt;ruby>&#21644;&lt;rt>&#12431;&lt;/ruby>&#12375;&#12390;&lt;ruby>&#21516;&lt;rt>&#12393;&#12358;&lt;/ruby>&#12380;&#12378;&#12290;</pre>
-         <!-- <p lang=ja><ruby>&#21531;<rt>&#12367;&#12435;</ruby><ruby>&#23376;<rt>&#12375;</ruby>&#12399;<ruby>&#21644;<rt>&#12431;</ruby>&#12375;&#12390;<ruby>&#21516;<rt>&#12393;&#12358;</ruby>&#12380;&#12378;&#12290; -->
+         <pre>&lt;ruby>日&lt;rt>に&lt;/rt>&lt;/ruby>&lt;ruby>本&lt;rt>ほん&lt;/rt>&lt;/ruby>
+&lt;ruby>語&lt;rt>ご&lt;/rt>&lt;/ruby>で&lt;ruby>書&lt;rt>か&lt;/rt>&lt;/ruby>
+いた&lt;ruby>作&lt;rt>さく&lt;/rt>&lt;/ruby>&lt;ruby>文&lt;rt>ぶん&lt;/rt>&lt;/ruby>です。</pre>
           <p>
             Ruby text interspersed in regular text provides structure akin to the following image:
           </p>
          <p>
-           <img src='ruby-example.png' width='316' height='70' alt='An example of ruby text mixed up with regular text.'>
+           <img src='composition.png' width='390' height='87' alt='An example of ruby text mixed up with regular text.'/>
          </p>
          <p>This example can also be written as follows, using one <code>ruby</code> element with two
          segments of base text and two annotations (one for each) rather than two back-to-back
          <code>ruby</code> elements each with one base text segment and annotation (as in the markup
          above):
-         <pre>&lt;ruby>&#21531;&lt;rt>&#12367;&#12435;&lt;/rt>&#23376;&lt;rt>&#12375;&lt;/ruby>&#12399;&lt;ruby>&#21644;&lt;rt>&#12431;&lt;/ruby>&#12375;&#12390;&lt;ruby>&#21516;&lt;rt>&#12393;&#12358;&lt;/ruby>&#12380;&#12378;&#12290;</pre>
+         <pre>&lt;ruby>日&lt;rt>に&lt;/rt>本&lt;rt>ほん&lt;/rt>語&lt;rt>ご&lt;/rt>&lt;/ruby>で&lt;ruby>書&lt;rt>か&lt;/rt>&lt;/ruby>
+ いた&lt;ruby>作&lt;rt>さく&lt;/rt>文&lt;rt>ぶん&lt;/rt>&lt;/ruby>です。</pre>
         </div>
        </dd>
        <dt>Group ruby</dt>
@@ -228,7 +234,9 @@
           </p>
           <pre>&lt;ruby>東&lt;rb>京&lt;rt>とう&lt;rt>きょう&lt;/ruby></pre>
           <p>
-            This is also a case in which the <code>rp</code> element is useful. It can be inserted into
+            Note that the above markup will enable the usage of parentheses when inlining for browsers
+            that support ruby layout, but for those that don't it will fail to provide parenthetical fallback.
+            This is where the <code>rp</code> element is useful. It can be inserted into
             the above example to provide the appropriate fallback when ruby layout is not supported:
           </p>
           <pre>&lt;ruby>東&lt;rb>京&lt;rp>(&lt;/rp>&lt;rt>とう&lt;rt>きょう&lt;rp>)&lt;/rp>&lt;/ruby></pre>
