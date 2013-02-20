@@ -38,6 +38,10 @@
         the ruby processing model. Specific care has been taken to ensure that authoring remains
         as simple as possible.
       </p>
+      <p>
+        This document was largely developed to address the shortcomings listed in
+        <a href="http://www.w3.org/TR/ruby-use-cases/">Use Cases &amp; Exploratory Approaches for Ruby Markup</a>.
+      </p>
     </section>
     <section id='sotd'>
       <p>
@@ -68,7 +72,8 @@
         
       XXX TODO:
         - clarify current state of implementation
-        - clarify that this addresses issues raised in RUBY-UC
+        - summarise what the algorithm does
+        - better jukugo example
     -->
 
     <section>
@@ -128,12 +133,14 @@
       -->
 
       <dl>
-       <dt>Mono-ruby for individual base characters in Japanese
+       <dt>Mono-ruby for individual base characters</dt>
        <dd>
-        <p>One or more hiragana or katakana characters (the ruby
-        annotation) are placed with each ideographic character (the base
-        text). This is used to provide readings of kanji characters.
-
+        <p>
+          Annotations (the ruby text) are associated individually with each 
+          ideographic character (the base text). In Japanese this is typically 
+          hiragana or katakana characters used to provide readings of kanji 
+          characters.
+        </p>
         <div class="example"> <!-- B as in BASE -->
          <pre>&lt;ruby>B&lt;rt>annotation&lt;/ruby></pre>
         </div>
@@ -256,11 +263,7 @@
            <p>
             Which is marked up as follows:
            </p>
-           <pre>&lt;ruby>
-  &lt;rb>旧&lt;rb>金&lt;rb>山
-  &lt;rt>jiù&lt;rt>jīn&lt;rt>shān
-  &lt;rtc>San Francisco
-&lt;/ruby></pre>
+           <pre>&lt;ruby>&lt;rb>旧&lt;rb>金&lt;rb>山&lt;rt>jiù&lt;rt>jīn&lt;rt>shān&lt;rtc>San Francisco&lt;/ruby></pre>
           <p>
             In this example, a single base run of three base characters is annotated with three
             pinyin ruby text segments in a first (implicit) container, and an <code>rtc</code> element
@@ -278,11 +281,7 @@
           <p>
             Which is marked up as follows:
           </p>
-          <pre>&lt;ruby>
-  &lt;rb>上&lt;rb>手
-  &lt;rt>じよう&lt;rt>ず
-  &lt;rtc>&lt;rt>jou&lt;rt>zu
-&lt;/ruby></pre>
+          <pre>&lt;ruby>&lt;rb>上&lt;rb>手&lt;rt>じよう&lt;rt>ず&lt;rtc>&lt;rt>jou&lt;rt>zu&lt;/ruby></pre>
          </div>
          
         <div class="example">
@@ -293,8 +292,8 @@
            English and French with annotations intended to appear on either side of the base symbol.
          </p>
          <pre>&lt;ruby>
-  &#x2665;&lt;rt>Heart&lt;rtc lang=fr>C&oelig;ur
-  &#x2618;&lt;rt>Shamrock&lt;rtc lang=fr>Tr&egrave;fle
+  &#x2665;&lt;rt>Heart&lt;rtc lang=fr>C&oelig;ur&lt;/rtc>
+  &#x2618;&lt;rt>Shamrock&lt;rtc lang=fr>Tr&egrave;fle&lt;/rtc>
   &#x2736;&lt;rt>Star&lt;rtc lang=fr>&Eacute;toile
 &lt;/ruby></pre>
           <p>
@@ -761,7 +760,9 @@
           The example above, in which each ideograph in the text <span
           title="" lang="ja">&#28450;&#23383;</span> is annotated with its
           phonetic reading, could be expanded to use <code>rp</code> so that in
-          legacy user agents the readings are in parentheses:
+          legacy user agents the readings are in parentheses (please note that
+          white space has been introduced into this example in order to make it
+          readable):
         </p>
 
         <pre lang="ja">...
@@ -836,6 +837,12 @@
         needs updating to include the new elements, as will the
         <a href='http://www.w3.org/html/wg/drafts/html/master/iana.html#element-interfaces'>Element interfaces</a>
         appendix.
+      </p>
+    </section>
+    <section>
+      <h2>Acknowledgements</h2>
+      <p>
+        Much of this document is deeply indebted to Fantasai and Richard Ishida.
       </p>
     </section>
   </body>
