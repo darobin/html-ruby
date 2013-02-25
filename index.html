@@ -73,9 +73,7 @@
         - http://lists.w3.org/Archives/Public/public-i18n-cjk/2012JanMar/0067.html
         
       XXX TODO:
-        - clarify current state of implementation
-        - summarise what the algorithm does
-        - better jukugo example
+        - validation errors
     -->
 
     <section>
@@ -207,11 +205,11 @@
           <p>
             The distinction is captured in this example:
           </p>
-          <img src='mono-or-jukugo.png' width='185' height='88' alt='Alternate styles of presenting kana phonetics for 上手, "skill".'>
+          <img src='hokekyou.png' width='66' height='126' alt='Example of jukugo ruby'>
           <p>
             Which can be marked up as follows:
           </p>
-          <pre>&lt;ruby>&lt;rb>上&lt;rb>手&lt;rt>じよう&lt;rt>ず&lt;/ruby></pre>
+          <pre>&lt;ruby>法&lt;rb>華&lt;rb>経&lt;rt>ほ&lt;rt>け&lt;rt>きょう&lt;/ruby></pre>
           <p>
             In this example, each <code>rt</code> element is paired with its respective
             <code>rb</code> element, the difference with an interleaved <code>rb</code>/<code>rt</code>
@@ -317,7 +315,7 @@
       <hr>
 
       <p>
-        Within a ruby element, content is parcelled into a series of ruby segments. Each ruby segment
+        Within a ruby element, content is parcelled into a series of ruby segments. Each <dfn>ruby segment</dfn>
         is described by:
       </p>
       <ul>
@@ -334,7 +332,7 @@
         </li>
       </ul>
       <p>
-        Each ruby text container is described by zero or more ruby text annotations each of which is a 
+        Each <dfn>ruby text container</dfn> is described by zero or more ruby text annotations each of which is a 
         DOM range that may contain text nodes or an <code>rt</code> element, and an annotations range
         that is a range including all the annotations for that container.
       </p>
@@ -348,6 +346,17 @@
         at the same offset. If there are more bases than ruby text annotations for a given container, then
         its last annotation spans the remaining bases. If there are more ruby text annotations than there
         are bases, they are not paired.
+      </p>
+      <p>
+        Informally, the segmentation and categorisation algorithm below performs a simple set of
+        tasks. First it processes adjacent <code>rb</code> elements, text nodes, and non-ruby elemtns
+        into a list of bases. Then it processes up to two <code>rtc</code> elements
+        or sequences of <code>rt</code> elements that are considered to automatically map to an
+        "anonymous <code>rtc</code>". Put together these data items form a ruby segment as detailed 
+        in the data model above. It will continue to produce such segments until it reaches the end of
+        the content of a given <code>ruby</code> element. The complexity of the algorithm below compared
+        to this informal description stems from the need to support an author-friendly syntax and
+        being mindful of inter-element white space.
       </p>
       <p>
         At any particular time, the segmentation and categorisation of content of a 
