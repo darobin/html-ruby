@@ -1,0 +1,1058 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>HTML Ruby Markup Extensions</title>
+    <script src="http://www.w3.org/Tools/respec/respec-w3c-common" async=""></script>
+    
+    <style>
+      .element {
+          background: none repeat scroll 0 0 #EEEEFF;
+          border-left: 0.25em solid #9999FF;
+          color: black;
+          margin: 0 0 1em 0.15em;
+          padding: 0 1em 0.25em 0.75em;
+          position: relative;
+          z-index: 1;
+      }
+    </style>
+  <style>/*****************************************************************
+ * ReSpec 3 CSS
+ * Robin Berjon - http://berjon.com/
+ *****************************************************************/
+
+/* --- INLINES --- */
+em.rfc2119 { 
+    text-transform:     lowercase;
+    font-variant:       small-caps;
+    font-style:         normal;
+    color:              #900;
+}
+
+h1 acronym, h2 acronym, h3 acronym, h4 acronym, h5 acronym, h6 acronym, a acronym,
+h1 abbr, h2 abbr, h3 abbr, h4 abbr, h5 abbr, h6 abbr, a abbr {
+    border: none;
+}
+
+dfn {
+    font-weight:    bold;
+}
+
+a.internalDFN {
+    color:  inherit;
+    border-bottom:  1px solid #99c;
+    text-decoration:    none;
+}
+
+a.externalDFN {
+    color:  inherit;
+    border-bottom:  1px dotted #ccc;
+    text-decoration:    none;
+}
+
+a.bibref {
+    text-decoration:    none;
+}
+
+cite .bibref {
+    font-style: normal;
+}
+
+code {
+    color:  #ff4500;
+}
+
+
+/* --- --- */
+ol.algorithm { counter-reset:numsection; list-style-type: none; }
+ol.algorithm li { margin: 0.5em 0; }
+ol.algorithm li:before { font-weight: bold; counter-increment: numsection; content: counters(numsection, ".") ") "; }
+
+/* --- TOC --- */
+.toc a, .tof a {
+    text-decoration:    none;
+}
+
+a .secno, a .figno {
+    color:  #000;
+}
+
+ul.tof, ol.tof {
+    list-style: none outside none;
+}
+
+.caption {
+    margin-top: 0.5em;
+    font-style:   italic;
+}
+
+/* --- TABLE --- */
+table.simple {
+    border-spacing: 0;
+    border-collapse:    collapse;
+    border-bottom:  3px solid #005a9c;
+}
+
+.simple th {
+    background: #005a9c;
+    color:  #fff;
+    padding:    3px 5px;
+    text-align: left;
+}
+
+.simple th[scope="row"] {
+    background: inherit;
+    color:  inherit;
+    border-top: 1px solid #ddd;
+}
+
+.simple td {
+    padding:    3px 10px;
+    border-top: 1px solid #ddd;
+}
+
+.simple tr:nth-child(even) {
+    background: #f0f6ff;
+}
+
+/* --- DL --- */
+.section dd > p:first-child {
+    margin-top: 0;
+}
+
+.section dd > p:last-child {
+    margin-bottom: 0;
+}
+
+.section dd {
+    margin-bottom:  1em;
+}
+
+.section dl.attrs dd, .section dl.eldef dd {
+    margin-bottom:  0;
+}
+</style><style>/* --- ISSUES/NOTES --- */
+div.issue-title, div.note-title {
+    padding-right:  1em;
+    min-width: 7.5em;
+    color: #b9ab2d;
+}
+div.issue-title { color: #e05252; }
+div.note-title { color: #52e052; }
+div.issue-title span, div.note-title span {
+    text-transform: uppercase;
+}
+div.note, div.issue {
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+.note > p:first-child, .issue > p:first-child { margin-top: 0 }
+.issue, .note {
+    padding: .5em;
+    border-left-width: .5em;
+    border-left-style: solid;
+}
+div.issue, div.note {
+    padding: 0.5em;
+    margin: 1em 0;
+    position: relative;
+    clear: both;
+}
+span.note, span.issue { padding: .1em .5em .15em; }
+
+.issue {
+    border-color: #e05252;
+    background: #fbe9e9;
+}
+.note {
+    border-color: #52e052;
+    background: #e9fbe9;
+}
+
+
+</style><link href="http://www.w3.org/StyleSheets/TR/w3c-unofficial" rel="stylesheet"><!--[if lt IE 9]><script src='http://www.w3.org/2008/site/js/html5shiv.js'></script><![endif]--></head>
+  <body><div class="head">
+  <p>
+    
+  </p>
+  <h1 class="title" id="title">HTML Ruby Markup Extensions</h1>
+  
+  <h2 id="unofficial-draft-25-february-2013">Unofficial Draft 25 February 2013</h2>
+  <dl>
+    
+    
+      <dt>Latest editor's draft:</dt>
+      <dd><a href="http://darobin.github.com/html-ruby/">http://darobin.github.com/html-ruby/</a></dd>
+    
+    
+    
+    
+    
+    
+    <dt>Editor:</dt>
+    <dd><a href="http://berjon.com/">Robin Berjon</a>, <a href="http://w3.org/">W3C</a></dd>
+
+    
+  </dl>
+  
+  
+  
+  
+    
+      
+        <p class="copyright">
+          This document is licensed under a 
+          <a class="subfoot" href="http://creativecommons.org/licenses/by/3.0/" rel="license">Creative Commons 
+          Attribution 3.0 License</a>.
+        </p>
+      
+    
+  
+  <hr>
+</div>
+    <section class="introductory" id="abstract"><h2>Abstract</h2>
+      <p>
+        The ruby markup model currently described in the HTML specification is limited in its
+        support for a number of features, notably jukugo and double-sided ruby, as well as inline
+        ruby. This specification addresses these issues by introducing new elements and changing
+        the ruby processing model. Specific care has been taken to ensure that authoring remains
+        as simple as possible.
+      </p>
+      <p>
+        This document was largely developed to address the shortcomings listed in
+        <a href="http://www.w3.org/TR/ruby-use-cases/">Use Cases &amp; Exploratory Approaches for Ruby Markup</a>.
+      </p>
+    </section><section id="sotd" class="introductory"><h2>Status of This Document</h2>
+  
+    <p>
+      This document is merely a public working draft of a potential specification. It has
+      no official standing of any kind and does not represent the support or consensus of any
+      standards organisation.
+    </p>
+    
+      <p>
+        This specification is a proposed extension specification to HTML and has no official
+        standing whatsoever.
+      </p>
+    
+  
+</section><section id="toc"><h2 class="introductory">Table of Contents</h2><ul class="toc"><li class="tocline"><a class="tocxref" href="#changes-compared-to-the-current-ruby-model"><span class="secno">1. </span>Changes compared to the current ruby model</a></li><li class="tocline"><a class="tocxref" href="#the-ruby-element"><span class="secno">2. </span>The <span><code>ruby</code></span> element</a></li><li class="tocline"><a class="tocxref" href="#the-rb-element"><span class="secno">3. </span>The <span><code>rb</code></span> element</a></li><li class="tocline"><a class="tocxref" href="#the-rt-element"><span class="secno">4. </span>The <span><code>rt</code></span> element</a></li><li class="tocline"><a class="tocxref" href="#the-rtc-element"><span class="secno">5. </span>The <span><code>rtc</code></span> element</a></li><li class="tocline"><a class="tocxref" href="#the-rp-element"><span class="secno">6. </span>The <span><code>rp</code></span> element</a></li><li class="tocline"><a class="tocxref" href="#miscellaneous-changes"><span class="secno">7. </span>Miscellaneous Changes</a></li><li class="tocline"><a class="tocxref" href="#acknowledgements"><span class="secno">8. </span>Acknowledgements</a></li><li class="tocline"><a class="tocxref" href="#issues"><span class="secno">9. </span>Issues</a></li><li class="tocline"><a class="tocxref" href="#references"><span class="secno">A. </span>References</a><ul class="toc"><li class="tocline"><a class="tocxref" href="#normative-references"><span class="secno">A.1 </span>Normative references</a></li><li class="tocline"><a class="tocxref" href="#informative-references"><span class="secno">A.2 </span>Informative references</a></li></ul></li></ul></section>
+    
+    <section id="changes-compared-to-the-current-ruby-model">
+      <!--OddPage--><h2><span class="secno">1. </span>Changes compared to the current ruby model</h2>
+      <p>
+        The following changes are made to HTML by this document:
+      </p>
+      <ul>
+        <li><code><a class="internalDFN" href="#dfn-ruby">ruby</a></code> nested inside <code><a class="internalDFN" href="#dfn-ruby">ruby</a></code> now represents its children;</li>
+        <li>new <code><a class="internalDFN" href="#dfn-rb">rb</a></code> and <code><a class="internalDFN" href="#dfn-rtc">rtc</a></code> elements have been introduced;</li>
+        <li>
+          the algorithm for processing ruby markup has been changed (note that if this
+          extension is rejected, the original algorithm will still need to be modified because
+          it is buggy);
+        </li>
+        <li>the HTML parsing algorithm has been changed to take the new elements into account.</li>
+      </ul>
+    </section>
+    
+    <!-- 
+      UCs:
+        - http://lists.w3.org/Archives/Public/www-style/2011Feb/0804.html
+        - http://www.amazon.co.jp/gp/feature.html?ie=UTF8&docId=1000173306
+        - http://lists.w3.org/Archives/Public/public-i18n-cjk/2012JanMar/0067.html
+    -->
+
+    <section id="the-ruby-element">
+      <!--OddPage--><h2><span class="secno">2. </span>The <dfn id="dfn-ruby"><code>ruby</code></dfn> element</h2>
+      <dl class="element">
+       <dt><span title="element-dfn-categories">Categories</span>:</dt>
+       <dd><span>Flow content</span>.</dd>
+       <dd><span>Phrasing content</span>.</dd>
+       <dd><span>Palpable content</span>.</dd>
+       <dt><span title="element-dfn-contexts">Contexts in which this element can be used</span>:</dt>
+       <dd>Where <span>phrasing content</span> is expected.</dd>
+       <dt><span title="element-dfn-content-model">Content model</span>:</dt>
+       <dd>See prose.</dd>
+       <dt><span title="element-dfn-attributes">Content attributes</span>:</dt>
+       <dd><span>Global attributes</span></dd>
+       <dt><span title="element-dfn-dom">DOM interface</span>:</dt><!--TOPIC:DOM APIs-->
+       <dd>Uses <code>HTMLElement</code>.</dd>
+      </dl><!--TOPIC:HTML-->
+
+      <p>The <code>ruby</code> element allows one or more spans of phrasing content to be marked with
+      ruby annotations. Ruby annotations are short runs of text presented alongside base text, primarily
+      used in East Asian typography as a guide for pronunciation or to include other annotations. In
+      Japanese, this form of typography is also known as <i>furigana</i>.</p>
+
+      <p>The content model of <code>ruby</code> elements consists of one or more of the following
+      sequences:</p>
+
+      <ol class="brief">
+        <li>
+          One or more <span>phrasing content</span> nodes or <code>rb</code> elements.
+        </li>
+        <li>One or the other of the following:
+          <ul class="brief">
+            <li>One or more <code>rt</code> or <code>rtc</code> elements</li>
+            <li>
+              An <code>rp</code> element followed by one or more <code>rt</code> or <code>rtc</code> elements, 
+              followed by an <code>rp</code> element.
+            </li>
+          </ul>
+        </li>
+      </ol>
+
+      <p>The <code>ruby</code>, <code>rb</code>, <code>rtc</code>, and <code>rt</code> elements can be used for 
+      a variety of kinds of annotations, including in particular (though by no means limited to) those described
+      below. For more details on Japanese Ruby in particular, and how to render Ruby for Japanese, see
+      <cite>Requirements for Japanese Text Layout</cite>. <a href="#refsJLREQ">[JLREQ]</a></p>
+
+      <div class="note"><div class="note-title"><span>Note</span></div><p class="">At the time of writing, CSS does not yet provide a way to fully control the
+      rendering of the HTML <code>ruby</code> element. It is hoped that CSS will be extended to support
+      the styles described below in due course.</p></div>
+
+      <!--
+        examples in the following list are derived from:
+          http://www.w3.org/International/datespace/2010/02/jlreq-examples/
+          http://www.w3.org/TR/ruby-use-cases/
+          http://fantasai.inkedblade.net/weblog/2011/ruby/
+      -->
+
+      <dl>
+       <dt>Mono-ruby for individual base characters</dt>
+       <dd>
+        <p>
+          Annotations (the ruby text) are associated individually with each 
+          ideographic character (the base text). In Japanese this is typically 
+          hiragana or katakana characters used to provide readings of kanji 
+          characters.
+        </p>
+        <div class="example"> <!-- B as in BASE -->
+         <pre>&lt;ruby&gt;B&lt;rt&gt;annotation&lt;/ruby&gt;</pre>
+        </div>
+        
+        <p>
+          When no <code>rb</code> element is used, the base is implied, as above. But you can also make
+          it explicit. This can be useful notably for styling, or when consecutive bases are to be treated
+          as a group, as in the jukugo ruby example further down.
+        </p>
+
+        <div class="example">
+         <pre>&lt;ruby&gt;&lt;rb&gt;base&lt;rt&gt;annotation&lt;/ruby&gt;</pre>
+        </div>
+
+        <div class="example">
+         <p>In this example, notice how each annotation corresponds to a single base character.
+         </p><pre>&lt;ruby&gt;日&lt;rt&gt;に&lt;/rt&gt;&lt;/ruby&gt;&lt;ruby&gt;本&lt;rt&gt;ほん&lt;/rt&gt;&lt;/ruby&gt;
+&lt;ruby&gt;語&lt;rt&gt;ご&lt;/rt&gt;&lt;/ruby&gt;で&lt;ruby&gt;書&lt;rt&gt;か&lt;/rt&gt;&lt;/ruby&gt;
+いた&lt;ruby&gt;作&lt;rt&gt;さく&lt;/rt&gt;&lt;/ruby&gt;&lt;ruby&gt;文&lt;rt&gt;ぶん&lt;/rt&gt;&lt;/ruby&gt;です。</pre>
+          <p>
+            Ruby text interspersed in regular text provides structure akin to the following image:
+          </p>
+         <p>
+           <img src="composition.png" alt="An example of ruby text mixed up with regular text." height="87" width="390">
+         </p>
+         <p>This example can also be written as follows, using one <code>ruby</code> element with two
+         segments of base text and two annotations (one for each) rather than two back-to-back
+         <code>ruby</code> elements each with one base text segment and annotation (as in the markup
+         above):
+         </p><pre>&lt;ruby&gt;日&lt;rt&gt;に&lt;/rt&gt;本&lt;rt&gt;ほん&lt;/rt&gt;語&lt;rt&gt;ご&lt;/rt&gt;&lt;/ruby&gt;で&lt;ruby&gt;書&lt;rt&gt;か&lt;/rt&gt;&lt;/ruby&gt;
+ いた&lt;ruby&gt;作&lt;rt&gt;さく&lt;/rt&gt;文&lt;rt&gt;ぶん&lt;/rt&gt;&lt;/ruby&gt;です。</pre>
+        </div>
+       </dd>
+       <dt>Group ruby</dt>
+       <dd>
+         <p>
+           Group ruby is often used where phonetic annotations don't map to discreet base characters, or for 
+           semantic glosses that span the whole base text. For example, the word "today" is written with the 
+           characters 今日, literally "this day". But it's pronounced きょう (kyou), which can't be broken down into 
+           a "this" part and a "day" part. In typical rendering, you can't split text that is 
+           annotated with group ruby; it has to wrap as a single unit onto the next line. When a ruby text 
+           annotation maps to a base that is comprised of more than one character, then that base is grouped.
+         </p>
+         <div class="example">
+          <img src="group.png" alt="Group ruby example with きょう annotating 今日" height="88" width="78">
+          <p>
+            Which can be marked up as follows:
+          </p>
+          <pre>&lt;ruby&gt;今日&lt;rt&gt;きょう&lt;/ruby&gt;</pre>
+         </div>
+       </dd>
+       <dt>Jukugo ruby
+       </dt><dd>
+         <p>
+          <em>Jukugo</em> refers to a Japanese compound noun, ie. a word made up of more than one kanji character.
+          <em>Jukugo ruby</em> is a term that is used not to describe ruby annotations over jukugo text, but rather 
+          to describe ruby with a behaviour slightly different from mono or group ruby. Jukugo ruby is similar to mono
+          ruby, in that there is a strong association between ruby text and individual base characters, but the
+          ruby text is typically rendered as grouped together over multiple ideographs when they are on the same line.
+         </p>
+         <div class="example">
+          <p>
+            The distinction is captured in this example:
+          </p>
+          <img src="hokekyou.png" alt="Example of jukugo ruby" height="126" width="66">
+          <p>
+            Which can be marked up as follows:
+          </p>
+          <pre>&lt;ruby&gt;法&lt;rb&gt;華&lt;rb&gt;経&lt;rt&gt;ほ&lt;rt&gt;け&lt;rt&gt;きょう&lt;/ruby&gt;</pre>
+          <p>
+            In this example, each <code>rt</code> element is paired with its respective
+            <code>rb</code> element, the difference with an interleaved <code>rb</code>/<code>rt</code>
+            approach being that the sequences of both base text and ruby annotations are
+            implicitly placed in common containers so that the grouping information is captured.
+          </p>
+         </div>
+         <div class="note"><div class="note-title"><span>Note</span></div><p class="">
+           For more details on <a href="http://www.w3.org/TR/jlreq/#positioning_of_jukugoruby">Jukugo Ruby rendering</a>,
+           see Appendix F in the <cite>Requirements for Japanese Text Layout</cite> <a href="#refsJLREQ">[JLREQ]</a>
+           and Use Case C: Jukugo ruby in the <cite>Use Cases &amp; Exploratory Approaches for Ruby Markup</cite>
+           [<cite><a href="#bib-RUBY-UC" class="bibref">RUBY-UC</a></cite>].
+         </p></div>
+       </dd>
+       <dt>Inline ruby</dt>
+       <dd>
+         <p>
+           In some contexts, for instance when the font size or line height are too small for ruby to be
+           readable, it is desirable to inline the ruby annotation such that it appears in parentheses after
+           the text it annotates. This also provides a convenient fallback strategy for user agents that
+           do not support rendering ruby annotations.
+         </p>
+         <div class="example">
+          <p>
+            Inlining takes grouping into account. For example, Tokyo is written with two kanji characters,
+            東, which is pronounced とう, and 京, which is pronounced きょう. Each base character should be annotated 
+            individually, but the fallback should be 東京(とうきょう) not 東(とう)京(きょう). This can be marked up as
+            follows:
+          </p>
+          <pre>&lt;ruby&gt;東&lt;rb&gt;京&lt;rt&gt;とう&lt;rt&gt;きょう&lt;/ruby&gt;</pre>
+          <p>
+            Note that the above markup will enable the usage of parentheses when inlining for browsers
+            that support ruby layout, but for those that don't it will fail to provide parenthetical fallback.
+            This is where the <code>rp</code> element is useful. It can be inserted into
+            the above example to provide the appropriate fallback when ruby layout is not supported:
+          </p>
+          <pre>&lt;ruby&gt;東&lt;rb&gt;京&lt;rp&gt;(&lt;/rp&gt;&lt;rt&gt;とう&lt;rt&gt;きょう&lt;rp&gt;)&lt;/rp&gt;&lt;/ruby&gt;</pre>
+         </div>
+       </dd>
+       <dt>Text with both phonetic and semantic annotations (double-sided ruby)
+       </dt><dd>
+         <p>
+          Sometimes, ruby can be used to annotate a base twice.
+         </p>
+         <div class="example">
+           <p>
+            In the following example, the Chinese word for San Francisco (旧金山, i.e. “old gold mountain”)
+            is annotated both using pinyin to give the pronunciation, and with the original English.
+           </p>
+           <img src="group-double.png" alt="San Francisco in Chinese, with both pinyin and the original English as annotations." height="84" width="113">
+           <p>
+            Which is marked up as follows:
+           </p>
+           <pre>&lt;ruby&gt;&lt;rb&gt;旧&lt;rb&gt;金&lt;rb&gt;山&lt;rt&gt;jiù&lt;rt&gt;jīn&lt;rt&gt;shān&lt;rtc&gt;San Francisco&lt;/ruby&gt;</pre>
+          <p>
+            In this example, a single base run of three base characters is annotated with three
+            pinyin ruby text segments in a first (implicit) container, and an <code>rtc</code> element
+            is introduced in order to provide a second single ruby text annotation being the city's
+            English name.
+          </p>
+         </div>
+         <div class="example">
+          <p>
+            We can also revisit our jukugo example above with 上手 ("skill") to show how it can be
+            annotation in both kana and romaji phonetics while at the same time maintaining the pairing
+            to bases and annotation grouping information.
+          </p>
+          <img src="mono-or-jukugo-double.png" alt="上手 (&quot;skill&quot;) annotated in both kana and romaji, shown in both jukugo and mono styles." height="120" width="185">
+          <p>
+            Which is marked up as follows:
+          </p>
+          <pre>&lt;ruby&gt;&lt;rb&gt;上&lt;rb&gt;手&lt;rt&gt;じよう&lt;rt&gt;ず&lt;rtc&gt;&lt;rt&gt;jou&lt;rt&gt;zu&lt;/ruby&gt;</pre>
+         </div>
+         
+        <div class="example">
+         <p>
+           Text that is a direct child of the <code>rtc</code> element implicitly produces
+           a ruby text segment as if it were contained in an <code>rt</code> element.
+           In this contrived example, this is shown with some symbols that are given names in 
+           English and French with annotations intended to appear on either side of the base symbol.
+         </p>
+         <pre>&lt;ruby&gt;
+  ♥&lt;rt&gt;Heart&lt;rtc lang=fr&gt;Cœur&lt;/rtc&gt;
+  ☘&lt;rt&gt;Shamrock&lt;rtc lang=fr&gt;Trèfle&lt;/rtc&gt;
+  ✶&lt;rt&gt;Star&lt;rtc lang=fr&gt;Étoile
+&lt;/ruby&gt;</pre>
+          <p>
+            Similarly, text directly inside a <code>ruby</code> element implicitly produces a ruby
+            base as if it were contained in an <code>rb</code> element, and <code>rt</code> children of
+            <code>ruby</code> are implicitly contained in an <code>rtc</code> container. In effect, the
+            above example is equivalent (in meaning, though not in the DOM it produces) to the
+            following:
+          </p>
+         <pre>&lt;ruby&gt;
+  &lt;rb&gt;♥&lt;/rb&gt;&lt;rtc&gt;&lt;rt&gt;Heart&lt;/rt&gt;&lt;/rtc&gt;&lt;rtc lang=fr&gt;&lt;rt&gt;Cœur&lt;/rt&gt;&lt;/rtc&gt;
+  &lt;rb&gt;☘&lt;/rb&gt;&lt;rtc&gt;&lt;rt&gt;Shamrock&lt;/rt&gt;&lt;/rtc&gt;&lt;rtc lang=fr&gt;&lt;rt&gt;Trèfle&lt;/rt&gt;&lt;/rtc&gt;
+  &lt;rb&gt;✶&lt;/rb&gt;&lt;rtc&gt;&lt;rt&gt;Star&lt;/rt&gt;&lt;/rtc&gt;&lt;rtc lang=fr&gt;&lt;rt&gt;Étoile&lt;/rt&gt;&lt;/rtc&gt;
+&lt;/ruby&gt;</pre>
+        </div>
+       </dd>
+      </dl>
+
+      <hr>
+
+      <p>
+        Within a ruby element, content is parcelled into a series of ruby segments. Each <dfn id="dfn-ruby-segment">ruby segment</dfn>
+        is described by:
+      </p>
+      <ul>
+        <li>
+          Zero or more bases, each of which is a DOM range that may contain text nodes or an
+          <code>rb</code> element.
+        </li>
+        <li>
+          A base range, that is a range including all the bases.
+        </li>
+        <li>
+          Between zero and two ruby text containers which may correspond to explicit <code>rtc</code>
+          elements, or to sequences of <code>rt</code> elements implicitly recognised as containers.
+        </li>
+      </ul>
+      <p>
+        Each <dfn id="dfn-ruby-text-container">ruby text container</dfn> is described by zero or more ruby text annotations each of which is a 
+        DOM range that may contain text nodes or an <code>rt</code> element, and an annotations range
+        that is a range including all the annotations for that container.
+      </p>
+      <p>
+        Furthermore, a ruby element contains ignored segments. Ignored segments do not form part of the
+        document's semantics (they consist of some <span>inter-element whitespace</span> and <code>rp</code>
+        elements, the latter of which are used for legacy user agents that do not support ruby at all).
+      </p>
+      <p>
+        Each ruby text annotation in each ruby text container of a ruby segment is paired with the base
+        at the same offset. If there are more bases than ruby text annotations for a given container, then
+        its last annotation spans the remaining bases. If there are more ruby text annotations than there
+        are bases, they are not paired.
+      </p>
+      <p>
+        Informally, the segmentation and categorisation algorithm below performs a simple set of
+        tasks. First it processes adjacent <code>rb</code> elements, text nodes, and non-ruby elemtns
+        into a list of bases. Then it processes up to two <code>rtc</code> elements
+        or sequences of <code>rt</code> elements that are considered to automatically map to an
+        "anonymous <code>rtc</code>". Put together these data items form a ruby segment as detailed 
+        in the data model above. It will continue to produce such segments until it reaches the end of
+        the content of a given <code>ruby</code> element. The complexity of the algorithm below compared
+        to this informal description stems from the need to support an author-friendly syntax and
+        being mindful of inter-element white space.
+      </p>
+      <p>
+        At any particular time, the segmentation and categorisation of content of a 
+        <code><a class="internalDFN" href="#dfn-ruby">ruby</a></code> element is the result that would be obtained from 
+        running the following algorithm:
+      </p>
+      <ol>
+        <li>Let <var>root</var> be the <code><a class="internalDFN" href="#dfn-ruby">ruby</a></code> element for which the algorithm is being run.</li>
+        <li>Let <var>index</var> be 0.</li>
+        <li>Let <var>ruby segments</var> be an empty list.</li>
+        <li>Let <var>current bases</var> be an empty list of DOM ranges.</li>
+        <li>Let <var>current bases range</var> be null.</li>
+        <li>Let <var>current bases range start</var> be null.</li>
+        <li>Let <var>current annotations</var> be an empty list of DOM ranges.</li>
+        <li>Let <var>current annotations range</var> be null.</li>
+        <li>Let <var>current annotations range start</var> be null.</li>
+        <li>Let <var>current annotation containers</var> be an empty list.</li>
+        <li>Let <var>current automatic base nodes</var> be an empty list of DOM Nodes.</li>
+        <li>Let <var>current automatic base range start</var> be null.</li>
+        <li>If <var>root</var> has a <code><a class="internalDFN" href="#dfn-ruby">ruby</a></code> element ancestor, then abort these steps.</li>
+        <li>
+          <i>Process a ruby child</i>: If <var>index</var> is equal to or greater than the number of
+          child nodes in <var>root</var>, then run the steps to <a class="internalDFN" href="#dfn-commit-a-ruby-segment">commit a ruby segment</a>,
+          return <var>ruby segments</var>, and abort these steps.
+        </li>
+        <li>
+          Let <var>current child</var> be the <var>index</var>th node in <var>root</var>.
+        </li>
+        <li>
+          If <var>current child</var> is not a <a>Text</a> node and is not an <a>Element</a>
+          node, then increment <var>index</var> by one and jump to the step labelled <i>process a ruby child</i>.
+        </li>
+        <li>
+          If <var>current child</var> is an <code><a class="internalDFN" href="#dfn-rp">rp</a></code> element, then increment <var>index</var> by one and 
+          jump to the step labelled <i>process a ruby child</i>.
+        </li>
+        <li>
+          If <var>current child</var> is an <code><a class="internalDFN" href="#dfn-rt">rt</a></code> element, then run these substeps:
+          <ol>
+            <li>Run the steps to <a class="internalDFN" href="#dfn-commit-an-automatic-base">commit an automatic base</a>.</li>
+            <li>Run the steps to <a class="internalDFN" href="#dfn-commit-the-base-range">commit the base range</a>.</li>
+            <li>
+              If <var>current annotation containers</var> contains two elements, then run the steps to
+              <a class="internalDFN" href="#dfn-commit-a-ruby-segment">commit a ruby segment</a>.
+            </li>
+            <li>
+              If <var>current annotations</var> is empty, set <var>current annotations range start</var> to
+              the value of <var>index</var>.
+            </li>
+            <li>
+              Create a new DOM range whose <span title="concept-range-start">start is the 
+              <span title="concept-range-bp">boundary point (<var>root</var>, <var>index</var>) 
+              and whose <span title="concept-range-end">end is the 
+              <span title="concept-range-bp">boundary point (<var>root</var>, <var>index</var> plus one), and
+              append it at the end of <var>current annotations</var>.
+            </span></span></span></span></li>
+            <li>Increment <var>index</var> by one and jump to the step labelled <i>process a ruby child</i>.</li>
+          </ol>
+        </li>
+        <li>
+          If <var>current child</var> is an <code><a class="internalDFN" href="#dfn-rtc">rtc</a></code> element, then run these substeps:
+          <ol>
+            <li>Run the steps to <a class="internalDFN" href="#dfn-commit-an-automatic-base">commit an automatic base</a>.</li>
+            <li>Run the steps to <a class="internalDFN" href="#dfn-commit-the-base-range">commit the base range</a>.</li>
+            <li>Run the steps to <a class="internalDFN" href="#dfn-commit-current-annotations">commit current annotations</a>.</li>
+            <li>
+              If <var>current annotation containers</var> contains two elements, then run the steps to
+              <a class="internalDFN" href="#dfn-commit-a-ruby-segment">commit a ruby segment</a>.
+            </li>
+            <li>
+              Create a new annotation container. It is described by the list of annotations returned
+              by running the steps to <a class="internalDFN" href="#dfn-process-an-rtc-element">process an <code>rtc</code> element</a> and a DOM
+              range whose <span title="concept-range-start">start is the 
+              <span title="concept-range-bp">boundary point (<var>root</var>, <var>index</var>) 
+              and whose <span title="concept-range-end">end is the 
+              <span title="concept-range-bp">boundary point (<var>root</var>, <var>index</var> plus one).
+              Append this new annotation container at the end of <var>current annotation containers</var>.
+            </span></span></span></span></li>
+            <li>
+              If <var>current annotation containers</var> contains two elements, then run the steps to
+              <a class="internalDFN" href="#dfn-commit-a-ruby-segment">commit a ruby segment</a>.
+            </li>
+            <li>Increment <var>index</var> by one and jump to the step labelled <i>process a ruby child</i>.</li>
+          </ol>
+        </li>
+        <li>
+          If <var>current child</var> is a <code>Text</code> node and is <a>inter-element whitespace</a>,
+          then run these substeps:
+          <ol>
+            <li>
+              If <var>current annotations</var> is not empty, increment <var>index</var> by one and jump to the 
+              step labelled <i>process a ruby child</i>.
+            </li>
+            <li>
+              If <var>current annotation containers</var> does not contain two elements, then run the following
+              substeps:
+              <ol>
+                <li>Let <var>lookahead index</var> be set to the value of <var>index</var>.</li>
+                <li><i>Peek ahead</i>: Increment <var>lookahead index</var> by one.</li>
+                <li>
+                  If <var>lookahead index</var> is equal to or greater than the number of
+                  child nodes in <var>root</var>, then abort these substeps.
+                </li>
+                <li>
+                  Let <var>peek child</var> be the <var>lookahead index</var>th node in <var>root</var>.
+                </li>
+                <li>
+                  If <var>peek child</var> is a <code>Text</code> node and is <a>inter-element whitespace</a>,
+                  then jump to the step labelled <i>peek ahead</i>.
+                </li>
+                <li>
+                  If <var>peek child</var> is an <code><a class="internalDFN" href="#dfn-rt">rt</a></code> element, an <code><a class="internalDFN" href="#dfn-rtc">rtc</a></code> element,
+                  or an <code><a class="internalDFN" href="#dfn-rp">rp</a></code> element, then set <var>index</var> to the value of <var>lookahead index</var>
+                  and jump to the step labelled <i>process a ruby child</i>.
+                </li>
+              </ol>
+            </li>
+          </ol>
+        </li>
+        <li>
+          If <var>current annotations</var> is not empty or if <var>current annotation containers</var> is not
+          empty, then run the steps to <a class="internalDFN" href="#dfn-commit-a-ruby-segment">commit a ruby segment</a>.
+        </li>
+        <li>
+          If <var>current child</var> is an <code><a class="internalDFN" href="#dfn-rb">rb</a></code> element, then run these substeps:
+          <ol>
+            <li>Run the steps to <a class="internalDFN" href="#dfn-commit-an-automatic-base">commit an automatic base</a>.</li>
+            <li>
+              If <var>current bases</var> is empty, then set <var>current bases range start</var> to
+              the value of <var>index</var>.
+            </li>
+            <li>
+              Create a new DOM range whose <span title="concept-range-start">start is the 
+              <span title="concept-range-bp">boundary point (<var>root</var>, <var>index</var>) and whose 
+              <span title="concept-range-end">end is the <span title="concept-range-bp">boundary point 
+              (<var>root</var>, <var>index</var> plus one), and append it at the end of <var>current bases</var>.
+            </span></span></span></span></li>
+            <li>Increment <var>index</var> by one and jump to the step labelled <i>process a ruby child</i>.</li>
+          </ol>
+        </li>
+        <li>
+          If <var>current automatic base nodes</var> is empty, set <var>current automatic base range start</var>
+          to the value of <var>index</var>.
+        </li>
+        <li>
+          Append <var>current child</var> at the end of <var>current automatic base nodes</var>.
+        </li>
+        <li>Increment <var>index</var> by one and jump to the step labelled <i>process a ruby child</i>.</li>
+      </ol>
+      <p>
+        When the steps above say to <dfn id="dfn-commit-a-ruby-segment">commit a ruby segment</dfn>, it means to run the 
+        following steps at that point in the algorithm:
+      </p>
+      <ol>
+        <li>Run the steps to <a class="internalDFN" href="#dfn-commit-an-automatic-base">commit an automatic base</a>.</li>
+        <li>
+          If <var>current bases</var>, <var>current annotations</var>, and <var>current annotation containers</var>
+          are all empty, abort these steps.
+        </li>
+        <li>Run the steps to <a class="internalDFN" href="#dfn-commit-the-base-range">commit the base range</a>.</li>
+        <li>Run the steps to <a class="internalDFN" href="#dfn-commit-current-annotations">commit current annotations</a>.</li>
+        <li>
+          Create a new ruby segment. It is described by a list of bases set to <var>current bases</var>,
+          a base DOM range set to <var>current bases range</var>, and a first and second
+          annotation containers that are respectively the first and second items of the
+          <var>current annotation containers</var> list. Append this new ruby segment at the end of 
+          <var>ruby segments</var>.
+        </li>
+        <li>Let <var>current bases</var> be an empty list.</li>
+        <li>Let <var>current bases range</var> be null.</li>
+        <li>Let <var>current bases range start</var> be null.</li>
+        <li>Let <var>current annotation containers</var> be an empty list.</li>
+      </ol>
+      <p>
+        When the steps above say to <dfn id="dfn-commit-the-base-range">commit the base range</dfn>, it means to run the 
+        following steps at that point in the algorithm:
+      </p>
+      <ol>
+        <li>If <var>current bases</var> is empty, abort these steps.</li>
+        <li>If <var>current bases range</var> is not null, abort these steps.</li>
+        <li>
+          Let <var>current bases range</var> be a DOM range whose 
+          <span title="concept-range-start">start is the <span title="concept-range-bp">boundary
+          point (<var>root</var>, <var>current bases range start</var>) and whose 
+          <span title="concept-range-end">end is the <span title="concept-range-bp">boundary point
+          (<var>root</var>, <var>index</var>).
+        </span></span></span></span></li>
+      </ol>
+      <p>
+        When the steps above say to <dfn id="dfn-commit-current-annotations">commit current annotations</dfn>, it means to run the 
+        following steps at that point in the algorithm:
+      </p>
+      <ol>
+        <li>
+          If <var>current annotations</var> is not empty and <var>current annotations range</var> is
+          null let <var>current annotations range</var> be a DOM range whose 
+          <span title="concept-range-start">start is the <span title="concept-range-bp">boundary
+          point (<var>root</var>, <var>current annotations range start</var>) and whose 
+          <span title="concept-range-end">end is the <span title="concept-range-bp">boundary point
+          (<var>root</var>, <var>index</var>).
+        </span></span></span></span></li>
+        <li>
+          If <var>current annotations</var> is not empty, create a new annotation container. It is described
+          by an annotations list set to <var>current annotations</var> and a range set to <var>current annotations range</var>.
+          Append this new annotation container at the end of <var>current annotation containers</var>.
+        </li>
+        <li>Let <var>current annotations</var> be an empty list of DOM ranges.</li>
+        <li>Let <var>current annotations range</var> be null.</li>
+        <li>Let <var>current annotations range start</var> be null.</li>
+      </ol>
+      <p>
+        When the steps above say to <dfn id="dfn-commit-an-automatic-base">commit an automatic base</dfn>, it means to run the 
+        following steps at that point in the algorithm:
+      </p>
+      <ol>
+        <li>
+          If <var>current automatic base nodes</var> is empty, abort these steps.
+        </li>
+        <li>
+          If <var>current automatic base nodes</var> contains nodes that are not <code>Text</code>
+          nodes, or <code>Text</code> nodes that are not <a>inter-element whitespace</a>, then
+          run these substeps:
+          <ol>
+            <li>
+              It <var>current bases</var> is empty, set <var>current bases range start</var> to the value of
+              <var>current automatic base range start</var>.
+            </li>
+            <li>
+              Create a new DOM range whose <span title="concept-range-start">start is the 
+              <span title="concept-range-bp">boundary point (<var>root</var>, <var>current automatic base 
+              range start</var>) and whose <span title="concept-range-end">end is the 
+              <span title="concept-range-bp">boundary point (<var>root</var>, <var>index</var>), and
+              append it at the end of <var>current bases</var>.
+            </span></span></span></span></li>
+          </ol>
+          </li><li>Let <var>current automatic base nodes</var> be an empty list of DOM Nodes.</li>
+          <li>Let <var>current automatic base range start</var> be null.</li>
+        
+      </ol>
+    </section>
+    
+    <section id="the-rb-element">
+      <!--OddPage--><h2><span class="secno">3. </span>The <dfn id="dfn-rb"><code>rb</code></dfn> element</h2>
+      <dl class="element">
+        <dt><span title="element-dfn-categories">Categories</span>:</dt>
+        <dd>None.</dd>
+        <dt><span title="element-dfn-contexts">Contexts in which this element can be used</span>:</dt>
+        <dd>As a child of a <code>ruby</code> element.</dd>
+        <dt><span title="element-dfn-content-model">Content model</span>:</dt>
+        <dd><span>Phrasing content</span>.</dd>
+        <dt><span title="element-dfn-attributes">Content attributes</span>:</dt>
+        <dd><span>Global attributes</span></dd>
+        <dt><span title="element-dfn-dom">DOM interface</span>:</dt><!--TOPIC:DOM APIs-->
+        <dd>Uses <code>HTMLElement</code>.</dd>
+      </dl><!--TOPIC:HTML-->
+
+      <p>The <code>rb</code> element marks the base text component of a ruby annotation. When it is the
+      child of a <code>ruby</code> element, it doesn't <span title="represents">represent</span> anything itself, 
+      but its parent <code>ruby</code> element uses it as part of determining what <em>it</em>
+      <span>represents</span>.</p>
+
+      <div class="impl">
+        <p>An <code>rb</code> element that is not a child of a <code>ruby</code> element
+        <span>represents</span> the same thing as its children.</p>
+      </div>
+    </section>
+    
+    <section id="the-rt-element">
+      <!--OddPage--><h2><span class="secno">4. </span>The <dfn id="dfn-rt"><code>rt</code></dfn> element</h2>
+      <dl class="element">
+        <dt><span title="element-dfn-categories">Categories</span>:</dt>
+        <dd>None.</dd>
+        <dt><span title="element-dfn-contexts">Contexts in which this element can be used</span>:</dt>
+        <dd>As a child of a <code>ruby</code> or of an <code>rtc</code> element.</dd>
+        <dt><span title="element-dfn-content-model">Content model</span>:</dt>
+        <dd><span>Phrasing content</span>.</dd>
+        <dt><span title="element-dfn-attributes">Content attributes</span>:</dt>
+        <dd><span>Global attributes</span></dd>
+        <dt><span title="element-dfn-dom">DOM interface</span>:</dt><!--TOPIC:DOM APIs-->
+        <dd>Uses <code>HTMLElement</code>.</dd>
+      </dl><!--TOPIC:HTML-->
+
+      <p>The <code>rt</code> element marks the ruby text component of a ruby annotation. When it is the
+      child of a <code>ruby</code> element or of an <code>rtc</code> element that is itself the child of
+      a <code>ruby</code> element, it doesn't <span title="represents">represent</span> anything itself, 
+      but its ancestor <code>ruby</code> element uses it as part of determining what <em>it</em>
+      <span>represents</span>.</p>
+
+      <div class="impl">
+        <p>An <code>rt</code> element that is not a child of a <code>ruby</code> element
+        or of an <code>rtc</code> element that is itself the child of a <code>ruby</code> element
+        <span>represents</span> the same thing as its children.</p>
+      </div>
+    </section>
+    
+    <section id="the-rtc-element">
+      <!--OddPage--><h2><span class="secno">5. </span>The <dfn id="dfn-rtc"><code>rtc</code></dfn> element</h2>
+      <dl class="element">
+        <dt><span title="element-dfn-categories">Categories</span>:</dt>
+        <dd>None.</dd>
+        <dt><span title="element-dfn-contexts">Contexts in which this element can be used</span>:</dt>
+        <dd>As a child of a <code>ruby</code> element.</dd>
+        <dt><span title="element-dfn-content-model">Content model</span>:</dt>
+        <dd><span>Phrasing content</span>.</dd>
+        <dt><span title="element-dfn-attributes">Content attributes</span>:</dt>
+        <dd><span>Global attributes</span></dd>
+        <dt><span title="element-dfn-dom">DOM interface</span>:</dt><!--TOPIC:DOM APIs-->
+        <dd>Uses <code>HTMLElement</code>.</dd>
+      </dl><!--TOPIC:HTML-->
+
+      <p>The <code>rtc</code> element marks a ruby text container for ruby text components in a ruby annotation.
+      When it is the child of a <code>ruby</code> element it doesn't <span title="represents">represent</span>
+      anything itself, but its parent <code>ruby</code> element uses it as part of determining what <em>it</em>
+      <span>represents</span>.</p>
+
+      <div class="impl">
+        <p>An <code>rtc</code> element that is not a child of a <code>ruby</code> element
+        <span>represents</span> the same thing as its children.</p>
+      </div>
+      <p>
+        When an <code><a class="internalDFN" href="#dfn-rtc">rtc</a></code> element is processed as part of the segmentation
+        and categorisation of content for a <code><a class="internalDFN" href="#dfn-ruby">ruby</a></code> element, 
+        the following algorithm defines how to <dfn id="dfn-process-an-rtc-element">process an <code><a class="internalDFN" href="#dfn-rtc">rtc</a></code> element</dfn>:
+      </p>
+      <ol>
+        <li>Let <var>root</var> be the <code><a class="internalDFN" href="#dfn-rtc">rtc</a></code> element for which the algorithm is being run.</li>
+        <li>Let <var>index</var> be 0.</li>
+        <li>Let <var>annotations</var> be an empty list of DOM ranges.</li>
+        <li>Let <var>current automatic annotation nodes</var> be an empty list of DOM nodes.</li>
+        <li>Let <var>current automatic annotation range start</var> be null.</li>
+        <li>
+          <i>Process an rtc child</i>: If <var>index</var> is equal to or greater than the number of
+          child nodes in <var>root</var>, then run the steps to <a class="internalDFN" href="#dfn-commit-an-automatic-annotation">commit an automatic annotation</a>,
+          return <var>annotations</var>, and abort these steps.
+        </li>
+        <li>
+          Let <var>current child</var> be the <var>index</var>th node in <var>root</var>.
+        </li>
+        <li>
+          If <var>current child</var> is an <code><a class="internalDFN" href="#dfn-rt">rt</a></code> element, then run these substeps:
+          <ol>
+            <li>Run the steps to <a class="internalDFN" href="#dfn-commit-an-automatic-annotation">commit an automatic annotation</a>.</li>
+            <li>
+              Create a new DOM range whose <span title="concept-range-start">start is the 
+              <span title="concept-range-bp">boundary point (<var>root</var>, <var>index</var>) and 
+              whose <span title="concept-range-end">end is the 
+              <span title="concept-range-bp">boundary point (<var>root</var>, <var>index</var> plus one), and
+              append it at the end of <var>annotations</var>.
+            </span></span></span></span></li>
+            <li>Increment <var>index</var> by one and jump to the step labelled <i>process an rtc child</i>.</li>
+          </ol>
+        </li>
+        <li>
+          If <var>current automatic annotation nodes</var> is empty, set <var>current automatic annotation
+          range start</var> to the value of <var>index</var>.
+        </li>
+        <li>
+          Append <var>current child</var> at the end of <var>current automatic annotation nodes</var>.
+        </li>
+        <li>Increment <var>index</var> by one and jump to the step labelled <i>process an rtc child</i>.</li>
+      </ol>
+      <p>
+        When the steps above say to <dfn id="dfn-commit-an-automatic-annotation">commit an automatic annotation</dfn>, it means to run the 
+        following steps at that point in the algorithm:
+      </p>
+      <ol>
+        <li>
+          If <var>current automatic annotation nodes</var> is empty, abort these steps.
+        </li>
+        <li>
+          If <var>current automatic annotation nodes</var> contains nodes that are not <code>Text</code>
+          nodes, or <code>Text</code> nodes that are not <a>inter-element whitespace</a>, then
+          create a new DOM range whose <span title="concept-range-start">start is the 
+          <span title="concept-range-bp">boundary point (<var>root</var>, <var>current automatic annotation
+          range start</var>) and whose <span title="concept-range-end">end is the 
+          <span title="concept-range-bp">boundary point (<var>root</var>, <var>index</var>), and
+          append it at the end of <var>annotations</var>.
+        </span></span></span></span></li>
+        <li>Let <var>current automatic annotation nodes</var> be an empty list of DOM nodes.</li>
+        <li>Let <var>current automatic annotation range start</var> be null.</li>
+      </ol>
+    </section>
+    
+    <section id="the-rp-element">
+      <!--OddPage--><h2><span class="secno">6. </span>The <dfn id="dfn-rp"><code>rp</code></dfn> element</h2>
+      <dl class="element">
+       <dt><span title="element-dfn-categories">Categories</span>:</dt>
+       <dd>None.</dd>
+       <dt><span title="element-dfn-contexts">Contexts in which this element can be used</span>:</dt>
+       <dd>
+         As a child of a <code>ruby</code> element, either immediately before or immediately after an 
+         <code>rt</code> or <code>rtc</code> element.
+        </dd>
+       <dt><span title="element-dfn-content-model">Content model</span>:</dt>
+       <dd><span>Phrasing content</span>.</dd>
+       <dt><span title="element-dfn-attributes">Content attributes</span>:</dt>
+       <dd><span>Global attributes</span></dd>
+       <dt><span title="element-dfn-dom">DOM interface</span>:</dt><!--TOPIC:DOM APIs-->
+       <dd>Uses <code>HTMLElement</code>.</dd>
+      </dl><!--TOPIC:HTML-->
+
+      <p>The <code>rp</code> element can be used to provide parentheses around a ruby text component of
+      a ruby annotation, to be shown by user agents that don't support ruby annotations.</p>
+
+      <p>An <code>rp</code> element <span class="impl">that is a child of a <code>ruby</code>
+      element</span> <span>represents</span> nothing. <span class="impl">An <code>rp</code> element
+      whose parent element is not a <code>ruby</code> element <span>represents</span> its
+      children.</span></p>
+
+      <div class="example">
+        <p>
+          The example above, in which each ideograph in the text <span title="" lang="ja">漢字</span> is annotated with its
+          phonetic reading, could be expanded to use <code>rp</code> so that in
+          legacy user agents the readings are in parentheses (please note that
+          white space has been introduced into this example in order to make it
+          readable):
+        </p>
+
+        <pre lang="ja">...
+    &lt;ruby&gt;
+      漢
+      &lt;rb&gt;字&lt;/rb&gt;
+      &lt;rp&gt; (&lt;/rp&gt;
+      &lt;rt&gt;かん&lt;/rt&gt;
+      &lt;rt&gt;じ&lt;/rt&gt;
+      &lt;rp&gt;) &lt;/rp&gt;
+    &lt;/ruby&gt;
+...</pre>
+
+        <p>
+          In conforming user agents the rendering would be as above, but
+          in user agents that do not support ruby, the rendering would
+          be:
+        </p>
+
+        <pre lang="ja">... 漢字 (かんじ) ...</pre>
+
+      </div>
+      <div class="example">
+
+        <p>
+          When there are multiple annotations for a segment, <code>rp</code> elements can also be placed
+          between the annotations. Here is another copy of an earlier contrived example showing some
+          symbols with names given in English and French using double-sided annotations, but this time 
+          with <code>rp</code> elements as well:
+        </p>
+
+        <pre>&lt;ruby&gt;
+♥&lt;rp&gt;: &lt;/rp&gt;&lt;rt&gt;Heart&lt;/rt&gt;&lt;rp&gt;, &lt;/rp&gt;&lt;rtc&gt;&lt;rt lang=fr&gt;Cœur&lt;/rt&gt;&lt;/rtc&gt;&lt;rp&gt;.&lt;/rp&gt;
+☘&lt;rp&gt;: &lt;/rp&gt;&lt;rt&gt;Shamrock&lt;/rt&gt;&lt;rp&gt;, &lt;/rp&gt;&lt;rtc&gt;&lt;rt lang=fr&gt;Trèfle&lt;/rt&gt;&lt;/rtc&gt;&lt;rp&gt;.&lt;/rp&gt;
+✶&lt;rp&gt;: &lt;/rp&gt;&lt;rt&gt;Star&lt;/rt&gt;&lt;rp&gt;, &lt;/rp&gt;&lt;rtc&gt;&lt;rt lang=fr&gt;Étoile&lt;/rt&gt;&lt;/rtc&gt;&lt;rp&gt;.&lt;/rp&gt;
+&lt;/ruby&gt;</pre>
+
+        <p>This would make the example render as follows in non-ruby-capable user agents:</p>
+
+        <pre>♥: Heart, <span lang="fr">Cœur</span>. ☘: Shamrock, <span lang="fr">Trèfle</span>. ✶: Star, <span lang="fr">Étoile</span>.</pre>
+      </div>
+    </section>
+    <section id="miscellaneous-changes">
+      <!--OddPage--><h2><span class="secno">7. </span>Miscellaneous Changes</h2>
+      <p>
+        In <a href="http://www.w3.org/html/wg/drafts/html/master/text-level-semantics.html#usage-summary">Usage summary</a>,
+        add <code>rb</code> and <code>rtc</code> to the table.
+      </p>
+      <p>
+        Changes are required to [<cite><a href="#bib-WEBVTT" class="bibref">WEBVTT</a></cite>] in order to match this model.
+      </p>
+      <p>
+        In the parsing algorithm, “A start tag whose tag name is one of: "rp", "rt"” needs to include
+        "rb" and "rtc". Closing tag handling for <code>rt</code> and <code>rp</code> need be complemented
+        with the new elements, and they need to be added to
+        <a href="http://www.w3.org/html/wg/drafts/html/master/syntax.html#closing-elements-that-have-implied-end-tags">Closing 
+        elements that have implied end tags</a>. There are several other occurrences of "rp" and "rt"
+        in the parsing algorithm that need to see these elements added.
+      </p>
+      <p>
+        The CSS for <a href="http://www.w3.org/html/wg/drafts/html/master/rendering.html#phrasing-content-0">Phrasing content</a>
+        needs to include style for <code>rb</code> and <code>rtc</code>, and the following prose
+        needs to take them into account. Note that the CSS Ruby Module
+        [<cite><a href="#bib-CSS3RUBY" class="bibref">CSS3RUBY</a></cite>] is currently in sore need of fixing such that any reliance on it is hazardous at best.
+      </p>
+      <p>
+        <code>rb</code> needs to be removed from
+        <a href="http://www.w3.org/html/wg/drafts/html/master/obsolete.html#non-conforming-features">Non-conforming features</a>.
+      </p>
+      <p>
+        The <a href="http://www.w3.org/html/wg/drafts/html/master/iana.html#elements-1">Elements</a> appendix
+        needs updating to include the new elements, as will the
+        <a href="http://www.w3.org/html/wg/drafts/html/master/iana.html#element-interfaces">Element interfaces</a>
+        appendix.
+      </p>
+    </section>
+    <section id="acknowledgements">
+      <!--OddPage--><h2><span class="secno">8. </span>Acknowledgements</h2>
+      <p>
+        Much of this document is deeply indebted to Fantasai and Richard Ishida.
+      </p>
+    </section>
+    <section id="issues">
+      <!--OddPage--><h2><span class="secno">9. </span>Issues</h2>
+      <div class="issue"><div class="issue-title"><span>Issue 1</span></div><p class="">
+        Indicate document conformance problems better (e.g. more than two <code>rtc</code>s).
+      </p></div>
+      <div class="issue"><div class="issue-title"><span>Issue 2</span></div><p class="">
+        Take text-level elements into account rather than just text nodes.
+      </p></div>
+    </section>
+  
+
+<section class="appendix" id="references"><!--OddPage--><h2><span class="secno">A. </span>References</h2><section id="normative-references"><h3><span class="secno">A.1 </span>Normative references</h3><dl class="bibliography"><dt id="bib-RUBY-UC">[RUBY-UC]</dt><dd>Richard Ishida et al. <a href="http://www.w3.org/TR/ruby-use-cases/"><cite>Use Cases &amp; Exploratory Approaches for Ruby Markup</cite></a>. 10 July 2012. W3C Working Draft. URL: <a href="http://www.w3.org/TR/ruby-use-cases/">http://www.w3.org/TR/ruby-use-cases/</a>
+</dd></dl></section><section id="informative-references"><h3><span class="secno">A.2 </span>Informative references</h3><dl class="bibliography"><dt id="bib-CSS3RUBY">[CSS3RUBY]</dt><dd>Michel Suignard. <a href="http://www.w3.org/TR/2003/CR-css3-ruby-20030514"><cite>CSS3 Ruby Module</cite></a>. 14 May 2003. W3C Candidate Recommendation. URL: <a href="http://www.w3.org/TR/2003/CR-css3-ruby-20030514">http://www.w3.org/TR/2003/CR-css3-ruby-20030514</a>
+</dd><dt id="bib-WEBVTT">[WEBVTT]</dt><dd>Ian Hickson. <a href="http://dev.w3.org/html5/webvtt/"><cite>WebVTT</cite></a>. 21 August 2012. W3C Working Draft. URL: <a href="http://dev.w3.org/html5/webvtt/">http://dev.w3.org/html5/webvtt/</a>
+</dd></dl></section></section></body></html>
