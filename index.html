@@ -708,14 +708,17 @@
         <dd>Uses <code>HTMLElement</code>.</dd>
       </dl><!--TOPIC:HTML-->
 
-      <p>The <code>rb</code> element marks the base text component of a ruby annotation. When it is the
-      child of a <code>ruby</code> element, it doesn't <span title="represents">represent</span> anything itself, 
-      but its parent <code>ruby</code> element uses it as part of determining what <em>it</em>
-      <span>represents</span>.</p>
-
+      <p>
+        The <code>rb</code> element marks the base text component of a ruby annotation. When it is
+        the child of a <code>ruby</code> element, it doesn't <span
+        title="represents">represent</span> anything itself, but its parent <code>ruby</code>
+        element uses it as part of determining what <em>it</em> <span>represents</span>.
+      </p>
       <div class="impl">
-        <p>An <code>rb</code> element that is not a child of a <code>ruby</code> element
-        <span>represents</span> the same thing as its children.</p>
+        <p>
+          An <code>rb</code> element that is not a child of a <code>ruby</code> element
+          <span>represents</span> the same thing as its children.
+        </p>
       </div>
     </section>
     
@@ -736,16 +739,20 @@
         <dd>Uses <code>HTMLElement</code>.</dd>
       </dl><!--TOPIC:HTML-->
 
-      <p>The <code>rt</code> element marks the ruby text component of a ruby annotation. When it is the
-      child of a <code>ruby</code> element or of an <code>rtc</code> element that is itself the child of
-      a <code>ruby</code> element, it doesn't <span title="represents">represent</span> anything itself, 
-      but its ancestor <code>ruby</code> element uses it as part of determining what <em>it</em>
-      <span>represents</span>.</p>
+      <p>
+        The <code>rt</code> element marks the ruby text component of a ruby annotation. When it is
+        the child of a <code>ruby</code> element or of an <code>rtc</code> element that is itself
+        the child of a <code>ruby</code> element, it doesn't <span
+        title="represents">represent</span> anything itself, but its ancestor <code>ruby</code>
+        element uses it as part of determining what <em>it</em> <span>represents</span>.
+      </p>
 
       <div class="impl">
-        <p>An <code>rt</code> element that is not a child of a <code>ruby</code> element
-        or of an <code>rtc</code> element that is itself the child of a <code>ruby</code> element
-        <span>represents</span> the same thing as its children.</p>
+        <p>
+          An <code>rt</code> element that is not a child of a <code>ruby</code> element or of an
+          <code>rtc</code> element that is itself the child of a <code>ruby</code> element
+          <span>represents</span> the same thing as its children.
+        </p>
       </div>
     </section>
     
@@ -766,30 +773,37 @@
         <dd>Uses <code>HTMLElement</code>.</dd>
       </dl><!--TOPIC:HTML-->
 
-      <p>The <code>rtc</code> element marks a <a>ruby text container</a> for ruby text components in a ruby annotation.
-      When it is the child of a <code>ruby</code> element it doesn't <span title="represents">represent</span>
-      anything itself, but its parent <code>ruby</code> element uses it as part of determining what <em>it</em>
-      <span>represents</span>.</p>
+      <p>
+        The <code>rtc</code> element marks a <a>ruby text container</a> for ruby text components in
+        a ruby annotation. When it is the child of a <code>ruby</code> element it doesn't <span
+        title="represents">represent</span> anything itself, but its parent <code>ruby</code>
+        element uses it as part of determining what <em>it</em> <span>represents</span>.
+      </p>
 
       <div class="impl">
-        <p>An <code>rtc</code> element that is not a child of a <code>ruby</code> element
-        <span>represents</span> the same thing as its children.</p>
+        <p>
+          An <code>rtc</code> element that is not a child of a <code>ruby</code> element
+          <span>represents</span> the same thing as its children.
+        </p>
       </div>
       <p>
-        When an <code><a>rtc</a></code> element is processed as part of the segmentation
-        and categorisation of content for a <code><a>ruby</a></code> element, 
-        the following algorithm defines how to <dfn>process an <code><a>rtc</a></code> element</dfn>:
+        When an <code><a>rtc</a></code> element is processed as part of the segmentation and
+        categorisation of content for a <code><a>ruby</a></code> element, the following algorithm
+        defines how to <dfn>process an <code><a>rtc</a></code> element</dfn>:
       </p>
       <ol>
-        <li>Let <var>root</var> be the <code><a>rtc</a></code> element for which the algorithm is being run.</li>
+        <li>
+          Let <var>root</var> be the <code><a>rtc</a></code> element for which the algorithm is
+          being run.
+          </li>
         <li>Let <var>index</var> be 0.</li>
         <li>Let <var>annotations</var> be an empty list of DOM ranges.</li>
         <li>Let <var>current automatic annotation nodes</var> be an empty list of DOM nodes.</li>
         <li>Let <var>current automatic annotation range start</var> be null.</li>
         <li>
           <i>Process an rtc child</i>: If <var>index</var> is equal to or greater than the number of
-          child nodes in <var>root</var>, then run the steps to <a>commit an automatic annotation</a>,
-          return <var>annotations</var>, and abort these steps.
+          child nodes in <var>root</var>, then run the steps to <a>commit an automatic
+          annotation</a>, return <var>annotations</var>, and abort these steps.
         </li>
         <li>
           Let <var>current child</var> be the <var>index</var>th node in <var>root</var>.
@@ -799,23 +813,30 @@
           <ol>
             <li>Run the steps to <a>commit an automatic annotation</a>.</li>
             <li>
-              Create a new DOM range whose <span title="concept-range-start">start</a> is the 
-              <span title="concept-range-bp">boundary point</a> (<var>root</var>, <var>index</var>) and 
-              whose <span title="concept-range-end">end</a> is the 
-              <span title="concept-range-bp">boundary point</a> (<var>root</var>, <var>index</var> plus one), and
-              append it at the end of <var>annotations</var>.
+              Create a new DOM range whose <span title="concept-range-start">start</a> is the <span
+              title="concept-range-bp">boundary point</a> (<var>root</var>, <var>index</var>) and
+              whose <span title="concept-range-end">end</a> is the <span
+              title="concept-range-bp">boundary point</a> (<var>root</var>, <var>index</var> plus
+              one), and append it at the end of <var>annotations</var>.
             </li>
-            <li>Increment <var>index</var> by one and jump to the step labelled <i>process an rtc child</i>.</li>
+            <li>
+              Increment <var>index</var> by one and jump to the step labelled <i>process an rtc
+              child</i>.
+            </li>
           </ol>
         </li>
         <li>
-          If <var>current automatic annotation nodes</var> is empty, set <var>current automatic annotation
-          range start</var> to the value of <var>index</var>.
+          If <var>current automatic annotation nodes</var> is empty, set <var>current automatic
+          annotation range start</var> to the value of <var>index</var>.
         </li>
         <li>
-          Append <var>current child</var> at the end of <var>current automatic annotation nodes</var>.
+          Append <var>current child</var> at the end of <var>current automatic annotation
+          nodes</var>.
         </li>
-        <li>Increment <var>index</var> by one and jump to the step labelled <i>process an rtc child</i>.</li>
+        <li>
+          Increment <var>index</var> by one and jump to the step labelled <i>process an rtc
+          child</i>.
+        </li>
       </ol>
       <p>
         When the steps above say to <dfn>commit an automatic annotation</dfn>, it means to run the 
@@ -826,13 +847,14 @@
           If <var>current automatic annotation nodes</var> is empty, abort these steps.
         </li>
         <li>
-          If <var>current automatic annotation nodes</var> contains nodes that are not <code>Text</code>
-          nodes, or <code>Text</code> nodes that are not <a>inter-element whitespace</a>, then
-          create a new DOM range whose <span title="concept-range-start">start</a> is the 
-          <span title="concept-range-bp">boundary point</a> (<var>root</var>, <var>current automatic annotation
-          range start</var>) and whose <span title="concept-range-end">end</a> is the 
-          <span title="concept-range-bp">boundary point</a> (<var>root</var>, <var>index</var>), and
-          append it at the end of <var>annotations</var>.
+          If <var>current automatic annotation nodes</var> contains nodes that are not
+          <code>Text</code> nodes, or <code>Text</code> nodes that are not <a>inter-element
+          whitespace</a>, then create a new DOM range whose <span
+          title="concept-range-start">start</a> is the <span title="concept-range-bp">boundary
+          point</a> (<var>root</var>, <var>current automatic annotation range start</var>) and whose
+          <span title="concept-range-end">end</a> is the <span title="concept-range-bp">boundary
+          point</a> (<var>root</var>, <var>index</var>), and append it at the end of
+          <var>annotations</var>.
         </li>
         <li>Let <var>current automatic annotation nodes</var> be an empty list of DOM nodes.</li>
         <li>Let <var>current automatic annotation range start</var> be null.</li>
@@ -859,63 +881,64 @@
         <dd>Uses <code>HTMLElement</code>.</dd>
       </dl><!--TOPIC:HTML-->
 
-      <p>The <code>rp</code> element can be used to provide parentheses around a ruby text component of
-      a ruby annotation, to be shown by user agents that don't support ruby annotations.</p>
-
-      <p>An <code>rp</code> element <span class="impl">that is a child of a <code>ruby</code>
-      element</span> <span>represents</span> nothing. <span class="impl">An <code>rp</code> element
-      whose parent element is not a <code>ruby</code> element <span>represents</span> its
-      children.</span></p>
-
-      <div class="example">
-        <p>
-          The example above, in which each ideograph in the text <span
-          title="" lang="ja">&#28450;&#23383;</span> is annotated with its
-          phonetic reading, could be expanded to use <code>rp</code> so that in
-          legacy user agents the readings are in parentheses (please note that
-          white space has been introduced into this example in order to make it
-          readable):
-        </p>
-
-        <pre lang="ja">...
-    &lt;ruby>
-      &#28450;
-      &lt;rb>&#23383;&lt;/rb>
-      &lt;rp> (&lt;/rp>
-      &lt;rt>&#12363;&#12435;&lt;/rt>
-      &lt;rt>&#12376;&lt;/rt>
-      &lt;rp>) &lt;/rp>
-    &lt;/ruby>
-...</pre>
-
-        <p>
-          In conforming user agents the rendering would be as above, but
-          in user agents that do not support ruby, the rendering would
-          be:
-        </p>
-
-        <pre lang="ja">... &#28450;&#23383; (&#12363;&#12435;&#12376;) ...</pre>
-
-      </div>
-      <div class="example">
-
-        <p>
-          When there are multiple annotations for a segment, <code>rp</code> elements can also be placed
-          between the annotations. Here is another copy of an earlier contrived example showing some
-          symbols with names given in English and French using double-sided annotations, but this time 
-          with <code>rp</code> elements as well:
-        </p>
-
-        <pre>&lt;ruby>
-&#x2665;&lt;rp>: &lt;/rp>&lt;rt>Heart&lt;/rt>&lt;rp>, &lt;/rp>&lt;rtc>&lt;rt lang=fr>C&oelig;ur&lt;/rt>&lt;/rtc>&lt;rp>.&lt;/rp>
-&#x2618;&lt;rp>: &lt;/rp>&lt;rt>Shamrock&lt;/rt>&lt;rp>, &lt;/rp>&lt;rtc>&lt;rt lang=fr>Tr&egrave;fle&lt;/rt>&lt;/rtc>&lt;rp>.&lt;/rp>
-&#x2736;&lt;rp>: &lt;/rp>&lt;rt>Star&lt;/rt>&lt;rp>, &lt;/rp>&lt;rtc>&lt;rt lang=fr>&Eacute;toile&lt;/rt>&lt;/rtc>&lt;rp>.&lt;/rp>
-&lt;/ruby></pre>
-
-        <p>This would make the example render as follows in non-ruby-capable user agents:</p>
-
-        <pre>&#x2665;: Heart, <span lang=fr>C&oelig;ur</span>. &#x2618;: Shamrock, <span lang=fr>Tr&egrave;fle</span>. &#x2736;: Star, <span lang=fr>&Eacute;toile</span>.</pre>
-      </div>
+      <p>
+        The <code>rp</code> element can be used to provide parentheses around a ruby text component
+        of a ruby annotation, to be shown by user agents that don't support ruby annotations.
+      </p>
+        
+      <p>
+        An <code>rp</code> element <span class="impl">that is a child of a <code>ruby</code>
+        element</span> <span>represents</span> nothing. <span class="impl">An <code>rp</code>
+        element whose parent element is not a <code>ruby</code> element <span>represents</span> its
+        children.</span>
+      </p>
+      <p>
+        The example shown previously, in which each ideograph in the text <span title=""
+        lang="ja">&#28450;&#23383;</span> is annotated with its phonetic reading, could be expanded
+        to use <code>rp</code> so that in legacy user agents the readings are in parentheses (please
+        note that white space has been introduced into this example in order to make it more 
+        readable):
+      </p>
+      <pre lang="ja" class='example highlight'>
+        ...
+        &lt;ruby>
+          &#28450;
+          &lt;rb>&#23383;&lt;/rb>
+          &lt;rp> (&lt;/rp>
+          &lt;rt>&#12363;&#12435;&lt;/rt>
+          &lt;rt>&#12376;&lt;/rt>
+          &lt;rp>) &lt;/rp>
+        &lt;/ruby>
+        ...
+      </pre>
+      <p>
+        In conforming user agents the rendering would be as above, but in user agents that do not
+        support ruby, the rendering would be:
+      </p>
+      <pre lang="ja" class='example highlight'>
+        ... &#28450;&#23383; (&#12363;&#12435;&#12376;) ...
+      </pre>
+      <p>
+        When there are multiple annotations for a segment, <code>rp</code> elements can also be
+        placed between the annotations. Here is another copy of an earlier contrived example showing
+        some symbols with names given in English and French using double-sided annotations, but this
+        time with <code>rp</code> elements as well:
+      </p>
+      <pre class='example highlight'>
+        &lt;ruby>
+          &#x2665;&lt;rp>: &lt;/rp>&lt;rt>Heart&lt;/rt>&lt;rp>, &lt;/rp>&lt;rtc>&lt;rt lang=fr>C&oelig;ur&lt;/rt>&lt;/rtc>&lt;rp>.&lt;/rp>
+          &#x2618;&lt;rp>: &lt;/rp>&lt;rt>Shamrock&lt;/rt>&lt;rp>, &lt;/rp>&lt;rtc>&lt;rt lang=fr>Tr&egrave;fle&lt;/rt>&lt;/rtc>&lt;rp>.&lt;/rp>
+          &#x2736;&lt;rp>: &lt;/rp>&lt;rt>Star&lt;/rt>&lt;rp>, &lt;/rp>&lt;rtc>&lt;rt lang=fr>&Eacute;toile&lt;/rt>&lt;/rtc>&lt;rp>.&lt;/rp>
+        &lt;/ruby>
+      </pre>
+      <p>
+        This would make the example render as follows in non-ruby-capable user agents:
+      </p>
+      <pre class='example highlight'>
+        &#x2665;: Heart, <span lang=fr>C&oelig;ur</span>.
+        &#x2618;: Shamrock, <span lang=fr>Tr&egrave;fle</span>.
+        &#x2736;: Star, <span lang=fr>&Eacute;toile</span>.
+      </pre>
     </section>
     <section>
       <h2>Miscellaneous Changes</h2>
