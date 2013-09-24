@@ -37,9 +37,6 @@
   <body>
     <!--
       TODO:
-        - link more clearly to CSS Ruby
-        - update data model to match terminology in CSS Ruby
-        - default rendering as per CSS Ruby
         - include CC-BY license
         - make a snapshot
         - see issues
@@ -89,6 +86,10 @@
         Some further changes will be required to HTML if this document is merged in. Of those, some
         are for paraphernalia (element index and the such) while others are more involved 
         (changes to parsing to auto-close some elements) and in some cases optional.
+      </p>
+      <p>
+        Changes to [[WEBVTT]] will be required in order to match this model. Also, 
+        <code><a>rb</a></code> needs to be removed from the obsolete elements.
       </p>
     </section>
     
@@ -941,38 +942,10 @@
       </pre>
     </section>
     <section>
-      <h2>Miscellaneous Changes</h2>
+      <h2>Rendering</h2>
       <p>
-        In <a href='http://www.w3.org/html/wg/drafts/html/master/text-level-semantics.html#usage-summary'>Usage summary</a>,
-        add <code>rb</code> and <code>rtc</code> to the table.
-      </p>
-      <p>
-        Changes are required to [[WEBVTT]] in order to match this model.
-      </p>
-      <p>
-        In the parsing algorithm, “A start tag whose tag name is one of: "rp", "rt"” needs to include
-        "rb" and "rtc". Closing tag handling for <code>rt</code> and <code>rp</code> need be complemented
-        with the new elements, and they need to be added to
-        <a href='http://www.w3.org/html/wg/drafts/html/master/syntax.html#closing-elements-that-have-implied-end-tags'>Closing 
-        elements that have implied end tags</a>. There are several other occurrences of "rp" and "rt"
-        in the parsing algorithm that need to see these elements added.
-      </p>
-      <p>
-        The CSS for <a
-        href='http://www.w3.org/html/wg/drafts/html/master/rendering.html#phrasing-content-0'>Phrasing
-        content</a> needs to include style for <code>rb</code> and <code>rtc</code>, and the
-        following prose needs to take them into account. Note that the CSS Ruby Module [[css3-ruby]]
-        is currently in sore need of fixing such that any reliance on it is hazardous at best.
-      </p>
-      <p>
-        <code>rb</code> needs to be removed from
-        <a href='http://www.w3.org/html/wg/drafts/html/master/obsolete.html#non-conforming-features'>Non-conforming features</a>.
-      </p>
-      <p>
-        The <a href='http://www.w3.org/html/wg/drafts/html/master/iana.html#elements-1'>Elements</a> appendix
-        needs updating to include the new elements, as will the
-        <a href='http://www.w3.org/html/wg/drafts/html/master/iana.html#element-interfaces'>Element interfaces</a>
-        appendix.
+        Additions to the default style sheet are made by <cite>CSS Ruby Module Level 1</cite>.
+        [[css3-ruby]]
       </p>
     </section>
     <section>
