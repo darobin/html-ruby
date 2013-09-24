@@ -1,0 +1,719 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja-jp" lang="ja-jp" xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta http-equiv="Content-Script-Type" content="text/javascript">
+	<meta http-equiv="Content-Style-Type" content="text/css">
+	<meta property="og:title" content="ちくわちゃん 公式Webサイト">
+	<meta property="og:type" content="social">
+	<meta property="og:description" content="ハイパーメディアクリエイターちくわちゃんの公式Webサイトです。Ustreamやニコニコ生放送のランキングや、自身のネットTV番組等がございます。">
+	<meta property="og:url" content="http://www.chikuwachan.com/">
+	<meta property="og:image" content="/img/og_image.png">
+	<meta property="og:site_name" content="ちくわちゃん 公式Webサイト">
+	<meta property="og:email" content="suepeko(at)gmail.com">
+	<meta property="og:phone_number" content="080-5590-9266">
+	<meta name="generator" content="全て手書きです。お金が無いのでAdobe買えません。切実です。誰かAdobe買ってください。何卒。">
+	<link rel="shortcut icon" href="/favicon.ico">
+	<link rel="apple-touch-icon" href="/img/apple-touch-icon.png" />
+	<link rel="stylesheet" type="text/css" href="/parts/page_index.css?20130504" />
+	<link rel="stylesheet" href="http://www.chikuwachan.com/live/savebbs/colorbox.css" />
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<script type="text/javascript" src="/parts/jquery_mods.js?20130504"></script>
+	<script src="http://www.chikuwachan.com/live/savebbs/jquery.colorbox.js"></script>
+	<script type="text/javascript"><!--
+		$.getJSON("/live/data/suepeko.json", function(data){
+			$(".counter_nicommunity").html(data.nicommunity);
+			$(".counter_twitter").html(data.twitter);
+			$(".counter_facebook").html(data.facebook);
+		});
+
+		$(function(){
+		    setTimeout(function(){
+		        $("img.fa_dummy").lazyload();
+		    },1000);
+		});
+
+		$(document).ready(function(){
+			$(".fan_art").colorbox({rel:'fan_art'});
+		});
+	//--></script>
+	<title>ちくわちゃん [公式Webサイト]</title>
+</head>
+
+<body>
+<!-- IE6以下に注意書きを表示 -->
+<!--[if lt IE 7]>  <div style='border: 1px solid #F7941D; background: #FEEFDA; text-align: center; clear: both; height: 75px; position: relative;'>    <div style='position: absolute; right: 3px; top: 3px; font-family: courier new; font-weight: bold;'><a href='#' onclick='javascript:this.parentNode.parentNode.style.display='none'; return false;'><img src='http://www.ie6nomore.com/files/theme/ie6nomore-cornerx.jpg' style='border: none;' alt='Close this notice'/></a></div>    <div style='width: 640px; margin: 0 auto; text-align: left; padding: 0; overflow: hidden; color: black;'>      <div style='width: 75px; float: left;'><img src='http://www.ie6nomore.com/files/theme/ie6nomore-warning.jpg' alt='Warning!'/></div>      <div style='width: 275px; float: left; font-family: Arial, sans-serif;'>        <div style='font-size: 14px; font-weight: bold; margin-top: 12px;'>あなたは旧式ブラウザをご利用中です</div>        <div style='font-size: 12px; margin-top: 6px; line-height: 12px;'>このウェブサイトを快適に閲覧するにはブラウザをアップグレードしてください。</div>      </div>      <div style='width: 75px; float: left;'><a href='http://www.mozilla.jp' target='_blank'><img src='http://www.ie6nomore.com/files/theme/ie6nomore-firefox.jpg' style='border: none;' alt='Get Firefox 3.5'/></a></div>      <div style='width: 75px; float: left;'><a href='http://www.microsoft.com/downloads/details.aspx?FamilyID=341c2ad5-8c3d-4347-8c03-08cdecd8852b&DisplayLang=ja' target='_blank'><img src='http://www.ie6nomore.com/files/theme/ie6nomore-ie8.jpg' style='border: none;' alt='Get Internet Explorer 8'/></a></div>      <div style='width: 73px; float: left;'><a href='http://www.apple.com/jp/safari/download/' target='_blank'><img src='http://www.ie6nomore.com/files/theme/ie6nomore-safari.jpg' style='border: none;' alt='Get Safari 4'/></a></div>      <div style='float: left;'><a href='http://www.google.com/chrome?hl=ja' target='_blank'><img src='http://www.ie6nomore.com/files/theme/ie6nomore-chrome.jpg' style='border: none;' alt='Get Google Chrome'/></a></div>    </div>  </div>  <![endif]-->
+
+	<div id="header">
+		<div class="seikei">
+			<ul class="toolink">
+				<li><a class="selected" href="http://www.chikuwachan.com/">ちくわちゃん</a></li>
+				<li><a href="http://suepeko.chikuwachan.com/">ちくわブログ</a></li>
+				<li><a href="/live/">ニコニコ生放送ランキング</a></li>
+				<li><a href="/ustream/">ユーストリーム＆生配信ランキング</a></li>
+				<li><a href="/live/catalog/">コミュニティカタログ</a></li>
+				<li><a href="/live/memo.html">ニコ生メモ</a></li>
+			</ul>
+
+			<h1><img class="title_image" src="/img/blank.gif" alt="ちくわちゃん [公式Webサイト]" /></h1>
+		</div>
+	</div>
+
+	<p id="subject">
+		朝　目が覚めて　真っ先に思い浮かぶ　ホームページ　今日の一位は　<ruby><rb>炎上</rb><rp>[</rp><rt>もえ</rt><rp>]</rp></ruby>てるのよ　|　
+		月間ページビュー数1000万、毎度ありがとうございます。
+	</p>
+
+	<div id="content" class="cl">
+		<div id="content_left">
+
+			<div class="block">
+				<h2>インターネット生放送ランキング</h2>
+
+				<div class="contblock">
+					<div class="cb_image"><a href="/live/"><img alt="" src="/img/web/top_nicorank.png"></a></div>
+					<h3><a href="/live/">ニコニコ生放送ランキング</a></h3>
+					<p class="cb_text">ニコ生で現在放送されている番組を、<br />アクティブな書き込み人数順でランキング化。</p>
+				</div>
+
+				<div class="contblock">
+					<div class="cb_image"><a href="/ustream/"><img alt="" src="/img/web/top_ustrank.png"></a></div>
+					<h3><a href="/ustream/">ユーストリーム＆生配信ランキング</a></h3>
+					<p class="cb_text">UstreamやJustinで現在放送されている番組を、<br />リアルタイム視聴者数順でランキング化。</p>
+				</div>
+
+				<div class="contblock">
+					<div class="cb_image"><a href="/live/catalog/"><img alt="" src="/img/web/top_catalog.png"></a></div>
+					<h3><a href="/live/catalog/">ニコニコ生放送コミュニティカタログ</a></h3>
+					<p class="cb_text">ニコ生の人気配信者のリストです。<br />ニコ生視聴初心者の方や、配信者の方にお勧めです。</p>
+				</div>
+
+				<div class="contblock">
+					<div class="cb_image"><a href="/live/memo.html"><img alt="" src="/img/web/top_memo.png"></a></div>
+					<h3><a href="/live/memo.html">ニコニコ生放送メモ(Tips)</a></h3>
+					<p class="cb_text">非公式のBAN基準など。<br />最近少しだけ更新しました。</p>
+				</div>
+			</div>
+
+			<div class="block">
+				<h2>読み物</h2>
+
+				<div class="contblock">
+					<div class="cb_image"><a href="http://suepeko.chikuwachan.com/"><img src="/img/web/top_blog.png" class="dummy_gif"></a></div>
+					<h3><a href="http://suepeko.chikuwachan.com/">ちくわちゃん&#10084;ブログ</a></h3>
+					<p class="cb_text">ちくわちゃんによるブログです。<br />こないだ作ったばっかりなのでよろしくおねがいします！</p>
+					<!--<p class="cb_text">ちくわちゃんによる情報ブログサイトです。「ネット配信」「ＰＣ・ガジェット」「音楽」「札幌ラーメン」辺りの話をします。</p>-->
+				</div>
+			</div>
+
+			<div class="block">
+				<h2>ちくわちゃん配信</h2>
+
+				<div class="contblock">
+					<iframe class="nicoif" width="500" height="115" src="http://ext.nicovideo.jp/thumb_community/co10000" scrolling="no" style="border:solid 1px #CCC;" frameborder="0"><a href="http://ch.nicovideo.jp/community/co10000">【ニコニコ動画】?? ? ちくわちゃん ? ? (・∀・oニ(0).｡.:*─･ﾟ･</a></iframe><br />
+					コミュニティ人数 <span style="color:red;font-weight:bold;">30000人</span> 突破しました。ありがとうございます。
+				</div>
+			</div>
+
+			<div class="block">
+				<h2>ファンアート</h2>
+
+				<div class="contblock">
+					<!--<iframe width="170" height="200" src="http://ext.seiga.nicovideo.jp/blogparts?mode=clip&key=40663&code=9018567_7045e48e754e5cd6534f8b4ad1d584d416ac26bd" scrolling="no" frameborder="0"><a href="http://seiga.nicovideo.jp/clip/40663">ちくわちゃんの載っている絵</a></iframe><br />-->
+					ちくわちゃんを描いていただきました、皆様のファンアートです。<br />
+					他者のコミュニティ掲示板等で描かれた絵でも、ちくわちゃんが描かれているものについては<br />
+					掲載しております。問題ある場合はメール等でご連絡ください。<br />
+					<a target="_blank" href="http://seiga.nicovideo.jp/clip/40663">ニコニコ静画の分はこちら</a>から御覧ください。<br />
+					ちくわちゃん本人が描いた絵については、<a target="_blank" href="http://www.pixiv.net/member.php?id=429286"><img src="/img/site/pixiv.png" alt="" />pixiv</a> <a target="_blank" href="http://seiga.nicovideo.jp/user/illust/9018567"><img src="/img/site/nicoseiga.png" alt="" />ニコニコ静画</a> にまとめてあります。
+
+					<div class="fan_arts">
+						<a href="/img/fan_art/00413_2013.05.01_111009.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00413_2013.05.01_111009.jpg" /></a>
+						<a href="/img/fan_art/00412_2012.06.03_115152.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00412_2012.06.03_115152.jpg" /></a>
+						<a href="/img/fan_art/00411_2012.05.26_004418.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00411_2012.05.26_004418.jpg" /></a>
+						<a href="/img/fan_art/00410_2012.05.25_202913.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00410_2012.05.25_202913.jpg" /></a>
+						<a href="/img/fan_art/00409_2012.03.24_161300.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00409_2012.03.24_161300.jpg" /></a>
+						<a href="/img/fan_art/00408_2012.02.19_170443.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00408_2012.02.19_170443.jpg" /></a>
+						<a href="/img/fan_art/00407_2012.02.11_093828.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00407_2012.02.11_093828.jpg" /></a>
+						<a href="/img/fan_art/00406_2012.02.11_093824.jpg" class="fan_art"><img alt="" src="/img/fan_art/thumb/00406_2012.02.11_093824.jpg" /></a>
+						<a href="/img/fan_art/00405_2012.02.11_093635.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00405_2012.02.11_093635.jpg" /></a>
+						<a href="/img/fan_art/00404_2012.02.11_093626.jpg" class="fan_art"><img alt="" src="/img/fan_art/thumb/00404_2012.02.11_093626.jpg" /></a>
+						<a href="/img/fan_art/00403_2012.01.18_150751.jpg" class="fan_art"><img alt="" src="/img/fan_art/thumb/00403_2012.01.18_150751.jpg" /></a>
+						<a href="/img/fan_art/00402_2012.01.18_150736.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00402_2012.01.18_150736.jpg" /></a>
+						<a href="/img/fan_art/00401_2012.01.18_150719.jpg" class="fan_art"><img alt="" src="/img/fan_art/thumb/00401_2012.01.18_150719.jpg" /></a>
+						<a href="/img/fan_art/00400_2012.01.10_015701.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00400_2012.01.10_015701.jpg" /></a>
+						<a href="/img/fan_art/00399_2012.01.02_030026.jpg" class="fan_art"><img alt="" src="/img/fan_art/thumb/00399_2012.01.02_030026.jpg" /></a>
+						<a href="/img/fan_art/00398_2012.01.01_192004.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00398_2012.01.01_192004.jpg" /></a>
+						<a href="/img/fan_art/00397_2012.01.01_192001.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00397_2012.01.01_192001.jpg" /></a>
+						<a href="/img/fan_art/00396_2012.01.01_191959.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00396_2012.01.01_191959.jpg" /></a>
+						<a href="/img/fan_art/00395_2012.01.01_191930.jpg" class="fan_art"><img alt="" src="/img/fan_art/thumb/00395_2012.01.01_191930.jpg" /></a>
+						<a href="/img/fan_art/00394_2012.01.01_191839.jpg" class="fan_art"><img alt="" src="/img/fan_art/thumb/00394_2012.01.01_191839.jpg" /></a>
+						<a href="/img/fan_art/00393_2012.01.01_191819.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00393_2012.01.01_191819.jpg" /></a>
+						<a href="/img/fan_art/00392_2011.12.31_191441.jpg" class="fan_art"><img alt="" src="/img/fan_art/thumb/00392_2011.12.31_191441.jpg" /></a>
+						<a href="/img/fan_art/00391_2011.12.31_183654.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00391_2011.12.31_183654.jpg" /></a>
+						<a href="/img/fan_art/00390_2011.12.31_183637.jpg" class="fan_art"><img alt="" src="/img/fan_art/thumb/00390_2011.12.31_183637.jpg" /></a>
+						<a href="/img/fan_art/00389_2011.12.31_183520.jpg" class="fan_art"><img alt="" src="/img/fan_art/thumb/00389_2011.12.31_183520.jpg" /></a>
+						<a href="/img/fan_art/00388_2011.12.31_183219.jpg" class="fan_art"><img alt="" src="/img/fan_art/thumb/00388_2011.12.31_183219.jpg" /></a>
+						<a href="/img/fan_art/00387_2011.12.31_182538.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00387_2011.12.31_182538.jpg" /></a>
+						<a href="/img/fan_art/00386_2011.12.31_182531.jpg" class="fan_art"><img alt="" src="/img/fan_art/thumb/00386_2011.12.31_182531.jpg" /></a>
+						<a href="/img/fan_art/00385_2011.12.31_182505.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00385_2011.12.31_182505.jpg" /></a>
+						<a href="/img/fan_art/00384_2011.12.31_182446.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00384_2011.12.31_182446.jpg" /></a>
+						<a href="/img/fan_art/00383_2011.12.31_182428.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00383_2011.12.31_182428.jpg" /></a>
+						<a href="/img/fan_art/00382_2011.12.31_182351.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00382_2011.12.31_182351.jpg" /></a>
+						<a href="/img/fan_art/00381_2011.12.31_182214.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00381_2011.12.31_182214.jpg" /></a>
+						<a href="/img/fan_art/00380_2011.12.31_182133.jpg" class="fan_art"><img alt="" src="/img/fan_art/thumb/00380_2011.12.31_182133.jpg" /></a>
+						<a href="/img/fan_art/00379_2011.12.31_182133.bmp" class="fan_art"><img alt="" src="/img/noimage.png" /></a>
+						<a href="/img/fan_art/00378_2011.12.31_182113.JPG" class="fan_art"><img alt="" src="/img/fan_art/thumb/00378_2011.12.31_182113.jpg" /></a>
+						<a href="/img/fan_art/00377_2011.12.31_181959.jpg" class="fan_art"><img alt="" src="/img/fan_art/thumb/00377_2011.12.31_181959.jpg" /></a>
+						<a href="/img/fan_art/00376_2011.12.31_181930.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00376_2011.12.31_181930.jpg" /></a>
+						<a href="/img/fan_art/00375_2011.12.31_180746.jpg" class="fan_art"><img alt="" src="/img/fan_art/thumb/00375_2011.12.31_180746.jpg" /></a>
+						<a href="/img/fan_art/00374_2011.12.31_180622.jpg" class="fan_art"><img alt="" src="/img/fan_art/thumb/00374_2011.12.31_180622.jpg" /></a>
+						<a href="/img/fan_art/00373_2011.12.31_180604.jpg" class="fan_art"><img alt="" src="/img/fan_art/thumb/00373_2011.12.31_180604.jpg" /></a>
+						<a href="/img/fan_art/00372_2011.12.31_180548.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00372_2011.12.31_180548.jpg" /></a>
+						<a href="/img/fan_art/00371_2011.12.31_180526.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00371_2011.12.31_180526.jpg" /></a>
+						<a href="/img/fan_art/00370_2011.12.31_180507.jpg" class="fan_art"><img alt="" src="/img/fan_art/thumb/00370_2011.12.31_180507.jpg" /></a>
+						<a href="/img/fan_art/00369_2011.12.31_180447.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00369_2011.12.31_180447.jpg" /></a>
+						<a href="/img/fan_art/00368_2011.12.31_180404.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00368_2011.12.31_180404.jpg" /></a>
+						<a href="/img/fan_art/00367_2011.12.31_180323.jpg" class="fan_art"><img alt="" src="/img/fan_art/thumb/00367_2011.12.31_180323.jpg" /></a>
+						<a href="/img/fan_art/00366_2011.12.31_180255.jpg" class="fan_art"><img alt="" src="/img/fan_art/thumb/00366_2011.12.31_180255.jpg" /></a>
+						<a href="/img/fan_art/00365_2011.12.31_180207.jpg" class="fan_art"><img alt="" src="/img/fan_art/thumb/00365_2011.12.31_180207.jpg" /></a>
+						<a href="/img/fan_art/00364_2011.12.31_180135.jpg" class="fan_art"><img alt="" src="/img/fan_art/thumb/00364_2011.12.31_180135.jpg" /></a>
+						<a href="/img/fan_art/00363_2011.12.31_180057.jpg" class="fan_art"><img alt="" src="/img/fan_art/thumb/00363_2011.12.31_180057.jpg" /></a>
+						<a href="/img/fan_art/00362_2011.12.31_180037.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00362_2011.12.31_180037.jpg" /></a>
+						<a href="/img/fan_art/00361_2011.12.31_175945.jpg" class="fan_art"><img alt="" src="/img/fan_art/thumb/00361_2011.12.31_175945.jpg" /></a>
+						<a href="/img/fan_art/00360_2011.12.30_212058.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00360_2011.12.30_212058.jpg" /></a>
+						<a href="/img/fan_art/00359_2011.12.29_220818.gif" class="fan_art"><img alt="" src="/img/fan_art/thumb/00359_2011.12.29_220818.jpg" /></a>
+						<a href="/img/fan_art/00358_2011.12.23_001546.JPG" class="fan_art"><img alt="" src="/img/fan_art/thumb/00358_2011.12.23_001546.jpg" /></a>
+						<a href="/img/fan_art/00357_2011.03.12_011041.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00357_2011.03.12_011041.jpg" /></a>
+						<a href="/img/fan_art/00356_2011.03.12_011038.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00356_2011.03.12_011038.jpg" /></a>
+						<a href="/img/fan_art/00355_2011.03.05_012202.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00355_2011.03.05_012202.jpg" /></a>
+						<a href="/img/fan_art/00354_2011.03.01_021750.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00354_2011.03.01_021750.jpg" /></a>
+						<a href="/img/fan_art/00353_2011.02.28_054557.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00353_2011.02.28_054557.jpg" /></a>
+						<a href="/img/fan_art/00352_2011.02.28_054549.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00352_2011.02.28_054549.jpg" /></a>
+						<a href="/img/fan_art/00351_2011.02.28_054543.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00351_2011.02.28_054543.jpg" /></a>
+						<a href="/img/fan_art/00350_2011.02.28_054530.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00350_2011.02.28_054530.jpg" /></a>
+						<a href="/img/fan_art/00349_2011.02.28_054518.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00349_2011.02.28_054518.jpg" /></a>
+						<a href="/img/fan_art/00348_2011.02.28_054509.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00348_2011.02.28_054509.jpg" /></a>
+						<a href="/img/fan_art/00347_2011.02.28_054448.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00347_2011.02.28_054448.jpg" /></a>
+						<a href="/img/fan_art/00346_2011.02.28_054443.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00346_2011.02.28_054443.jpg" /></a>
+						<a href="/img/fan_art/00345_2011.02.28_021942.jpg" class="fan_art"><img alt="" src="/img/fan_art/thumb/00345_2011.02.28_021942.jpg" /></a>
+						<a href="/img/fan_art/00344_2010.12.25_233207.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00344_2010.12.25_233207.jpg" /></a>
+						<a href="/img/fan_art/00343_2010.12.25_233151.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00343_2010.12.25_233151.jpg" /></a>
+						<a href="/img/fan_art/00342_2010.11.14_211720.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00342_2010.11.14_211720.jpg" /></a>
+						<a href="/img/fan_art/00341_2010.11.07_041744.jpg" class="fan_art"><img alt="" src="/img/fan_art/thumb/00341_2010.11.07_041744.jpg" /></a>
+						<a href="/img/fan_art/00340_2010.11.07_041735.jpg" class="fan_art"><img alt="" src="/img/fan_art/thumb/00340_2010.11.07_041735.jpg" /></a>
+						<a href="/img/fan_art/00339_2010.11.07_041726.jpg" class="fan_art"><img alt="" src="/img/fan_art/thumb/00339_2010.11.07_041726.jpg" /></a>
+						<a href="/img/fan_art/00338_2010.11.07_041716.jpg" class="fan_art"><img alt="" src="/img/fan_art/thumb/00338_2010.11.07_041716.jpg" /></a>
+						<a href="/img/fan_art/00337_2010.10.26_161103.gif" class="fan_art"><img alt="" src="/img/fan_art/thumb/00337_2010.10.26_161103.jpg" /></a>
+						<a href="/img/fan_art/00336_2010.10.26_161022.jpg" class="fan_art"><img alt="" src="/img/fan_art/thumb/00336_2010.10.26_161022.jpg" /></a>
+						<a href="/img/fan_art/00335_2010.10.26_161011.jpg" class="fan_art"><img alt="" src="/img/fan_art/thumb/00335_2010.10.26_161011.jpg" /></a>
+						<a href="/img/fan_art/00334_2010.10.26_160927.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00334_2010.10.26_160927.jpg" /></a>
+						<a href="/img/fan_art/00333_2010.10.26_160746.jpg" class="fan_art"><img alt="" src="/img/fan_art/thumb/00333_2010.10.26_160746.jpg" /></a>
+						<a href="/img/fan_art/00332_2010.10.26_160725.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00332_2010.10.26_160725.jpg" /></a>
+						<a href="/img/fan_art/00331_2010.10.26_160649.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00331_2010.10.26_160649.jpg" /></a>
+						<a href="/img/fan_art/00330_2010.10.26_160630.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00330_2010.10.26_160630.jpg" /></a>
+						<a href="/img/fan_art/00329_2010.10.26_160539.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00329_2010.10.26_160539.jpg" /></a>
+						<a href="/img/fan_art/00328_2010.10.26_160507.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00328_2010.10.26_160507.jpg" /></a>
+						<a href="/img/fan_art/00327_2010.10.26_160439.jpg" class="fan_art"><img alt="" src="/img/fan_art/thumb/00327_2010.10.26_160439.jpg" /></a>
+						<a href="/img/fan_art/00326_2010.10.26_160417.jpg" class="fan_art"><img alt="" src="/img/fan_art/thumb/00326_2010.10.26_160417.jpg" /></a>
+						<a href="/img/fan_art/00325_2010.10.26_160347.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00325_2010.10.26_160347.jpg" /></a>
+						<a href="/img/fan_art/00324_2010.10.26_160312.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00324_2010.10.26_160312.jpg" /></a>
+						<a href="/img/fan_art/00323_2010.10.26_160204.jpg" class="fan_art"><img alt="" src="/img/fan_art/thumb/00323_2010.10.26_160204.jpg" /></a>
+						<a href="/img/fan_art/00322_2010.10.26_160200.jpg" class="fan_art"><img alt="" src="/img/fan_art/thumb/00322_2010.10.26_160200.jpg" /></a>
+						<a href="/img/fan_art/00321_2010.10.26_160135.jpg" class="fan_art"><img alt="" src="/img/fan_art/thumb/00321_2010.10.26_160135.jpg" /></a>
+						<a href="/img/fan_art/00320_2010.10.26_155513.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00320_2010.10.26_155513.jpg" /></a>
+						<a href="/img/fan_art/00319_2010.10.26_155325.jpg" class="fan_art"><img alt="" src="/img/fan_art/thumb/00319_2010.10.26_155325.jpg" /></a>
+						<a href="/img/fan_art/00318_2010.10.16_064127.gif" class="fan_art"><img alt="" src="/img/fan_art/thumb/00318_2010.10.16_064127.jpg" /></a>
+						<a href="/img/fan_art/00317_2010.10.16_062314.pdf" class="fan_art"><img alt="" src="/img/noimage.png" /></a>
+						<a href="/img/fan_art/00316_2010.10.10_022228.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00316_2010.10.10_022228.jpg" /></a>
+						<a href="/img/fan_art/00315_2010.06.01_110229.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00315_2010.06.01_110229.jpg" /></a>
+						<a href="/img/fan_art/00314_2010.06.01_010851.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00314_2010.06.01_010851.jpg" /></a>
+						<a href="/img/fan_art/00313_2010.06.01_010848.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00313_2010.06.01_010848.jpg" /></a>
+						<a href="/img/fan_art/00312_2010.06.01_010843.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00312_2010.06.01_010843.jpg" /></a>
+						<a href="/img/fan_art/00311_2010.06.01_010840.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00311_2010.06.01_010840.jpg" /></a>
+						<a href="/img/fan_art/00310_2010.06.01_010834.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00310_2010.06.01_010834.jpg" /></a>
+						<a href="/img/fan_art/00309_2010.06.01_010832.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00309_2010.06.01_010832.jpg" /></a>
+						<a href="/img/fan_art/00308_2010.06.01_010828.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00308_2010.06.01_010828.jpg" /></a>
+						<a href="/img/fan_art/00307_2010.06.01_010825.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00307_2010.06.01_010825.jpg" /></a>
+						<a href="/img/fan_art/00306_2010.06.01_010820.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00306_2010.06.01_010820.jpg" /></a>
+						<a href="/img/fan_art/00305_2010.06.01_010819.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00305_2010.06.01_010819.jpg" /></a>
+						<a href="/img/fan_art/00304_2010.06.01_010809.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00304_2010.06.01_010809.jpg" /></a>
+						<a href="/img/fan_art/00303_2010.06.01_010807.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00303_2010.06.01_010807.jpg" /></a>
+						<a href="/img/fan_art/00302_2010.06.01_010803.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00302_2010.06.01_010803.jpg" /></a>
+						<a href="/img/fan_art/00301_2010.06.01_010800.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00301_2010.06.01_010800.jpg" /></a>
+						<a href="/img/fan_art/00300_2010.06.01_010755.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00300_2010.06.01_010755.jpg" /></a>
+						<a href="/img/fan_art/00299_2010.06.01_010748.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00299_2010.06.01_010748.jpg" /></a>
+						<a href="/img/fan_art/00298_2010.06.01_010745.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00298_2010.06.01_010745.jpg" /></a>
+						<a href="/img/fan_art/00297_2010.06.01_010741.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00297_2010.06.01_010741.jpg" /></a>
+						<a href="/img/fan_art/00296_2010.06.01_010738.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00296_2010.06.01_010738.jpg" /></a>
+						<a href="/img/fan_art/00295_2010.06.01_010728.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00295_2010.06.01_010728.jpg" /></a>
+						<a href="/img/fan_art/00294_2010.06.01_010721.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00294_2010.06.01_010721.jpg" /></a>
+						<a href="/img/fan_art/00293_2010.06.01_010716.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00293_2010.06.01_010716.jpg" /></a>
+						<a href="/img/fan_art/00292_2010.06.01_010619.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00292_2010.06.01_010619.jpg" /></a>
+						<a href="/img/fan_art/00291_2010.06.01_010317.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00291_2010.06.01_010317.jpg" /></a>
+						<a href="/img/fan_art/00290_2010.06.01_010309.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00290_2010.06.01_010309.jpg" /></a>
+						<a href="/img/fan_art/00289_2010.06.01_010215.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00289_2010.06.01_010215.jpg" /></a>
+						<a href="/img/fan_art/00288_2010.05.16_130409.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00288_2010.05.16_130409.jpg" /></a>
+						<a href="/img/fan_art/00287_2010.05.16_130401.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00287_2010.05.16_130401.jpg" /></a>
+						<a href="/img/fan_art/00286_2010.05.16_130347.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00286_2010.05.16_130347.jpg" /></a>
+						<a href="/img/fan_art/00285_2010.05.16_130127.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00285_2010.05.16_130127.jpg" /></a>
+						<a href="/img/fan_art/00284_2010.05.16_130109.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00284_2010.05.16_130109.jpg" /></a>
+						<a href="/img/fan_art/00283_2010.05.16_130042.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00283_2010.05.16_130042.jpg" /></a>
+						<a href="/img/fan_art/00282_2010.05.16_130023.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00282_2010.05.16_130023.jpg" /></a>
+						<a href="/img/fan_art/00281_2010.05.16_130013.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00281_2010.05.16_130013.jpg" /></a>
+						<a href="/img/fan_art/00280_2010.05.16_125954.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00280_2010.05.16_125954.jpg" /></a>
+						<a href="/img/fan_art/00279_2010.05.16_125940.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00279_2010.05.16_125940.jpg" /></a>
+						<a href="/img/fan_art/00278_2010.05.16_125852.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00278_2010.05.16_125852.jpg" /></a>
+						<a href="/img/fan_art/00277_2010.05.16_125703.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00277_2010.05.16_125703.jpg" /></a>
+						<a href="/img/fan_art/00276_2010.05.16_125645.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00276_2010.05.16_125645.jpg" /></a>
+						<a href="/img/fan_art/00275_2010.05.16_125621.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00275_2010.05.16_125621.jpg" /></a>
+						<a href="/img/fan_art/00274_2010.05.16_125602.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00274_2010.05.16_125602.jpg" /></a>
+						<a href="/img/fan_art/00273_2010.05.16_125511.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00273_2010.05.16_125511.jpg" /></a>
+						<a href="/img/fan_art/00272_2010.05.16_125432.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00272_2010.05.16_125432.jpg" /></a>
+						<a href="/img/fan_art/00271_2010.05.16_125416.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00271_2010.05.16_125416.jpg" /></a>
+						<a href="/img/fan_art/00270_2010.05.16_125358.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00270_2010.05.16_125358.jpg" /></a>
+						<a href="/img/fan_art/00269_2010.05.16_125342.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00269_2010.05.16_125342.jpg" /></a>
+						<a href="/img/fan_art/00268_2010.05.16_125327.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00268_2010.05.16_125327.jpg" /></a>
+						<a href="/img/fan_art/00267_2010.05.16_125309.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00267_2010.05.16_125309.jpg" /></a>
+						<a href="/img/fan_art/00266_2010.05.16_125253.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00266_2010.05.16_125253.jpg" /></a>
+						<a href="/img/fan_art/00265_2010.05.16_125233.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00265_2010.05.16_125233.jpg" /></a>
+						<a href="/img/fan_art/00264_2010.05.16_125222.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00264_2010.05.16_125222.jpg" /></a>
+						<a href="/img/fan_art/00263_2010.04.30_102759.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00263_2010.04.30_102759.jpg" /></a>
+						<a href="/img/fan_art/00262_2010.04.30_102509.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00262_2010.04.30_102509.jpg" /></a>
+						<a href="/img/fan_art/00261_2010.04.30_102434.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00261_2010.04.30_102434.jpg" /></a>
+						<a href="/img/fan_art/00260_2010.04.30_102423.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00260_2010.04.30_102423.jpg" /></a>
+						<a href="/img/fan_art/00259_2010.04.30_102415.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00259_2010.04.30_102415.jpg" /></a>
+						<a href="/img/fan_art/00258_2010.04.27_071158.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00258_2010.04.27_071158.jpg" /></a>
+						<a href="/img/fan_art/00257_2010.04.27_071144.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00257_2010.04.27_071144.jpg" /></a>
+						<a href="/img/fan_art/00256_2010.04.26_143109.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00256_2010.04.26_143109.jpg" /></a>
+						<a href="/img/fan_art/00255_2010.04.09_210757.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00255_2010.04.09_210757.jpg" /></a>
+						<a href="/img/fan_art/00254_2010.04.09_210757.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00254_2010.04.09_210757.jpg" /></a>
+						<a href="/img/fan_art/00253_2010.04.09_205719.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00253_2010.04.09_205719.jpg" /></a>
+						<a href="/img/fan_art/00252_2010.04.09_205553.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00252_2010.04.09_205553.jpg" /></a>
+						<a href="/img/fan_art/00251_2010.04.09_205353.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00251_2010.04.09_205353.jpg" /></a>
+						<a href="/img/fan_art/00250_2010.04.09_205301.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00250_2010.04.09_205301.jpg" /></a>
+						<a href="/img/fan_art/00249_2010.04.09_205300.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00249_2010.04.09_205300.jpg" /></a>
+						<a href="/img/fan_art/00248_2010.04.09_205157.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00248_2010.04.09_205157.jpg" /></a>
+						<a href="/img/fan_art/00247_2010.04.09_205156.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00247_2010.04.09_205156.jpg" /></a>
+						<a href="/img/fan_art/00246_2010.04.09_205135.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00246_2010.04.09_205135.jpg" /></a>
+						<a href="/img/fan_art/00245_2010.04.09_205115.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00245_2010.04.09_205115.jpg" /></a>
+						<a href="/img/fan_art/00244_2010.04.09_205115.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00244_2010.04.09_205115.jpg" /></a>
+						<a href="/img/fan_art/00243_2010.04.09_205115.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00243_2010.04.09_205115.jpg" /></a>
+						<a href="/img/fan_art/00242_2010.04.09_205059.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00242_2010.04.09_205059.jpg" /></a>
+						<a href="/img/fan_art/00241_2010.04.09_205042.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00241_2010.04.09_205042.jpg" /></a>
+						<a href="/img/fan_art/00240_2010.04.09_204916.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00240_2010.04.09_204916.jpg" /></a>
+						<a href="/img/fan_art/00239_2010.03.29_235651.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00239_2010.03.29_235651.jpg" /></a>
+						<a href="/img/fan_art/00238_2010.03.28_105855.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00238_2010.03.28_105855.jpg" /></a>
+						<a href="/img/fan_art/00237_2010.03.27_160307.jpg" class="fan_art"><img alt="" src="/img/fan_art/thumb/00237_2010.03.27_160307.jpg" /></a>
+						<a href="/img/fan_art/00236_2010.03.26_120234.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00236_2010.03.26_120234.jpg" /></a>
+						<a href="/img/fan_art/00235_2010.03.26_120211.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00235_2010.03.26_120211.jpg" /></a>
+						<a href="/img/fan_art/00234_2010.03.26_120041.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00234_2010.03.26_120041.jpg" /></a>
+						<a href="/img/fan_art/00233_2010.03.26_115851.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00233_2010.03.26_115851.jpg" /></a>
+						<a href="/img/fan_art/00232_2010.03.26_115850.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00232_2010.03.26_115850.jpg" /></a>
+						<a href="/img/fan_art/00231_2010.03.26_115850.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00231_2010.03.26_115850.jpg" /></a>
+						<a href="/img/fan_art/00230_2010.03.26_115741.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00230_2010.03.26_115741.jpg" /></a>
+						<a href="/img/fan_art/00229_2010.03.26_115556.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00229_2010.03.26_115556.jpg" /></a>
+						<a href="/img/fan_art/00228_2010.03.26_115556.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00228_2010.03.26_115556.jpg" /></a>
+						<a href="/img/fan_art/00227_2010.03.26_115531.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00227_2010.03.26_115531.jpg" /></a>
+						<a href="/img/fan_art/00226_2010.03.26_115442.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00226_2010.03.26_115442.jpg" /></a>
+						<a href="/img/fan_art/00225_2010.03.26_115340.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00225_2010.03.26_115340.jpg" /></a>
+						<a href="/img/fan_art/00224_2010.03.26_115317.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00224_2010.03.26_115317.jpg" /></a>
+						<a href="/img/fan_art/00223_2010.03.26_115253.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00223_2010.03.26_115253.jpg" /></a>
+						<a href="/img/fan_art/00222_2010.03.26_115253.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00222_2010.03.26_115253.jpg" /></a>
+						<a href="/img/fan_art/00221_2010.03.26_115227.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00221_2010.03.26_115227.jpg" /></a>
+						<a href="/img/fan_art/00220_2010.03.26_115156.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00220_2010.03.26_115156.jpg" /></a>
+						<a href="/img/fan_art/00219_2010.03.26_114654.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00219_2010.03.26_114654.jpg" /></a>
+						<a href="/img/fan_art/00218_2010.03.26_114654.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00218_2010.03.26_114654.jpg" /></a>
+						<a href="/img/fan_art/00217_2010.03.26_114643.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00217_2010.03.26_114643.jpg" /></a>
+						<a href="/img/fan_art/00216_2010.03.26_114605.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00216_2010.03.26_114605.jpg" /></a>
+						<a href="/img/fan_art/00215_2010.03.26_114525.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00215_2010.03.26_114525.jpg" /></a>
+						<a href="/img/fan_art/00214_2010.03.26_114327.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00214_2010.03.26_114327.jpg" /></a>
+						<a href="/img/fan_art/00213_2010.03.26_114326.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00213_2010.03.26_114326.jpg" /></a>
+						<a href="/img/fan_art/00212_2010.03.26_114218.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00212_2010.03.26_114218.jpg" /></a>
+						<a href="/img/fan_art/00211_2010.03.26_114128.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00211_2010.03.26_114128.jpg" /></a>
+						<a href="/img/fan_art/00210_2010.03.26_114128.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00210_2010.03.26_114128.jpg" /></a>
+						<a href="/img/fan_art/00209_2010.03.26_113935.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00209_2010.03.26_113935.jpg" /></a>
+						<a href="/img/fan_art/00208_2010.03.26_113732.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00208_2010.03.26_113732.jpg" /></a>
+						<a href="/img/fan_art/00207_2010.03.26_113439.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00207_2010.03.26_113439.jpg" /></a>
+						<a href="/img/fan_art/00206_2010.03.26_113346.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00206_2010.03.26_113346.jpg" /></a>
+						<a href="/img/fan_art/00205_2010.03.26_112909.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00205_2010.03.26_112909.jpg" /></a>
+						<a href="/img/fan_art/00204_2010.03.26_112843.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00204_2010.03.26_112843.jpg" /></a>
+						<a href="/img/fan_art/00203_2010.03.26_112843.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00203_2010.03.26_112843.jpg" /></a>
+						<a href="/img/fan_art/00202_2010.03.26_112439.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00202_2010.03.26_112439.jpg" /></a>
+						<a href="/img/fan_art/00201_2010.03.26_112347.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00201_2010.03.26_112347.jpg" /></a>
+						<a href="/img/fan_art/00200_2010.03.01_022519.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00200_2010.03.01_022519.jpg" /></a>
+						<a href="/img/fan_art/00199_2010.02.24_003047.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00199_2010.02.24_003047.jpg" /></a>
+						<a href="/img/fan_art/00198_2010.02.24_003047.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00198_2010.02.24_003047.jpg" /></a>
+						<a href="/img/fan_art/00197_2010.02.24_002703.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00197_2010.02.24_002703.jpg" /></a>
+						<a href="/img/fan_art/00196_2010.02.23_023036.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00196_2010.02.23_023036.jpg" /></a>
+						<a href="/img/fan_art/00195_2010.02.23_023036.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00195_2010.02.23_023036.jpg" /></a>
+						<a href="/img/fan_art/00194_2010.02.23_023016.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00194_2010.02.23_023016.jpg" /></a>
+						<a href="/img/fan_art/00193_2010.02.23_023015.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00193_2010.02.23_023015.jpg" /></a>
+						<a href="/img/fan_art/00192_2010.02.23_022953.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00192_2010.02.23_022953.jpg" /></a>
+						<a href="/img/fan_art/00191_2010.02.23_022926.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00191_2010.02.23_022926.jpg" /></a>
+						<a href="/img/fan_art/00190_2010.02.23_022925.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00190_2010.02.23_022925.jpg" /></a>
+						<a href="/img/fan_art/00189_2010.02.23_022905.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00189_2010.02.23_022905.jpg" /></a>
+						<a href="/img/fan_art/00188_2010.02.23_022850.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00188_2010.02.23_022850.jpg" /></a>
+						<a href="/img/fan_art/00187_2010.02.23_022618.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00187_2010.02.23_022618.jpg" /></a>
+						<a href="/img/fan_art/00186_2010.02.23_022556.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00186_2010.02.23_022556.jpg" /></a>
+						<a href="/img/fan_art/00185_2010.02.23_022422.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00185_2010.02.23_022422.jpg" /></a>
+						<a href="/img/fan_art/00184_2010.02.23_022422.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00184_2010.02.23_022422.jpg" /></a>
+						<a href="/img/fan_art/00183_2010.02.23_022345.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00183_2010.02.23_022345.jpg" /></a>
+						<a href="/img/fan_art/00182_2010.02.23_022321.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00182_2010.02.23_022321.jpg" /></a>
+						<a href="/img/fan_art/00181_2010.02.23_022136.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00181_2010.02.23_022136.jpg" /></a>
+						<a href="/img/fan_art/00180_2010.02.23_022026.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00180_2010.02.23_022026.jpg" /></a>
+						<a href="/img/fan_art/00179_2010.02.23_021926.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00179_2010.02.23_021926.jpg" /></a>
+						<a href="/img/fan_art/00178_2010.02.23_021759.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00178_2010.02.23_021759.jpg" /></a>
+						<a href="/img/fan_art/00177_2010.02.23_021740.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00177_2010.02.23_021740.jpg" /></a>
+						<a href="/img/fan_art/00176_2010.02.23_021720.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00176_2010.02.23_021720.jpg" /></a>
+						<a href="/img/fan_art/00175_2010.02.23_021720.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00175_2010.02.23_021720.jpg" /></a>
+						<a href="/img/fan_art/00174_2010.02.23_021646.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00174_2010.02.23_021646.jpg" /></a>
+						<a href="/img/fan_art/00173_2010.02.23_021605.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00173_2010.02.23_021605.jpg" /></a>
+						<a href="/img/fan_art/00172_2010.02.23_021605.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00172_2010.02.23_021605.jpg" /></a>
+						<a href="/img/fan_art/00171_2010.02.23_021501.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00171_2010.02.23_021501.jpg" /></a>
+						<a href="/img/fan_art/00170_2010.02.23_021416.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00170_2010.02.23_021416.jpg" /></a>
+						<a href="/img/fan_art/00169_2010.02.23_021416.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00169_2010.02.23_021416.jpg" /></a>
+						<a href="/img/fan_art/00168_2010.02.23_021400.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00168_2010.02.23_021400.jpg" /></a>
+						<a href="/img/fan_art/00167_2010.02.23_021400.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00167_2010.02.23_021400.jpg" /></a>
+						<a href="/img/fan_art/00166_2010.02.23_021347.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00166_2010.02.23_021347.jpg" /></a>
+						<a href="/img/fan_art/00165_2010.02.23_021303.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00165_2010.02.23_021303.jpg" /></a>
+						<a href="/img/fan_art/00164_2010.02.23_021133.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00164_2010.02.23_021133.jpg" /></a>
+						<a href="/img/fan_art/00163_2010.02.14_230705.jpg" class="fan_art"><img alt="" src="/img/fan_art/thumb/00163_2010.02.14_230705.jpg" /></a>
+						<a href="/img/fan_art/00162_2010.02.10_235552.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00162_2010.02.10_235552.jpg" /></a>
+						<a href="/img/fan_art/00161_2010.02.03_223017.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00161_2010.02.03_223017.jpg" /></a>
+						<a href="/img/fan_art/00160_2010.02.03_223017.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00160_2010.02.03_223017.jpg" /></a>
+						<a href="/img/fan_art/00159_2010.02.03_222840.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00159_2010.02.03_222840.jpg" /></a>
+						<a href="/img/fan_art/00158_2010.02.03_222826.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00158_2010.02.03_222826.jpg" /></a>
+						<a href="/img/fan_art/00157_2010.02.03_222814.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00157_2010.02.03_222814.jpg" /></a>
+						<a href="/img/fan_art/00156_2010.02.03_222726.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00156_2010.02.03_222726.jpg" /></a>
+						<a href="/img/fan_art/00155_2010.02.03_222726.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00155_2010.02.03_222726.jpg" /></a>
+						<a href="/img/fan_art/00154_2010.02.03_222726.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00154_2010.02.03_222726.jpg" /></a>
+						<a href="/img/fan_art/00153_2010.02.03_222726.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00153_2010.02.03_222726.jpg" /></a>
+						<a href="/img/fan_art/00152_2010.02.03_222725.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00152_2010.02.03_222725.jpg" /></a>
+						<a href="/img/fan_art/00151_2010.02.03_222725.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00151_2010.02.03_222725.jpg" /></a>
+						<a href="/img/fan_art/00150_2010.02.03_222725.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00150_2010.02.03_222725.jpg" /></a>
+						<a href="/img/fan_art/00149_2010.02.03_222725.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00149_2010.02.03_222725.jpg" /></a>
+						<a href="/img/fan_art/00148_2010.02.03_222725.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00148_2010.02.03_222725.jpg" /></a>
+						<a href="/img/fan_art/00147_2010.02.03_222725.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00147_2010.02.03_222725.jpg" /></a>
+						<a href="/img/fan_art/00146_2010.02.03_222554.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00146_2010.02.03_222554.jpg" /></a>
+						<a href="/img/fan_art/00145_2010.02.03_222554.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00145_2010.02.03_222554.jpg" /></a>
+						<a href="/img/fan_art/00144_2010.02.03_222554.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00144_2010.02.03_222554.jpg" /></a>
+						<a href="/img/fan_art/00143_2010.02.03_222554.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00143_2010.02.03_222554.jpg" /></a>
+						<a href="/img/fan_art/00142_2010.02.03_222554.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00142_2010.02.03_222554.jpg" /></a>
+						<a href="/img/fan_art/00141_2010.02.03_222554.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00141_2010.02.03_222554.jpg" /></a>
+						<a href="/img/fan_art/00140_2010.02.03_222554.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00140_2010.02.03_222554.jpg" /></a>
+						<a href="/img/fan_art/00139_2010.02.03_222554.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00139_2010.02.03_222554.jpg" /></a>
+						<a href="/img/fan_art/00138_2010.02.03_222554.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00138_2010.02.03_222554.jpg" /></a>
+						<a href="/img/fan_art/00137_2010.02.03_222554.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00137_2010.02.03_222554.jpg" /></a>
+						<a href="/img/fan_art/00136_2010.02.03_222554.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00136_2010.02.03_222554.jpg" /></a>
+						<a href="/img/fan_art/00135_2010.02.03_222554.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00135_2010.02.03_222554.jpg" /></a>
+						<a href="/img/fan_art/00134_2010.02.03_222554.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00134_2010.02.03_222554.jpg" /></a>
+						<a href="/img/fan_art/00133_2010.02.03_222554.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00133_2010.02.03_222554.jpg" /></a>
+						<a href="/img/fan_art/00132_2010.02.03_222554.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00132_2010.02.03_222554.jpg" /></a>
+						<a href="/img/fan_art/00131_2010.02.03_222554.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00131_2010.02.03_222554.jpg" /></a>
+						<a href="/img/fan_art/00130_2010.02.03_222553.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00130_2010.02.03_222553.jpg" /></a>
+						<a href="/img/fan_art/00129_2010.02.03_222553.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00129_2010.02.03_222553.jpg" /></a>
+						<a href="/img/fan_art/00128_2010.02.03_222553.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00128_2010.02.03_222553.jpg" /></a>
+						<a href="/img/fan_art/00127_2010.02.03_222553.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00127_2010.02.03_222553.jpg" /></a>
+						<a href="/img/fan_art/00126_2010.02.03_222553.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00126_2010.02.03_222553.jpg" /></a>
+						<a href="/img/fan_art/00125_2010.02.03_222450.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00125_2010.02.03_222450.jpg" /></a>
+						<a href="/img/fan_art/00124_2010.02.03_222442.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00124_2010.02.03_222442.jpg" /></a>
+						<a href="/img/fan_art/00123_2010.02.03_222442.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00123_2010.02.03_222442.jpg" /></a>
+						<a href="/img/fan_art/00122_2010.02.03_222441.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00122_2010.02.03_222441.jpg" /></a>
+						<a href="/img/fan_art/00121_2010.02.03_222441.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00121_2010.02.03_222441.jpg" /></a>
+						<a href="/img/fan_art/00120_2010.02.03_222441.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00120_2010.02.03_222441.jpg" /></a>
+						<a href="/img/fan_art/00119_2010.02.03_222441.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00119_2010.02.03_222441.jpg" /></a>
+						<a href="/img/fan_art/00118_2010.02.03_222441.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00118_2010.02.03_222441.jpg" /></a>
+						<a href="/img/fan_art/00117_2010.02.03_222441.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00117_2010.02.03_222441.jpg" /></a>
+						<a href="/img/fan_art/00116_2010.02.03_222441.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00116_2010.02.03_222441.jpg" /></a>
+						<a href="/img/fan_art/00115_2010.02.03_222441.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00115_2010.02.03_222441.jpg" /></a>
+						<a href="/img/fan_art/00114_2010.02.03_222441.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00114_2010.02.03_222441.jpg" /></a>
+						<a href="/img/fan_art/00113_2010.02.03_222440.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00113_2010.02.03_222440.jpg" /></a>
+						<a href="/img/fan_art/00112_2010.02.03_222440.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00112_2010.02.03_222440.jpg" /></a>
+						<a href="/img/fan_art/00111_2010.02.03_222440.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00111_2010.02.03_222440.jpg" /></a>
+						<a href="/img/fan_art/00110_2010.02.03_222440.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00110_2010.02.03_222440.jpg" /></a>
+						<a href="/img/fan_art/00109_2010.02.03_222440.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00109_2010.02.03_222440.jpg" /></a>
+						<a href="/img/fan_art/00108_2010.02.03_222440.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00108_2010.02.03_222440.jpg" /></a>
+						<a href="/img/fan_art/00107_2010.02.03_222440.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00107_2010.02.03_222440.jpg" /></a>
+						<a href="/img/fan_art/00106_2010.02.03_222440.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00106_2010.02.03_222440.jpg" /></a>
+						<a href="/img/fan_art/00105_2010.02.03_222040.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00105_2010.02.03_222040.jpg" /></a>
+						<a href="/img/fan_art/00104_2010.02.03_222040.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00104_2010.02.03_222040.jpg" /></a>
+						<a href="/img/fan_art/00103_2010.01.15_025937.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00103_2010.01.15_025937.jpg" /></a>
+						<a href="/img/fan_art/00102_2010.01.15_025849.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00102_2010.01.15_025849.jpg" /></a>
+						<a href="/img/fan_art/00101_2010.01.15_025805.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00101_2010.01.15_025805.jpg" /></a>
+						<a href="/img/fan_art/00100_2010.01.15_025311.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00100_2010.01.15_025311.jpg" /></a>
+						<a href="/img/fan_art/00099_2010.01.12_050420.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00099_2010.01.12_050420.jpg" /></a>
+						<a href="/img/fan_art/00098_2010.01.12_050321.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00098_2010.01.12_050321.jpg" /></a>
+						<a href="/img/fan_art/00097_2010.01.12_050321.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00097_2010.01.12_050321.jpg" /></a>
+						<a href="/img/fan_art/00096_2010.01.12_050238.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00096_2010.01.12_050238.jpg" /></a>
+						<a href="/img/fan_art/00095_2010.01.12_050238.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00095_2010.01.12_050238.jpg" /></a>
+						<a href="/img/fan_art/00094_2010.01.12_050211.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00094_2010.01.12_050211.jpg" /></a>
+						<a href="/img/fan_art/00093_2010.01.12_050049.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00093_2010.01.12_050049.jpg" /></a>
+						<a href="/img/fan_art/00092_2010.01.12_050011.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00092_2010.01.12_050011.jpg" /></a>
+						<a href="/img/fan_art/00091_2010.01.12_045934.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00091_2010.01.12_045934.jpg" /></a>
+						<a href="/img/fan_art/00090_2010.01.12_045840.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00090_2010.01.12_045840.jpg" /></a>
+						<a href="/img/fan_art/00089_2010.01.12_045840.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00089_2010.01.12_045840.jpg" /></a>
+						<a href="/img/fan_art/00088_2010.01.12_045527.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00088_2010.01.12_045527.jpg" /></a>
+						<a href="/img/fan_art/00087_2010.01.12_045527.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00087_2010.01.12_045527.jpg" /></a>
+						<a href="/img/fan_art/00086_2010.01.12_045527.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00086_2010.01.12_045527.jpg" /></a>
+						<a href="/img/fan_art/00085_2010.01.12_045527.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00085_2010.01.12_045527.jpg" /></a>
+						<a href="/img/fan_art/00084_2010.01.12_045527.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00084_2010.01.12_045527.jpg" /></a>
+						<a href="/img/fan_art/00083_2010.01.12_045527.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00083_2010.01.12_045527.jpg" /></a>
+						<a href="/img/fan_art/00082_2010.01.12_045527.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00082_2010.01.12_045527.jpg" /></a>
+						<a href="/img/fan_art/00081_2010.01.12_045437.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00081_2010.01.12_045437.jpg" /></a>
+						<a href="/img/fan_art/00080_2010.01.12_045437.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00080_2010.01.12_045437.jpg" /></a>
+						<a href="/img/fan_art/00079_2010.01.12_045416.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00079_2010.01.12_045416.jpg" /></a>
+						<a href="/img/fan_art/00078_2010.01.11_201215.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00078_2010.01.11_201215.jpg" /></a>
+						<a href="/img/fan_art/00077_2010.01.07_022120.jpg" class="fan_art"><img alt="" src="/img/fan_art/thumb/00077_2010.01.07_022120.jpg" /></a>
+						<a href="/img/fan_art/00076_2010.01.02_171314.jpg" class="fan_art"><img alt="" src="/img/fan_art/thumb/00076_2010.01.02_171314.jpg" /></a>
+						<a href="/img/fan_art/00075_2010.01.02_171214.jpg" class="fan_art"><img alt="" src="/img/fan_art/thumb/00075_2010.01.02_171214.jpg" /></a>
+						<a href="/img/fan_art/00074_2009.12.22_143652.jpg" class="fan_art"><img alt="" src="/img/fan_art/thumb/00074_2009.12.22_143652.jpg" /></a>
+						<a href="/img/fan_art/00073_2009.12.22_142611.jpg" class="fan_art"><img alt="" src="/img/fan_art/thumb/00073_2009.12.22_142611.jpg" /></a>
+						<a href="/img/fan_art/00072_2009.12.22_141036.jpg" class="fan_art"><img alt="" src="/img/fan_art/thumb/00072_2009.12.22_141036.jpg" /></a>
+						<a href="/img/fan_art/00071_2009.12.22_141031.jpg" class="fan_art"><img alt="" src="/img/fan_art/thumb/00071_2009.12.22_141031.jpg" /></a>
+						<a href="/img/fan_art/00070_2009.11.28_054050.jpg" class="fan_art"><img alt="" src="/img/fan_art/thumb/00070_2009.11.28_054050.jpg" /></a>
+						<a href="/img/fan_art/00069_2009.11.20_205236.jpg" class="fan_art"><img alt="" src="/img/fan_art/thumb/00069_2009.11.20_205236.jpg" /></a>
+						<a href="/img/fan_art/00068_2009.10.30_052255.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00068_2009.10.30_052255.jpg" /></a>
+						<a href="/img/fan_art/00067_2009.10.30_052104.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00067_2009.10.30_052104.jpg" /></a>
+						<a href="/img/fan_art/00066_2009.10.30_052036.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00066_2009.10.30_052036.jpg" /></a>
+						<a href="/img/fan_art/00065_2009.10.05_124917.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00065_2009.10.05_124917.jpg" /></a>
+						<a href="/img/fan_art/00064_2009.10.02_004522.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00064_2009.10.02_004522.jpg" /></a>
+						<a href="/img/fan_art/00063_2009.09.26_005532.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00063_2009.09.26_005532.jpg" /></a>
+						<a href="/img/fan_art/00062_2009.09.20_205721.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00062_2009.09.20_205721.jpg" /></a>
+						<a href="/img/fan_art/00061_2009.09.02_080821.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00061_2009.09.02_080821.jpg" /></a>
+						<a href="/img/fan_art/00060_2009.08.27_162326.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00060_2009.08.27_162326.jpg" /></a>
+						<a href="/img/fan_art/00059_2009.08.27_162326.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00059_2009.08.27_162326.jpg" /></a>
+						<a href="/img/fan_art/00058_2009.08.27_162326.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00058_2009.08.27_162326.jpg" /></a>
+						<a href="/img/fan_art/00057_2009.07.31_170721.gif" class="fan_art"><img alt="" src="/img/fan_art/thumb/00057_2009.07.31_170721.jpg" /></a>
+						<a href="/img/fan_art/00056_2009.07.27_110206.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00056_2009.07.27_110206.jpg" /></a>
+						<a href="/img/fan_art/00055_2009.07.27_110104.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00055_2009.07.27_110104.jpg" /></a>
+						<a href="/img/fan_art/00054_2009.06.18_152701.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00054_2009.06.18_152701.jpg" /></a>
+						<a href="/img/fan_art/00053_2009.06.18_152634.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00053_2009.06.18_152634.jpg" /></a>
+						<a href="/img/fan_art/00052_2009.06.07_030324.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00052_2009.06.07_030324.jpg" /></a>
+						<a href="/img/fan_art/00051_2009.05.28_213534.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00051_2009.05.28_213534.jpg" /></a>
+						<a href="/img/fan_art/00050_2009.05.22_184202.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00050_2009.05.22_184202.jpg" /></a>
+						<a href="/img/fan_art/00049_2009.05.21_023055.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00049_2009.05.21_023055.jpg" /></a>
+						<a href="/img/fan_art/00048_2009.04.30_233016.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00048_2009.04.30_233016.jpg" /></a>
+						<a href="/img/fan_art/00047_2009.04.30_202915.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00047_2009.04.30_202915.jpg" /></a>
+						<a href="/img/fan_art/00046_2009.04.23_235331.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00046_2009.04.23_235331.jpg" /></a>
+						<a href="/img/fan_art/00045_2009.04.20_030551.jpg" class="fan_art"><img alt="" src="/img/fan_art/thumb/00045_2009.04.20_030551.jpg" /></a>
+						<a href="/img/fan_art/00044_2009.04.20_023443.jpg" class="fan_art"><img alt="" src="/img/fan_art/thumb/00044_2009.04.20_023443.jpg" /></a>
+						<a href="/img/fan_art/00043_2009.04.18_235158.jpg" class="fan_art"><img alt="" src="/img/fan_art/thumb/00043_2009.04.18_235158.jpg" /></a>
+						<a href="/img/fan_art/00042_2009.04.15_160958.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00042_2009.04.15_160958.jpg" /></a>
+						<a href="/img/fan_art/00041_2009.04.13_210046.jpg" class="fan_art"><img alt="" src="/img/fan_art/thumb/00041_2009.04.13_210046.jpg" /></a>
+						<a href="/img/fan_art/00040_2009.04.13_205530.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00040_2009.04.13_205530.jpg" /></a>
+						<a href="/img/fan_art/00039_2009.04.13_205227.jpg" class="fan_art"><img alt="" src="/img/fan_art/thumb/00039_2009.04.13_205227.jpg" /></a>
+						<a href="/img/fan_art/00038_2009.04.13_022205.jpg" class="fan_art"><img alt="" src="/img/fan_art/thumb/00038_2009.04.13_022205.jpg" /></a>
+						<a href="/img/fan_art/00037_2009.04.12_012835.jpg" class="fan_art"><img alt="" src="/img/fan_art/thumb/00037_2009.04.12_012835.jpg" /></a>
+						<a href="/img/fan_art/00036_2009.04.12_002057.jpg" class="fan_art"><img alt="" src="/img/fan_art/thumb/00036_2009.04.12_002057.jpg" /></a>
+						<a href="/img/fan_art/00035_2009.04.11_234506.jpg" class="fan_art"><img alt="" src="/img/fan_art/thumb/00035_2009.04.11_234506.jpg" /></a>
+						<a href="/img/fan_art/00034_2009.04.11_234218.jpg" class="fan_art"><img alt="" src="/img/fan_art/thumb/00034_2009.04.11_234218.jpg" /></a>
+						<a href="/img/fan_art/00033_2009.04.11_233707.jpg" class="fan_art"><img alt="" src="/img/fan_art/thumb/00033_2009.04.11_233707.jpg" /></a>
+						<a href="/img/fan_art/00032_2009.04.11_222959.jpg" class="fan_art"><img alt="" src="/img/fan_art/thumb/00032_2009.04.11_222959.jpg" /></a>
+						<a href="/img/fan_art/00031_2009.04.11_202127.jpg" class="fan_art"><img alt="" src="/img/fan_art/thumb/00031_2009.04.11_202127.jpg" /></a>
+						<a href="/img/fan_art/00030_2009.04.11_022045.jpg" class="fan_art"><img alt="" src="/img/fan_art/thumb/00030_2009.04.11_022045.jpg" /></a>
+						<a href="/img/fan_art/00029_2009.04.11_020248.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00029_2009.04.11_020248.jpg" /></a>
+						<a href="/img/fan_art/00028_2009.04.11_015518.jpg" class="fan_art"><img alt="" src="/img/fan_art/thumb/00028_2009.04.11_015518.jpg" /></a>
+						<a href="/img/fan_art/00027_2009.04.11_012304.jpg" class="fan_art"><img alt="" src="/img/fan_art/thumb/00027_2009.04.11_012304.jpg" /></a>
+						<a href="/img/fan_art/00026_2009.04.10_224318.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00026_2009.04.10_224318.jpg" /></a>
+						<a href="/img/fan_art/00025_2009.04.07_213717.jpg" class="fan_art"><img alt="" src="/img/fan_art/thumb/00025_2009.04.07_213717.jpg" /></a>
+						<a href="/img/fan_art/00024_2009.04.07_213650.jpg" class="fan_art"><img alt="" src="/img/fan_art/thumb/00024_2009.04.07_213650.jpg" /></a>
+						<a href="/img/fan_art/00023_2009.04.07_213628.jpg" class="fan_art"><img alt="" src="/img/fan_art/thumb/00023_2009.04.07_213628.jpg" /></a>
+						<a href="/img/fan_art/00022_2009.04.07_193350.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00022_2009.04.07_193350.jpg" /></a>
+						<a href="/img/fan_art/00021_2009.04.07_193350.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00021_2009.04.07_193350.jpg" /></a>
+						<a href="/img/fan_art/00020_2009.04.07_193350.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00020_2009.04.07_193350.jpg" /></a>
+						<a href="/img/fan_art/00019_2009.04.07_193350.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00019_2009.04.07_193350.jpg" /></a>
+						<a href="/img/fan_art/00018_2009.04.07_193350.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00018_2009.04.07_193350.jpg" /></a>
+						<a href="/img/fan_art/00017_2009.04.07_193350.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00017_2009.04.07_193350.jpg" /></a>
+						<a href="/img/fan_art/00016_2009.04.07_193350.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00016_2009.04.07_193350.jpg" /></a>
+						<a href="/img/fan_art/00015_2009.04.07_193132.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00015_2009.04.07_193132.jpg" /></a>
+						<a href="/img/fan_art/00014_2009.04.07_193132.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00014_2009.04.07_193132.jpg" /></a>
+						<a href="/img/fan_art/00013_2009.04.07_193132.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00013_2009.04.07_193132.jpg" /></a>
+						<a href="/img/fan_art/00012_2009.04.07_193132.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00012_2009.04.07_193132.jpg" /></a>
+						<a href="/img/fan_art/00011_2009.04.07_193132.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00011_2009.04.07_193132.jpg" /></a>
+						<a href="/img/fan_art/00010_2009.04.07_193132.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00010_2009.04.07_193132.jpg" /></a>
+						<a href="/img/fan_art/00009_2009.04.07_193132.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00009_2009.04.07_193132.jpg" /></a>
+						<a href="/img/fan_art/00008_2009.04.07_174144.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00008_2009.04.07_174144.jpg" /></a>
+						<a href="/img/fan_art/00007_2009.04.07_174134.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00007_2009.04.07_174134.jpg" /></a>
+						<a href="/img/fan_art/00006_2009.04.05_223031.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00006_2009.04.05_223031.jpg" /></a>
+						<a href="/img/fan_art/00005_2009.04.05_202358.jpg" class="fan_art"><img alt="" src="/img/fan_art/thumb/00005_2009.04.05_202358.jpg" /></a>
+						<a href="/img/fan_art/00004_2009.04.02_225617.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00004_2009.04.02_225617.jpg" /></a>
+						<a href="/img/fan_art/00003_2009.03.17_091725.jpg" class="fan_art"><img alt="" src="/img/fan_art/thumb/00003_2009.03.17_091725.jpg" /></a>
+						<a href="/img/fan_art/00002_2009.03.14_013953.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00002_2009.03.14_013953.jpg" /></a>
+						<a href="/img/fan_art/00001_2009.02.07_232032.jpg" class="fan_art"><img alt="" src="/img/fan_art/thumb/00001_2009.02.07_232032.jpg" /></a>
+						<a href="/img/fan_art/00000_2009.02.02_091628.png" class="fan_art"><img alt="" src="/img/fan_art/thumb/00000_2009.02.02_091628.jpg" /></a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="content_right">
+
+			<h2>ちくわちゃん</h2>
+
+			<img src="/img/c4.jpg" alt="" class="pr_image" />
+			<p class="pr_txt">
+				インターネットで一山当てるのが<br />将来の夢です！！<br />よろしくおねがいいたします！！
+			</p>
+
+			<!-- Geniee AD -->
+			<div style="text-align:center;margin-bottom:15px;">
+				<iframe id='af3fe5d3' name='af3fe5d3' src='http://d.href.asia/nw/d/afr.php?zoneid=2928&amp;cb=INSERT_RANDOM_NUMBER_HERE' frameborder='0' scrolling='no' width='300' height='250'><a href='http://d.href.asia/nw/d/ck.php?n=a70ab361&amp;cb=INSERT_RANDOM_NUMBER_HERE' target='_blank'><img src='http://d.href.asia/nw/d/avw.php?zoneid=2928&amp;cb=INSERT_RANDOM_NUMBER_HERE&amp;n=a70ab361' border='0' alt='' /></a></iframe>
+			</div>
+
+			<dl>
+				<dt><img src="/img/site/nicomm.png" alt="" /> Nicommunity</dt>
+				<dd>
+					CommunityID : <a target="_blank" href="http://com.nicovideo.jp/community/co10000" class="mems_url">co10000</a><br />
+					Followers : <span class="counter_nicommunity mems_count">(Loading...)</span>人
+				</dd>
+
+				<dt><img src="http://twitter-badges.s3.amazonaws.com/t_mini-a.png" alt="" /> Twitter</dt>
+				<dd>
+					<!--<img src="/img/twitter_chikuwachan.png" alt="" style="border:solid 1px #777777;" />-->
+					TwitterID : <a target="_blank" href="http://twitter.com/suepeko" class="mems_url">@suepeko</a><br />
+					Followers : <span class="counter_twitter mems_count">(Loading...)</span>人
+				</dd>
+	
+				<dt><img src="/img/site/facebook.png" alt="" /> facebook</dt>
+				<dd>
+					URL : <a target="_blank" href="http://www.facebook.com/chikuwachan" class="mems_url">facebook.com/chikuwachan</a><br />
+					Followers : <span class="counter_facebook mems_count">(Loading...)</span>人
+				</dd>
+
+				<dt><img src="/img/ico/user_orange.png" alt="" /> Socials</dt>
+				<dd>
+					<a target="_blank" href="http://mixi.jp/view_community.pl?id=4715444"><img src="/img/site/mixi.png" alt="mixi(コミュニティ)" /></a>
+					<a target="_blank" href="http://www.pixiv.net/member.php?id=429286"><img src="/img/site/pixiv.png" alt="pixiv(お絵描き)" /></a>
+					<a target="_blank" href="http://seiga.nicovideo.jp/user/illust/9018567"><img src="/img/site/nicoseiga.png" alt="ニコニコ静画(お絵描き)" /></a>
+					<a target="_blank" href="http://b.hatena.ne.jp/suepeko/"><img src="http://b.hatena.ne.jp/images/favicon.gif" alt="はてなブックマーク(お気に入り)" /></a>
+				</dd>
+
+				<dt><img src="/img/ico/email.png" alt="" /> Mail</dt>
+				<dd>
+					<div class="gmail" style="font:normal 15px 'メイリオ'; ">
+						<span class="mail">suepeko<span class="heart">&#10084;</span><span class="gm_g">G</span><span class="gm_m">m</span><span class="gm_a">a</span><span class="gm_i">i</span><span class="gm_l">l</span>.com</span><br />
+					</div>
+					お返事には一ヶ月以上かかる<br />
+					可能性がございます。
+				</dd>
+
+			</dl>
+
+			<h2>更新履歴</h2>
+
+			<ul>
+				<li><div class="d">2013.05.04</div> ファンアートを掲載しました。</li>
+				<li><div class="d">2011.11.24</div> ちくわちゃんブログを開始しました。</li>
+				<li><div class="d">2011.08.15</div> ニコ生メモ：永BAN全解除について追記。</li>
+				<li><div class="d">2011.05.10</div> コミュニティ3万人ありがとうございます。</li>
+				<li><div class="d">2011.04.24</div> Webサイトリニューアルしました。</li>
+			</ul>
+
+			<h2>メディア掲載履歴</h2>
+
+			<ul>
+				<li>[2013/01] <a target="_blank" rel="nofollow" href="http://www.fujitv.co.jp/nonfix/">フジテレビ「NONFIX」</a></li>
+				<li>[2011/07] <a target="_blank" rel="nofollow" href="http://www.amazon.co.jp/gp/product/4047274550/ref=as_li_ss_tl?ie=UTF8&tag=suepeko-22&linkCode=as2&camp=247&creative=7399&creativeASIN=4047274550">ニコ生主の本を作ってみた</a><img src="http://www.assoc-amazon.jp/e/ir?t=&l=as2&o=9&a=4047274550" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" /></li>
+				<li>[2011/05] <a target="_blank" rel="nofollow" href="http://www.amazon.co.jp/gp/product/B004X1WNOI?ie=UTF8&tag=suepeko-22&linkCode=as2&camp=247&creative=7399&creativeASIN=B004X1WNOI">週刊アスキー 5/10・17合併号</a><img src="http://www.assoc-amazon.jp/e/ir?t=&l=as2&o=9&a=B004X1WNOI" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" /></li>
+				<li>[2010/07] <a target="_blank" rel="nofollow" href="http://www.amazon.co.jp/gp/product/4861992737?ie=UTF8&tag=suepeko-22&linkCode=as2&camp=247&creative=7399&creativeASIN=4861992737">ネットで楽しむ生放送 USTREAM&ニコ生ガイド</a><img src="http://www.assoc-amazon.jp/e/ir?t=suepeko-22&l=as2&o=9&a=4861992737" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" /></li>
+				<li>[2010/05] <a target="_blank" rel="nofollow" href="http://www.amazon.co.jp/gp/product/B003GW3U8S?ie=UTF8&tag=suepeko-22&linkCode=as2&camp=247&creative=7399&creativeASIN=B003GW3U8S">PCGIGA 2010/06月号</a><img src="http://www.assoc-amazon.jp/e/ir?t=suepeko-22&l=as2&o=9&a=B003GW3U8S" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" /></li>
+				<li>[2010/03] <a target="_blank" rel="nofollow" href="http://kc.kodansha.co.jp/magazine/index.php/13871">月刊アフタヌーン 2010/05月号</a></li>
+				<li>[2010/01] <a target="_blank" rel="nofollow" href="http://www.radiolife.com/RL-Online/">ラジオライフ 2010/03月号</a></li>
+				<li>[2009/10] <a target="_blank" rel="nofollow" href="http://netrun.oshiete-kun.net/">ネトラン 2009/12月号</a></li>
+			</ul>
+
+			<h2 style="margin-top:15px;">自分用リンク</h2>
+
+			<div style="font-size:12px; margin-bottom:7px;">
+				自主購入OKのアフィでよく使うところ<br />
+				みんなもここから買ったらいいよ！
+			</div>
+
+			<ul>
+				<li><a target="_blank" href="http://click.linksynergy.com/fs-bin/click?id=*sp5uM1TKxA&offerid=131139.10007654&type=3&subid=0" >HMV ONLINE TOP</a><IMG border=0 width=1 height=1 src="http://ad.linksynergy.com/fs-bin/show?id=*sp5uM1TKxA&bids=131139.10007654&type=3&subid=0" /><br />実はWebMoney支払い可能</li>
+				<!-- 2% / LinkShare -->
+
+				<li><a target="_blank" href="http://px.a8.net/svt/ejp?a8mat=1TQBT6+6P4KS2+S1Q+60H7M">NTT-X Store</a><img border="0" width="1" height="1" src="http://www11.a8.net/0.gif?a8mat=1TQBT6+6P4KS2+S1Q+60H7M" alt="" /><br />家電・PCが爆安い神ショップ</li>
+				<!-- 1% / A8ネット -->
+
+				<li><a target="_blank" href="http://px.a8.net/svt/ejp?a8mat=1O39V8+7AK6K2+D8Y+67RK2">さくらのレンタルサーバ</a><img border="0" width="1" height="1" src="http://www16.a8.net/0.gif?a8mat=1O39V8+7AK6K2+D8Y+67RK2" alt="" /><br />昔使ってたサーバ。</li>
+				<!-- 1month x2 / A8ネット -->
+
+				<li><a target="_blank" href="http://px.a8.net/svt/ejp?a8mat=1TQGHY+9TNI42+D8Y+C164Y">さくらインターネットのVPS</a><img border="0" width="1" height="1" src="http://www11.a8.net/0.gif?a8mat=1TQGHY+9TNI42+D8Y+C164Y" alt="" /><br />今使ってるサーバ。<br />月数千万reqを\980で易々捌く神</li>
+				<!-- \980 / A8ネット -->
+
+				<!--
+				<li></li>
+				-->
+			</ul>
+		</div>
+
+<!--
+		<div style="margin:40px 0 0 0; text-align:center;">
+			<a href="http://px.a8.net/svt/ejp?a8mat=205ZAW+G23X6A+50+35EFLD" target="_blank">
+			<img border="0" width="234" height="60" alt="" src="http://www24.a8.net/svt/bgt?aid=121211384971&wid=001&eno=01&mid=s00000000018019047000&mc=1"></a>
+			<img border="0" width="1" height="1" src="http://www16.a8.net/0.gif?a8mat=205ZAW+G23X6A+50+35EFLD" alt="">
+
+			<a href="http://px.a8.net/svt/ejp?a8mat=205ZAW+G6VE0I+2KX0+60H7L" target="_blank">
+			<img border="0" width="234" height="60" alt="" src="http://www21.a8.net/svt/bgt?aid=121211384979&wid=001&eno=01&mid=s00000012042001010000&mc=1"></a>
+			<img border="0" width="1" height="1" src="http://www11.a8.net/0.gif?a8mat=205ZAW+G6VE0I+2KX0+60H7L" alt="">
+		</div>
+-->
+
+<!--
+		<table style="margin:40px auto 70px auto; padding:auto; text-align:center;" cellpadding="0" cellspacing="2">
+			<tr>
+				<td><img src="/img/c1.jpg" style="width:120px;height:120px;" alt="初代 09/01/20頃～" /></td>
+				<td><img src="/img/c2.jpg" style="width:120px;height:120px;" alt="２代目 09/01/25～" /></td>
+				<td><img src="/img/c3.jpg" style="width:120px;height:120px;" alt="３代目 09/03/06～" /></td>
+				<td><img src="/img/c4.jpg" style="width:120px;height:120px;" alt="４代目 09/03/30～" /></td>
+				<td><img src="/img/c5.jpg" style="width:120px;height:120px;" alt="５代目 09/07/18～" /></td>
+				<td><img src="/img/c6.jpg" style="width:120px;height:120px;" alt="６代目 09/09/24～" /></td>
+				<td><img src="/img/c7.jpg" style="width:120px;height:120px;" alt="７代目 09/12/23～" /></td>
+			</tr>
+			<tr style="color:#AB6645;/*#FFFFFF*/ background-color:#FFDDB0; font:bold 8pt 'メイリオ'; padding:3px; text-align:center;">
+				<td>初代 09/01/20頃～</td>
+				<td>２代目 09/01/25～</td>
+				<td>３代目 09/03/06～</td>
+				<td>４代目 09/03/30～</td>
+				<td>５代目 09/07/18～</td>
+				<td>６代目 09/09/24～</td>
+				<td>７代目 09/12/23～</td>
+			</tr>
+		</table>
+-->
+	</div>
+
+	<div id="footer">
+		<div class="ftimg"></div>
+		<div class="modelft2">
+			<div class="icons"></div>
+			<div class="twitter_mark"></div>
+			<div class="facebook_mark"></div>
+			<div class="facebook_box">
+				<iframe src="http://www.facebook.com/plugins/likebox.php?href=http%3A%2F%2Fwww.facebook.com%2Fchikuwachan&amp;colorscheme=dark&amp;show_faces=true&amp;stream=false&amp;header=false&amp;width=460&amp;height=270" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:460px; height:270px; background-color:#333333; border-top:solid 1px #AAAAAA;" allowTransparency="true"></iframe>
+			</div>
+			<div class="twitter_box">
+				<a class="twitter-timeline" data-chrome="noheader nofooter" data-border-color="#AAAAAA" width="460" height="270" data-dnt=true href="https://twitter.com/suepeko" data-widget-id="268158187465740288">@suepeko からのツイート</a>
+				<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+			</div>
+			<div class="copyright">Copyright &copy; 2008-2013 ちくわちゃん. All rights reserved.</div>
+		</div>
+	</div>
+
+	<!-- Google Analytics -->
+	<script type="text/javascript">
+		var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+		document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+	</script>
+	<script type="text/javascript">
+		try {
+		var pageTracker = _gat._getTracker("UA-15552956-1");
+		pageTracker._setDomainName(".chikuwachan.com");
+		pageTracker._trackPageview();
+		} catch(err) {}
+	</script>
+</body>
+
+</html>

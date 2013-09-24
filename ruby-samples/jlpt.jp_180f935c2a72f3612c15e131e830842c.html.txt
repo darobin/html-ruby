@@ -1,0 +1,451 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" dir="ltr">
+<head>
+    <meta http-equiv="Content-Language" content="ja" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="description" content="国際交流基金と財団法人日本国際教育支援協会が運営する日本語能力試験・公式サイトです。日本語能力試験は、日本国内および海外において、日本語を母語としない人を対象として日本語の能力を測定し、認定することを目的として行う試験です。" />
+    <meta name="keywords" content="日本語能力試験, 日本語, 試験, 国際交流基金, 日本国際教育支援協会, 日本語学習, 文法, 漢字, 受験, 級" />
+    <title>日本語能力試験　JLPT</title>
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta http-equiv="Content-Script-Type" content="text/javascript" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Cache-Control" content="no-cache" />
+    <meta content="index,follow" name="robots" />
+    <!-- for legacy browser -->
+    <link rel="stylesheet" type="text/css" href="resource/css/legacy.css" />
+    <!-- for modern browser -->
+    <link rel="stylesheet" type="text/css" href="resource/css/modern.css" media="screen,print" />
+	<!-- load styleswitcher style -->
+	<link type="text/css" rel="stylesheet" href="resource/css/textsize-m.css" title="medium" />
+	<link type="text/css" rel="alternate stylesheet" href="resource/css/textsize-s.css" title="small" />
+	<link type="text/css" rel="alternate stylesheet" href="resource/css/textsize-l.css" title="large" />
+    <!-- load JavaScript -->
+    <script type="text/javascript" src="resource/script/common.js"></script>
+    <script type="text/javascript" src="resource/script/smoothscroll.js"></script>
+    <script type="text/javascript" src="resource/script/heightLine.js"></script>
+	<script type="text/javascript" src="resource/script/styleswitcher.js"></script>
+    <!-- load flash contents -->
+    <script type="text/javascript" src="resource/script/swfobject.js"></script>
+<style type="text/css">
+<!--
+#h1Block {
+	margin-bottom: 35px;
+	padding: 10px 0px 0px 0px;
+	background:#fff;
+	height:251px;
+}
+
+#h1Block h1 img {
+	margin-bottom: 0;
+	float:left;
+	width:721px;
+}
+
+#h1Block ul {
+	float:left;
+	width: 210px;
+	padding-right: 4px;
+}
+
+#leftBlock {
+	display: inline;
+	float: left;
+	width: 565px;
+	padding-right: 47px;
+}
+
+#leftBlock rt {
+	font-size: 50%;
+	text-align: justify;
+	text-decoration: none;
+}
+
+#leftBlock #ct1 .h2Block {
+	height: 46px;
+	margin-bottom: 5px;
+	background: url(img/index_h2_bg.gif) no-repeat left top;
+}
+
+#leftBlock #ct1 .h2Block h2 {
+	display: inline;
+	float: left;
+	width: 69px;
+	padding: 7px 0 0 27px;
+}
+
+#leftBlock #ct1 .h2Block .link {
+	display: inline;
+	float: right;
+	width: 135px;
+	padding: 12px 13px 0 0;
+}
+
+#leftBlock #ct1 ul li {
+	border-top: 1px solid #ddd;
+}
+
+#leftBlock #ct1 ul li dl dt {
+	display: inline;
+	float: left;
+	width: 150px;
+	padding: 11px 0 0 8px;
+	border-top: 5px solid #f4f4f4;
+	color: #f60;
+	font-size: 108%;
+	font-weight: bold;
+}
+
+#leftBlock #ct1 ul li dl dt .date {
+	padding-left: 19px;
+	background: url(resource/img_common/icon_square_g.gif) no-repeat left center;
+}
+
+#leftBlock #ct1 ul li dl dd {
+	display: inline;
+	float: left;
+	width: 377px;
+	padding: 12px;
+	font-size: 116%;
+}
+
+#leftBlock #ct1 ul li dl dd, x:-moz-broken {
+	padding-top: 14px;
+}
+
+#leftBlock #ct1 ul li dl .noruby {
+	padding-top: 22px;
+}
+
+#leftBlock #ct1 ul li dl .noruby, x:-moz-broken {
+	padding-top: 15px;
+}
+
+#leftBlock #ct1 ul li dl dd a:link,
+#leftBlock #ct1 ul li dl dd a:visited,
+#leftBlock #ct1 ul li dl dd a:active {
+	color: #666;
+	text-decoration: none;
+}
+
+#leftBlock #ct1 ul li dl dd a:hover {
+	text-decoration: underline;
+}
+
+#leftBlock #ct2 {
+	margin-top: 10px;
+}
+
+#leftBlock #ct2 h2 {
+	height: 46px;
+	margin-bottom: 5px;
+	padding: 5px 0 0 27px;
+	background: url(img/index_h2_bg.gif) no-repeat left top;
+}
+
+#leftBlock #ct2 .lead {
+	font-size: 116%;
+}
+
+#leftBlock #ct2 .item {
+	display: inline;
+	float: left;
+	width: 282px;
+}
+
+#leftBlock #ct2 .item .pht {
+	display: inline;
+	float: left;
+	width: 70px;
+	padding-right: 14px;
+	background: url(img/index_vline.gif) no-repeat right top;
+}
+
+#leftBlock #ct2 .item .pht img {
+	padding: 1px;
+	border: 1px solid #ddd;
+}
+
+#leftBlock #ct2 .item .text {
+	display: inline;
+	float: left;
+	width: 163px;
+	padding:0 27px 0 8px;
+}
+
+#rightBlock {
+	display: inline;
+	float: left;
+	width: 323px;
+}
+
+#rightBlock #sche {
+	background: url(img/sche_bg.gif) no-repeat left bottom;
+}
+
+#rightBlock #sche #sche_in {
+	padding-left:2px;
+	padding-right:2px;
+}
+
+#rightBlock #sche dd {
+}
+
+#rightBlock #sche dd .date li {
+}
+
+#rightBlock #sche .btn {
+	padding: 15px 20px 20px 20px;
+	text-align: left;
+}
+
+#rightBlock #sche .date_line {
+	padding: 8px 2px 0px 2px;
+}
+
+#rightBlock #sche .btn ul li {
+	margin-bottom: 9px;
+}
+
+#rightBlock #sample {
+	margin-top: 13px;
+	background: url(img/sample_bg2.gif) no-repeat left bottom;
+}
+
+#rightBlock #sample dd {
+	padding: 0 0 0 15px;
+}
+
+#rightBlock #sample .btn {
+	padding: 15px 19px;
+}
+
+#rightBlock #materials{
+	margin-top:13px;
+	margin-bottom:20px;
+}
+
+-->
+</style>
+</head>
+<body>
+<div id="whole">
+    <div id="skiplinkSec">
+        <ul>
+          <li><a href="#headAnc">ヘッダーへジャンプします</a></li>
+          <li><a href="#naviAnc">メニューへジャンプします</a></li>
+          <li><a href="#mainAnc">本文へジャンプします</a></li>
+        </ul>
+    </div> <!-- /skip sec -->
+    <a name="pagetop" id="pagetop">ページの先頭です</a> <!-- /anchor pagetop -->
+    
+    <hr />
+    
+<div id="container">
+<div id="container-inner">
+    <p><a name="headAnc" id="headAnc">ヘッダーのはじまりです</a></p>
+    <div id="headSec">
+    <div id="headSec-inner" class="clearfix">
+        <div id="logo"><a href="index.html"><img src="resource/img_common/logo.gif" width="239" height="74" alt="日本語能力試験　JLPT（にほんごのうりょくしけん　JLPT）" /></a></div>
+		<div id="headRight">
+			<ul class="clearfix">
+				<li><a href="e/index.html"><img class="imgover" src="resource/img_common/head_navi_lang_en.gif" width="44" height="13" alt="English" /></a></li>
+                <li><a href="cn/index.html"><img class="imgover" src="resource/img_common/head_navi_lang_cn.gif" width="60" height="12" alt="简体中文" /></a></li>
+                <li><a href="tw/index.html"><img class="imgover" src="resource/img_common/head_navi_lang_tw.gif" width="60" height="12" alt="繁體中文" /></a></li>
+			</ul>
+			<div id="second" class="clearfix">
+				<div class="link"><a href="index.html"><img class="imgover" src="resource/img_common/head_navi_home.gif" width="37" height="10" alt="HOME" /></a></div>
+				<dl class="clearfix">
+					<dt><img src="resource/img_common/textsize.gif" width="58" height="11" alt="文字サイズ（もじさいず）" /></dt>
+					<dd class="small"><a href="javascript:void(0)" onClick="setActiveStyleSheet('small'); return false;"><img class="imgover" src="resource/img_common/textsize01.gif" width="22" height="22" alt="小（しょう）" /></a></dd>
+					<dd class="medium"><a href="javascript:void(0)" onClick="setActiveStyleSheet('medium'); return false;"><img class="imgover" src="resource/img_common/textsize02.gif" width="22" height="22" alt="中（ちゅう）" /></a></dd>
+					<dd class="large"><a href="javascript:void(0)" onClick="setActiveStyleSheet('large'); return false;"><img class="imgover" src="resource/img_common/textsize03.gif" width="22" height="22" alt="大（だい）" /></a></dd>
+				</dl>
+				<form action="/search_result.html" id="cse-search-box">
+				<input type="hidden" name="cx" value="011774718497016608938:s3z3qdcqnze" />
+				<input type="hidden" name="cof" value="FORID:9" />
+				<input type="hidden" name="ie" value="UTF-8" />
+				<input type="text" name="q" size="31" class="text" /><input type="image" name="sa" src="resource/img_common/search_btn.gif" />
+				</form>
+				<script type="text/javascript" src="http://www.google.com/cse/brand?form=cse-search-box&lang=ja"></script>
+			</div>
+		</div>
+    </div>
+    </div> <!-- /head sec -->
+    
+    <hr />
+    
+    <div id="gNaviSec">
+    <div id="gNaviSec-inner" class="clearfix">
+        <a name="naviAnc" id="naviAnc">メニューのはじまりです</a>
+		<ul class="clearfix">
+			<li><a href="about/index.html"><img class="imgover" src="resource/img_common/gnavi1.gif" width="233" height="47" alt="日本語能力試験とは（にほんごのうりょくしけんとは）" /></a></li>
+			<li><a href="guideline/testsections.html"><img class="imgover" src="resource/img_common/gnavi2.gif" width="233" height="47" alt="試験の実施と結果通知（しけんのじっしとけっかつうち）" /></a></li>
+			<li><a href="application/domestic_index.html"><img class="imgover" src="resource/img_common/gnavi3.gif" width="234" height="47" alt="受験手続きの流れ（じゅけんてつづきのながれ）" /></a></li>
+			<li><a href="samples/forlearners.html"><img class="imgover" src="resource/img_common/gnavi4.gif" width="235" height="47" alt="問題例（もんだいれい）" /></a></li>
+			<li><a href="reference/books.html"><img class="imgover" src="resource/img_common/gnavi5.gif" width="233" height="48" alt="書籍･資料案内（しょせき･しりょうあんない）" /></a></li>
+
+<li><a href="certificate/index.html"><img class="imgover" src="resource/img_common/gnavi6.gif" width="233" height="48" alt="証明書の発行（しょうめいしょのはっこう）" /></a></li>
+			<li><a href="statistics/index.html"><img class="imgover" src="resource/img_common/gnavi7.gif" width="234" height="48" alt="統計データ（とうけいでーた）" /></a></li>
+			<li><a href="faq/index.html"><img class="imgover" src="resource/img_common/gnavi8.gif" width="235" height="48" alt="よくある質問（よくあるしつもん）" /></a></li>
+		</ul>
+    </div>
+    </div><!-- /global navigation -->
+    
+    <hr />
+    
+    <div id="bodySec">
+    <div id="bodySec-inner" class="clearfix">
+        <a name="mainAnc" id="mainAnc">本文のはじまりです</a>
+		<div id="alpha">
+			<div id="h1Block">
+				<ul class="clearfix">
+            <li><a href="http://info.jees-jlpt.jp/" target="_blank"><img class="imgover" src="img/bt_main01.gif" width="210" height="63" alt="日本で受験する（にほんでじゅけんする）" /></a></li>
+            <li><a href="application/overseas_list.html"><img class="imgover" src="img/bt_main02.gif" width="210" height="63" alt="海外で受験する（かいがいでじゅけんする）" /></a></li>
+            <li><a href="about/levelsummary.html"><img class="imgover" src="img/bt_main03.gif" width="210" height="63" alt="認定の目安（にんていのめやす）" /></a></li>
+            <li><a href="guideline/results_online.html"><img class="imgover" src="img/bt_main04.gif" width="210" height="62" alt="試験結果発表（しけんけっかはっぴょう）" /></a></li>
+            </ul>
+            <h1><a href="reference/jlptbulletin1.html"><img class="imgover" src="img/jlptbulletin.jpg" width="721" height="251" alt="JLPT通信（つうしん）" /></a></h1>
+			</div> <!-- end of id="h1Block" -->
+			
+			<hr />
+			
+			<div class="clearfix">
+				<div id="leftBlock">
+					<div id="ct1">
+						<div class="h2Block clearfix">
+							<h2><img src="img/index_h2_1.gif" width="69" height="27" alt="お知らせ（おしらせ）" /></h2>
+							<div class="link"><a href="topics/index.html"><img class="imgover" src="img/linktext_info.gif" width="135" height="20" alt="すべてのお知らせを見る（すべてのおしらせをみる）" /></a></div>
+						</div>
+						<ul>
+
+							<li>
+								<dl class="clearfix">
+									<dt><span class="date">2013.08.29</span></dt>
+									<dd><a href="topics/201308291377757159.html">2013年第1回（7月）試験のオンライン結果通知が始まりました</a></dd>
+								</dl>
+							</li>
+
+							<li>
+								<dl class="clearfix">
+									<dt><span class="date">2013.04.01</span></dt>
+									<dd><a href="http://www.jlpt.jp/statistics/archive/201202.html">2012年第2回（12月）試験の実施結果について、くわしい資料をのせました</a></dd>
+								</dl>
+							</li>
+
+							<li>
+								<dl class="clearfix">
+									<dt><span class="date">2013.04.01</span></dt>
+									<dd><a href="http://www.jlpt.jp/reference/jlptbulletin1.html"> 「JLPT通信」のページを開設しました。</a></dd>
+								</dl>
+							</li>
+
+							<li>
+								<dl class="clearfix">
+									<dt><span class="date">2013.02.13</span></dt>
+									<dd><a href="statistics/archive/201202.html">2012年第2回（12月）試験のデータを掲載しました（応募者数・受験者数・認定者数・認定率）</a></dd>
+								</dl>
+							</li>
+
+							<li>
+								<dl class="clearfix">
+									<dt><span class="date">2012.10.19</span></dt>
+									<dd><a href="http://www.jlpt.jp/about/pdf/cds_final_report.pdf"target="_blank">日本語能力試験Can-do自己評価調査レポート≪最終報告≫を掲載しました</a></dd>
+								</dl>
+							</li>
+
+						</ul>
+					</div> <!-- end of id="ct1" -->
+					
+					<!--
+                    <div id="ct2">
+						<h2><img src="img/index_h2_2.gif" width="161" height="28" alt="日本語で広がる世界（にほんごでひろがるせかい）" /></h2>
+						<p class="lead">ダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキスト</p>
+						<div class="m-t12 m-b36 clearfix">
+							<div class="item clearfix">
+								<div class="pht"><a href="hoge"><img class="imgover" src="img/index_pht1.jpg" width="66" height="66" alt="" /></a></div>
+								<div class="text">
+									<p>ダミーテキストダミーテキストダミーテキスト</p>
+									<div class="link"><a href="hoge"><img class="imgover" src="img/linktext_interview.gif" width="111" height="19" alt="インタビューを読む（いんたびゅーをよむ）" /></a></div>
+								</div>
+							</div>
+							<div class="item clearfix">
+								<div class="pht"><a href="hoge"><img class="imgover" src="img/index_pht2.jpg" width="66" height="66" alt="" /></a></div>
+								<div class="text">
+									<p>ダミーテキストダミーテキストダミーテキスト</p>
+									<div class="link"><a href="hoge"><img class="imgover" src="img/linktext_interview.gif" width="111" height="19" alt="インタビューを読む（いんたびゅーをよむ）" /></a></div>
+								</div>
+							</div>
+						</div>
+					</div>
+                    -->
+                    <!-- end of id="ct2" -->
+				</div> <!-- end of id="leftBlock" -->
+				
+				<div id="rightBlock">
+						<div><img src="img/sche_ttl2.gif" width="322" height="53" alt="日本語能力試験の実施日（にほんごのうりょくしけんのじっしび）" /></div>
+                        <div id="sche">
+                        <div id="sche_in">
+								<div><img src="img/sche_date01.gif" width="318" height="42" alt="第1回：2013年7月7日（日）（だい1かい：2013ねん7がつ7なのか（にち））" /></div>								<div><img src="img/sche_date02.gif" width="318" height="45" alt="第2回：2013年12月1日（日）（だい2かい：2013ねん12がつ1ついたち（にち））" /></div>
+                        <div><img src="img/date_line2.gif" alt="" width="318" height="4" /></div>
+                        </div>
+						<div class="btn">※<ruby>海外<rp>（</rp><rt>かいがい</rt><rp>）</rp></ruby>では、7<ruby>月<rp>（</rp><rt>がつ</rt><rp>）</rp></ruby>の<ruby>試験<rp>（</rp><rt>しけん</rt><rp>）</rp></ruby>だけ<ruby>行<rp>（</rp><rt>おこな</rt><rp>）</rp></ruby>う<ruby>都市<rp>（</rp><rt>とし</rt><rp>）</rp></ruby>や、12<ruby>月<rp>（</rp><rt>がつ</rt><rp>）</rp></ruby>の<ruby>試験<rp>（</rp><rt>しけん</rt><rp>）</rp></ruby>だけ<ruby>行<rp>（</rp><rt>おこな</rt><rp>）</rp></ruby>う<ruby>都市<rp>（</rp><rt>とし</rt><rp>）</rp></ruby>があります。<a href="application/overseas_list.html">こちら</a>で<ruby>確認<rp>（</rp><rt>かくにん</rt><rp>）</rp></ruby>してください。</div>
+					</div><!-- end of id="sche" -->
+					
+				<dl id="sample">
+						<dt><img src="img/sample_ttl2.gif" width="322" height="52" alt="問題例に挑戦しよう。（もんだいれいにちょうせんしよう。）" /></dt>
+						<dd class="m-t10"><img src="img/sample_txt_a.gif" width="217" height="25" alt="新しい日本語能力試験のレベル別の（あたらしいにほんごのうりょくしけんのれべるべつの）" /></dd>
+                <dd><img src="img/sample_txt_b.gif" width="195" height="25" alt="問題例をためすことができます。（もんだいれいをためすことができます。）" /></dd>
+						<dd class="btn"><a href="samples/forlearners.html"><img class="imgover" src="img/sample_linktext02.gif" width="111" height="25" alt="問題例はこちら（もんだいれいはこちら）" /></a></dd>
+					</dl>
+                    
+                    <div id="materials"><a href="reference/materials.html"><img src="img/materials_bt.jpg" class="imgover" alt="資料ダウンロード（しりょうだうんろーど）" width="322" height="82" /></a></div> 
+                    
+				</div> 
+				<!-- end of id="rightBlock" -->
+			</div>
+		</div>
+        
+        <p id="endMainAnc">本文のおわりです</p> <!-- /contents area -->
+    </div>
+    </div> <!-- /body sec -->
+    
+    <hr />
+    
+    <div id="footSec">
+    <div id="footSec-inner" class="clearfix">
+		<ul class="footNavi clearfix">
+			<li class="noruby"><a href="policy.html">サイトポリシー</a></li>
+			<li class="noruby"><a href="privacy.html">プライバシーポリシー</a></li>
+			<li class="noruby"><a href="sitemap.html">サイトマップ</a></li>
+			<li><a href="links.html">リンク<ruby>集<rp>（</rp><rt>しゅう</rt><rp>）</rp></ruby></a></li>
+		</ul>
+		<p class="lead"><img src="resource/img_common/foot_lead.gif" width="627" height="23" alt="国際交流基金と日本国際教育支援協会が運営する、日本語能力試験公式ウェブサイトです。（こくさいこうりゅうききんとにほんこくさいきょういくしえんきょうかいがうんえいする、にほんごのうりょくしけんこうしきうぇぶさいとです。）" /></p>
+		<ul class="footLogo clearfix">
+			<li><a href="http://www.jpf.go.jp/j/" target="_blank"><img src="resource/img_common/foot_logo01.gif" width="194" height="49" alt="国際交流基金（こくさいこうりゅうききん）" /></a></li>
+			<li><a href="http://www.jees.or.jp/index.htm" target="_blank"><img src="resource/img_common/foot_logo02.gif" width="173" height="52" alt="日本国際教育支援協会（にほんこくさいきょういくしえんきょうかい）" /></a></li>
+		</ul>
+		<div id="copyright">
+			<p><img src="resource/img_common/copyright.gif" width="404" height="11" alt="Copyright (C) 2012 The Japan Foundation / Japan Educational Exchanges and Services" /></p>
+		</div>
+    </div>
+    </div> <!-- /foot sec -->
+</div>
+</div>
+
+</div> 
+<!-- /whole -->
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-16581383-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</body>
+</html>

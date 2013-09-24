@@ -1,0 +1,726 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="ja">
+<head>
+<meta http-equiv="content-language" content="ja">
+<meta http-equiv="Content-Type" content="text/html; charset=shift_jis" />
+<meta http-equiv="content-style-type" content="text/css">
+<meta http-equiv="content-script-type" content="text/javascript">
+<meta name="description" content="レベルファイブが贈る超次元サッカーゲーム 『イナズマイレブン』シリーズ公式サイト！ゲーム情報や、キャラクター情報、イベント情報など、ここでしか手に入らない情報が満載！
+">
+<meta name="keywords" content="イナズマ,イナズマイレブン2,イナズマイレブン3,イナズマイレブンGO,ストライカーズ,超次元サッカーRPG,レベルファイブ,ニンテンドーDS,ニンテンドー3DS,日野 晃博">
+<title>イナズマイレブンシリーズ</title>
+<link href="css/import.css" rel="stylesheet" type="text/css" media="all" />
+<script language='JavaScript' src='./js/jsp_writeflash.js'></script>
+<script language='JavaScript' src='./js/navi.js'></script>
+<script language="javascript" src="js/smoothScroll.js"></script>
+<script language="javascript" src="js/swfobject.js"></script>
+<script type="text/JavaScript">
+<!--
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+//-->
+</script>
+
+</head>
+<body>
+<div id="container">
+<div id="header">
+<h1><a href="/">イナズマイレブンシリーズ</a></h1>
+
+
+
+<div id="mainImg">
+
+<table border="0" cellpadding="0" cellspacing="0">
+<tr>
+	<td><img src="img/s.gif" width="1" height="25" /></td>
+</tr>
+
+
+
+
+<tr>
+    <td>
+		<table border="0" cellpadding="0" cellspacing="0">
+        	<tr>
+            	<td ><img src="img/s.gif" width="215" height="1" /></td>
+                <td>&nbsp;</td>
+            	<td><img src="img/s.gif" width="56" height="1" /></td>
+                <td>&nbsp;</td>
+            	<td><img src="img/s.gif" width="215" height="1" /></td>
+            </tr>
+        </table>
+		<table border="0" cellpadding="0" cellspacing="0">
+		  <tr>
+		    <td><img src="img/s.gif" width="108" height="1" /></td>
+		    <td><a href="http://www.inazuma.jp/inazuma123/" target="_blank"><img src="thumbnails/thumb_inazuma123.jpg" alt="イナズマイレブン1・2・3!! 円堂守伝説" width="160" height="55" border="0" /></a></td>
+		    <td><img src="img/s.gif" width="55" height="1" /></td>
+		    <td><a href="http://www.inazuma.jp/go2/" target="_blank"><img src="thumbnails/thumb_inazuma_go2.jpg" alt="イナズマイレブンGO2 クロノ・ストーン ネップウ／ライメイ" width="160" height="55" border="0" /></a></td>
+		    <td><img src="img/s.gif" width="55" height="1" /></td>
+		    <td><a href="http://www.inazuma.jp/go/" target="_blank"><img src="thumbnails/thumb_inazuma_go.jpg" alt="イナズマイレブンGO シャイン/ダーク" width="160" height="55" border="0" /></a></td>
+		    <td><img src="img/s.gif" width="108" height="1" /></td>
+		    </tr>
+		  </table></td>
+</tr>
+
+<tr>
+	<td><img src="img/s.gif" width="1" height="20" /></td>
+</tr>
+
+<tr>
+    <td>
+		<table border="0" cellpadding="0" cellspacing="0">
+            <td><img src="img/s.gif" width="108" height="1" /></td>
+            
+            <td>
+            <a href="http://www.inazuma.jp/strikers/" target="_blank"><img src="thumbnails/thumb_inazuma_strikers.jpg" alt="イナズマイレブン ストライカーズ 2012エクストリーム" width="160" height="55" border="0" /></a>
+            </td>
+            
+            <td><img src="img/s.gif" width="55" height="1" /></td>
+            
+            <td>
+            <a href="http://www.inazuma.jp/inazuma3/" target="_blank"><img src="thumbnails/thumb_inazuma3.jpg" alt="イナズマイレブン3 世界への挑戦！！ スパーク／ボンバー／ジ・オーガ" width="160" height="55" border="0" /></a>
+            </td>
+            
+            <td><img src="img/s.gif" width="55" height="1" /></td>
+            
+            <td>
+            <a href="http://www.inazuma.jp/inazuma2/" target="_blank"><img src="thumbnails/thumb_inazuma2.jpg" alt="イナズマイレブン2 脅威の侵略者 ファイア／ブリザード" width="160" height="55" border="0" /></a>
+            /td>
+            
+            <td><img src="img/s.gif" width="108" height="1" /></td>
+        </table>
+
+	</td>
+</tr>
+
+<tr>
+	<td><img src="img/s.gif" width="1" height="20" /></td>
+</tr>
+
+<tr>
+    <td>
+		<table border="0" cellpadding="0" cellspacing="0">
+            <td><img src="img/s.gif" width="108" height="1" /></td>
+            
+            <td>
+            <a href="http://www.inazuma.jp/inazuma/" target="_blank"><img src="thumbnails/thumb_inazuma1.jpg" alt="イナズマイレブン" width="160" height="55" border="0" /></a>
+            </td>
+            
+            <td><img src="img/s.gif" width="55" height="1" /></td>
+            
+            <td><img src="img/s.gif" width="160" height="55" /></td>
+            
+            <td><img src="img/s.gif" width="55" height="1" /></td>
+            
+            <td><img src="img/s.gif" width="160" height="55" /></td>
+            
+            <td><img src="img/s.gif" width="108" height="1" /></td>
+        </table>
+
+	</td>
+</tr>
+
+<tr>
+	<td><img src="img/s.gif" width="1" height="20" /></td>
+</tr>
+
+<tr>
+	<td><a href="http://www.adobe.com/go/getflashplayer" target="_blank"><img src="img/noflash.jpg" width="806" height="152" /></a></td>
+</tr>
+    
+    
+</table>
+
+</div>
+
+<script type="text/javascript">
+<!--
+var so = new SWFObject('index.swf', 'viewer', '806', '327', '9', '#FFF');
+so.useExpressInstall('swfobject/expressinstall.swf');
+so.addParam('menu', 'false');
+so.addParam('allowScriptAccess','always');
+so.addParam('wmode','transparent');
+so.write('mainImg');
+//-->
+</script>
+
+
+    </div>
+
+<p style="padding:20px 0 0 90px;"><a href="http://www.inazuma.jp/gogalaxy/line/" target="_blank"><img src="img/banner_line.jpg" width="800" height="129" alt="イナズマ超次元LINEスタンプ" /></a></p> 
+
+<p style="padding:10px 0 0 90px;"><a href="http://www.inazuma.jp/inazuma3_rendou/" target="_blank"><img src="img/banner_inazuma123.jpg" width="800" height="129" alt="『イナズマイレブン3連動コンテンツ』" /></a></p>  
+
+<br /><br />
+<div id="contents_all">
+<div id="contents">
+    	<div id="main">
+        
+        
+<!-- トピックスここから -->
+    	<div id="topics">
+			<h2>トピックス</h2>
+            <div id="topics_area">
+            <table border="0" cellpadding="0" cellspacing="0">
+
+            	<tr>
+            	  <td class="listimg"><img src="img/list.jpg" width="41" height="27" /></td>
+            	  <td class="date">2013/8/29</td>
+            	  <td class="news"><a href="http://inazuma-online.hangame.co.jp" target="_blank">PC<ruby>
+            	      <rb>向</rb>
+            	      <rp>（</rp>
+            	      <rt>け</rt>
+            	      <rp>）</rp>
+          	      </ruby>オンラインゲーム『イナズマイレブン オンライン』2013
+                  <ruby>
+            	      <rb>年</rb>
+            	      <rp>（</rp>
+            	      <rt>ねん</rt>
+            	      <rp>）</rp>
+          	      </ruby>
+                  <ruby>
+            	      <rb>冬</rb>
+            	      <rp>（</rp>
+            	      <rt>ふゆ</rt>
+            	      <rp>）</rp>
+          	      </ruby>サービス
+                  <ruby>
+            	      <rb>開始</rb>
+            	      <rp>（</rp>
+            	      <rt>かいし</rt>
+            	      <rp>）</rp>
+          	      </ruby>！
+</a></td>
+          	  </tr>
+            	<tr>
+            	  <td height="15" colspan="3"><img src="img/s.gif" width="1" height="15" /></td>
+          	  </tr>
+
+
+
+            	<tr>
+            	  <td class="listimg"><img src="img/list.jpg" width="41" height="27" /></td>
+            	  <td class="date">2013/8/27</td>
+            	  <td class="news"><a href="http://www.inazuma.jp/gogalaxy/movie/pv02.html" target="_blank">『イナズマイレブンGO ギャラクシー ビッグバン／スーパーノヴァ』PV（LEVEL5 VISION 2013 Ver.）を
+                  <ruby>
+            	      <rb>公開</rb>
+            	      <rp>（</rp>
+            	      <rt>こうかい</rt>
+            	      <rp>）</rp>
+          	      </ruby>しました！
+</a></td>
+          	  </tr>
+            	<tr>
+            	  <td height="15" colspan="3"><img src="img/s.gif" width="1" height="15" /></td>
+          	  </tr>
+
+
+            	<tr>
+            	  <td class="listimg"><img src="img/list.jpg" width="41" height="27" /></td>
+            	  <td class="date">2013/8/12</td>
+            	  <td class="news"><a href="http://www.inazuma.jp/gogalaxy/" target="_blank">『イナズマイレブンGO ギャラクシー ビッグバン／スーパーノヴァ』2013
+                  <ruby>
+            	      <rb>年</rb>
+            	      <rp>（</rp>
+            	      <rt>ねん</rt>
+            	      <rp>）</rp>
+          	      </ruby>
+                  <ruby>
+            	      <rb>冬</rb>
+            	      <rp>（</rp>
+            	      <rt>ふゆ</rt>
+            	      <rp>）</rp>
+          	      </ruby>2バージョン
+                  <ruby>
+            	      <rb>同時発売決定</rb>
+            	      <rp>（</rp>
+            	      <rt>どうじはつばいけってい</rt>
+            	      <rp>）</rp>
+          	      </ruby>！!
+</a></td>
+          	  </tr>
+            	<tr>
+            	  <td height="15" colspan="3"><img src="img/s.gif" width="1" height="15" /></td>
+          	  </tr>
+
+
+            	<tr>
+            	  <td class="listimg"><img src="img/list.jpg" width="41" height="27" /></td>
+            	  <td class="date">2013/5/23</td>
+            	  <td class="news"><a href="http://www.inazuma.jp/gogalaxy/line/" target="_blank">「イナズマ
+                  <ruby>
+            	      <rb>超次元</rb>
+            	      <rp>（</rp>
+            	      <rt>ちょうじげん</rt>
+            	      <rp>）</rp>
+          	      </ruby>LINEスタンプ」
+                  <ruby>
+            	      <rb>本日</rb>
+            	      <rp>（</rp>
+            	      <rt>ほんじつ</rt>
+            	      <rp>）</rp>
+          	      </ruby>より
+                  <ruby>
+            	      <rb>配信</rb>
+            	      <rp>（</rp>
+            	      <rt>はいしん</rt>
+            	      <rp>）</rp>
+          	      </ruby>
+                  <ruby>
+            	      <rb>開始</rb>
+            	      <rp>（</rp>
+            	      <rt>かいし</rt>
+            	      <rp>）</rp>
+          	      </ruby>！
+</a></td>
+          	  </tr>
+            	<tr>
+
+            	<tr>
+            	  <td class="listimg"><img src="img/list.jpg" width="41" height="27" /></td>
+            	  <td class="date">2013/5/16</td>
+            	  <td class="news"><a href="http://www.level5.co.jp/15th/" target="_blank">レベルファイブ
+                  <ruby>
+            	      <rb>創立</rb>
+            	      <rp>（</rp>
+            	      <rt>そうりつ</rt>
+            	      <rp>）</rp>
+          	      </ruby>15
+                   <ruby>
+            	      <rb>周年記念</rb>
+            	      <rp>（</rp>
+            	      <rt>しゅうねんきねん</rt>
+            	      <rp>）</rp>
+          	      </ruby><br />ダウンロード
+                  <ruby>
+<ruby><rb>版</rb>
+            	      <rp>（</rp>
+            	      <rt>ばん</rt>
+            	      <rp>）</rp>
+          	      </ruby>
+<ruby>
+            	      <rb>半額</rb>
+            	      <rp>（</rp>
+            	      <rt>はんがく</rt>
+            	      <rp>）</rp>
+          	      </ruby>
+                  キャンペーン
+                  <ruby>
+            	      <rb>特設</rb>
+            	      <rp>（</rp>
+            	      <rt>とくせつ</rt>
+            	      <rp>）</rp>
+          	      </ruby>サイトを
+                  <ruby>
+            	      <rb>公開</rb>
+            	      <rp>（</rp>
+            	      <rt>こうかい</rt>
+            	      <rp>）</rp>
+          	      </ruby>しました！
+</a></td>
+          	  </tr>
+            	<tr>
+            	  <td height="15" colspan="3"><img src="img/s.gif" width="1" height="15" /></td>
+          	  </tr>
+
+
+            	<tr>
+            	  <td class="listimg"><img src="img/list.jpg" width="41" height="27" /></td>
+            	  <td class="date">2013/4/1</td>
+            	  <td class="news"><a href="http://www.inazuma.jp/gogalaxy/" target="_blank">『イナズマイレブンGO ギャラクシー』PV（プロモーションビデオ）を
+                  <ruby>
+            	      <rb>公開</rb>
+            	      <rp>（</rp>
+            	      <rt>こうかい</rt>
+            	      <rp>）</rp>
+          	      </ruby>しました！
+</a></td>
+          	  </tr>
+            	<tr>
+            	  <td height="15" colspan="3"><img src="img/s.gif" width="1" height="15" /></td>
+          	  </tr>
+              
+
+            	<tr>
+            	  <td class="listimg"><img src="img/list.jpg" width="41" height="27" /></td>
+            	  <td class="date">2013/4/15</td>
+            	  <td class="news"><a href="http://www.inazuma.jp/gogalaxy/" target="_blank">『イナズマイレブンGO ギャラクシー』を
+                  <ruby>
+            	      <rb>更新</rb>
+            	      <rp>（</rp>
+            	      <rt>こうしん</rt>
+            	      <rp>）</rp>
+          	      </ruby>しました！
+</a></td>
+          	  </tr>
+            	<tr>
+            	  <td height="15" colspan="3"><img src="img/s.gif" width="1" height="15" /></td>
+          	  </tr>
+
+
+            	<tr>
+            	  <td class="listimg"><img src="img/list.jpg" width="41" height="27" /></td>
+            	  <td class="date">2013/4/1</td>
+            	  <td class="news"><a href="http://www.inazuma.jp/gogalaxy/" target="_blank">『イナズマイレブンGO ギャラクシー』PV（プロモーションビデオ）を
+                  <ruby>
+            	      <rb>公開</rb>
+            	      <rp>（</rp>
+            	      <rt>こうかい</rt>
+            	      <rp>）</rp>
+          	      </ruby>しました！
+</a></td>
+          	  </tr>
+            	<tr>
+            	  <td height="15" colspan="3"><img src="img/s.gif" width="1" height="15" /></td>
+          	  </tr>
+
+            	<tr>
+            	  <td class="listimg"><img src="img/list.jpg" width="41" height="27" /></td>
+            	  <td class="date">2013/3/19</td>
+            	  <td class="news"><a href="http://www.artemis-holyroad.jp/" target="_blank">「アルテミス・ホーリーロード 
+                  <ruby>
+            	      <rb>超絶</rb>
+            	      <rp>（</rp>
+            	      <rt>ちょうぜつ</rt>
+            	      <rp>）</rp>
+          	      </ruby>ゲームトーナメント」
+                  <ruby>
+            	      <rb>決勝大会</rb>
+            	      <rp>（</rp>
+            	      <rt>けっしょうたいかい</rt>
+            	      <rp>）</rp>
+          	      </ruby>／ファン
+                  <ruby>
+            	      <rb>感謝祭</rb>
+            	      <rp>（</rp>
+            	      <rt>かんしゃさい</rt>
+            	      <rp>）</rp>
+          	      </ruby>の
+                  <ruby>
+            	      <rb>情報</rb>
+            	      <rp>（</rp>
+            	      <rt>じょうほう</rt>
+            	      <rp>）</rp>
+          	      </ruby>を
+                  <ruby>
+            	      <rb>更新</rb>
+            	      <rp>（</rp>
+            	      <rt>こうしん</rt>
+            	      <rp>）</rp>
+          	      </ruby>しました！
+</a></td>
+          	  </tr>
+            	<tr>
+            	  <td height="15" colspan="3"><img src="img/s.gif" width="1" height="15" /></td>
+          	  </tr>
+
+
+
+            	<tr>
+            	  <td class="listimg"><img src="img/list.jpg" width="41" height="27" /></td>
+            	  <td class="date">2013/3/15</td>
+            	  <td class="news"><a href="http://www.inazuma.jp/gogalaxy/" target="_blank">『イナズマイレブンGO ギャラクシー』サイト 
+                  <ruby>
+            	      <rb>公開</rb>
+            	      <rp>（</rp>
+            	      <rt>こうかい</rt>
+            	      <rp>）</rp>
+          	      </ruby>しました！
+</a></td>
+          	  </tr>
+            	<tr>
+            	  <td height="15" colspan="3"><img src="img/s.gif" width="1" height="15" /></td>
+          	  </tr>
+
+            	<tr>
+            	  <td class="listimg"><img src="img/list.jpg" width="41" height="27" /></td>
+            	  <td class="date">2013/1/10</td>
+            	  <td class="news"><a href="/go2/update/" target="_blank">『イナズマイレブンGO2 クロノ・ストーン ネップウ／ライメイ』<br />
+            	    <ruby>
+            	      <rb>更新</rb>
+            	      <rp>（</rp>
+            	      <rt>こうしん</rt>
+            	      <rp>）</rp>
+          	      </ruby>データ
+                  <ruby>
+            	      <rb>配信</rb>
+            	      <rp>（</rp>
+            	      <rt>はいしん</rt>
+            	      <rp>）</rp>
+          	      </ruby>のお
+                  <ruby>
+            	      <rb>知</rb>
+            	      <rp>（</rp>
+            	      <rt>し</rt>
+            	      <rp>）</rp>
+          	      </ruby>らせ
+                  </a></td>
+          	  </tr>
+            	<tr>
+            	  <td height="15" colspan="3"><img src="img/s.gif" width="1" height="15" /></td>
+          	  </tr>
+
+
+            	<tr>
+            	  <td class="listimg"><img src="img/list.jpg" width="41" height="27" /></td>
+            	  <td class="date">2012/12/28</td>
+            	  <td class="news"><a href="javascript:;" onClick="MM_openBrWindow('http://www.inazuma.jp/go2/topics/popup01.html','','scrollbars=yes,resizable=yes,width=675,height=590')">『イナズマイレブンGO2 クロノ・ストーン ネップウ／ライメイ』<br />「インターネットダウンロード」の
+            	    <ruby>
+            	      <rb>受信</rb>
+            	      <rp>（</rp>
+            	      <rt>じゅしん</rt>
+            	      <rp>）</rp>
+          	      </ruby>の
+                  <ruby>
+            	      <rb>不具合</rb>
+            	      <rp>（</rp>
+            	      <rt>ふぐあい</rt>
+            	      <rp>）</rp>
+          	      </ruby>および、<br />「シュウ」「
+                  <ruby>
+            	      <rb>剣城優一</rb>
+            	      <rp>（</rp>
+            	      <rt>つるぎゆういち</rt>
+            	      <rp>）</rp>
+          	      </ruby>」
+                  <ruby>
+            	      <rb>配信期間延長</rb>
+            	      <rp>（</rp>
+            	      <rt>はいしんきかんえんちょう</rt>
+            	      <rp>）</rp>
+          	      </ruby>に
+                  <ruby>
+            	      <rb>関</rb>
+            	      <rp>（</rp>
+            	      <rt>かん</rt>
+            	      <rp>）</rp>
+          	      </ruby>するお
+                  <ruby>
+            	      <rb>知</rb>
+            	      <rp>（</rp>
+            	      <rt>し</rt>
+            	      <rp>）</rp>
+          	      </ruby>らせ
+                  </a></td>
+          	  </tr>
+            	<tr>
+            	  <td height="15" colspan="3"><img src="img/s.gif" width="1" height="15" /></td>
+          	  </tr>
+
+            	<tr>
+            	  <td class="listimg"><img src="img/list.jpg" width="41" height="27" /></td>
+            	  <td class="date">2012/12/27</td>
+            	  <td class="news"><a href="http://www.inazuma.jp/inazuma123/" target="_blank">『イナズマイレブン1・2・3!! 
+                  <ruby>
+            	      <rb>円堂守伝説</rb>
+            	      <rp>（</rp>
+            	      <rt>えんどうまもるでんせつ</rt>
+            	      <rp>）</rp>
+          	      </ruby>』
+            	    <ruby>
+            	      <rb>本日発売</rb>
+            	      <rp>（</rp>
+            	      <rt>ほんじつはつばい</rt>
+            	      <rp>）</rp>
+          	      </ruby>！</a></td>
+          	  </tr>
+            	<tr>
+            	  <td height="15" colspan="3"><img src="img/s.gif" width="1" height="15" /></td>
+          	  </tr>
+              
+              
+
+        <tr>
+            	  <td class="listimg"><img src="img/list.jpg" width="41" height="27" /></td>
+            	  <td class="date">2012/12/20</td>
+            	  <td class="news"><a href="http://www.inazuma.jp/gostrikers/" target="_blank">『イナズマイレブンGO ストライカーズ 2013』
+            	    <ruby>
+            	      <rb>本日発売</rb>
+            	      <rp>（</rp>
+            	      <rt>ほんじつはつばい</rt>
+            	      <rp>）</rp>
+          	      </ruby>！</a></td>
+          	  </tr>
+            	<tr>
+            	  <td height="15" colspan="3"><img src="img/s.gif" width="1" height="15" /></td>
+          	  </tr>
+
+
+            	<tr>
+            	  <td class="listimg"><img src="img/list.jpg" width="41" height="27" /></td>
+            	  <td class="date">2012/12/14</td>
+            	  <td class="news"><a href="javascript:;" onClick="MM_openBrWindow('http://www.inazuma.jp/go2/topics/popup01.html','','scrollbars=yes,resizable=yes,width=675,height=590')">『イナズマイレブンGO2 クロノ・ストーン ネップウ／ライメイ』<br />「インターネットダウンロード」の
+            	    <ruby>
+            	      <rb>受信</rb>
+            	      <rp>（</rp>
+            	      <rt>じゅしん</rt>
+            	      <rp>）</rp>
+          	      </ruby>に
+            	    <ruby>
+            	      <rb>関</rb>
+            	      <rp>（</rp>
+            	      <rt>かん</rt>
+            	      <rp>）</rp>
+          	      </ruby>するお
+            	    <ruby>
+            	      <rb>知</rb>
+            	      <rp>（</rp>
+            	      <rt>し</rt>
+            	      <rp>）</rp>
+          	      </ruby>らせ</a></td>
+          	  </tr>
+            	<tr>
+            	  <td height="15" colspan="3"><img src="img/s.gif" width="1" height="15" /></td>
+          	  </tr>
+
+          
+                
+            </table>
+            </div>
+		</div>
+<!-- トピックスここまで -->
+
+
+<!-- ラインアップここから -->
+		<div id="lineup">
+        	<h2>ゲームラインナップ</h2>
+<h3 id="game10"><a href="gogalaxy/" target="_blank">イナズマイレブンGO ギャラクシー ビッグバン／スーパーノヴァ</a></h3>
+            <h3 id="game08"><a href="inazuma123/" target="_blank">イナズマイレブン1・2・3!! 円堂守伝説</a></h3>
+     		<h3 id="game07"><a href="go2/" target="_blank">イナズマイレブンGO2 クロノ・ストーン ネップウ／ライメイ</a></h3>
+     		<h3 id="game09"><a href="gostrikers/" target="_blank">イナズマイレブンGO ストライカーズ 2013</a></h3>
+            <h3 id="game05"><a href="go/" target="_blank">イナズマイレブンGO シャイン／ダーク</a></h3>
+            <h3 id="game06"><a href="strikers/" target="_blank">イナズマイレブン ストライカーズ 2012エクストリーム</a></h3>
+            <h3 id="game04"><a href="strikers/" target="_blank">イナズマイレブン ストライカーズ</a></h3>
+			<h3 id="game03"><a href="inazuma3/" target="_blank">イナズマイレブン3 <ruby><rb>世界</rb><rp>（</rp><rt>せかい</rt><rp>）</rp></ruby>への<ruby><rb>挑戦</rb><rp>（</rp><rt>ちょうせん</rt><rp>）</rp></ruby>！！ スパーク／ボンバー</a></h3>
+			<h3 id="game02"><a href="inazuma2/" target="_blank">イナズマイレブン2 <ruby><rb>脅威</rb><rp>（</rp><rt>きょうい</rt><rp>）</rp></ruby>の<ruby><rb>侵略者</rb><rp>（</rp><rt>しんりゃくしゃ</rt><rp>）</rp></ruby> ファイア／ブリザード</a></h3>
+			<h3 id="game01"><a href="inazuma/" target="_blank">イナズマイレブン</a></h3>
+        </div>
+        
+        <div class="pagetop"><a href="#container">ページトップへ</a></div>
+<!-- ラインアップここまで -->
+
+
+<!-- PCここから -->
+		<div id="pc">
+        	<h2>PC向けオンラインゲーム</h2>
+            <h3 id="pc01"><a href="http://inazuma-online.hangame.co.jp" target="_blank">イナズマイレブン オンライン</a></h3>
+        </div>
+        
+        <div class="pagetop"><a href="#container">ページトップへ</a></div>
+<!-- モバイルここまで -->
+
+
+<!-- モバイルここから -->
+		<div id="mobile">
+        	<h2>モバイルコンテンツ</h2>
+            <h3 id="mobile03"><a href="http://www.level5.co.jp/products/inazuma-atsumeyoze/" target="_blank">イナズマイレブン・アツメヨーゼ！！</a></h3>
+			<h3 id="mobile02"><a href="http://www.level5.co.jp/roid/inazuma/index.html" target="_blank">イナズマイレブン ダッシュ</a></h3>
+        </div>
+        
+        <div class="pagetop"><a href="#container">ページトップへ</a></div>
+<!-- モバイルここまで -->
+        
+		</div>
+    
+    
+    
+    
+<!-- バナー領域ここから -->
+	<div id="sub">
+		<h4>関連サイト</h4>
+        <div id="link_area" style="padding: 14px 0 0 18px; width:200px;" >
+        <ul style="width:200px; text-align:center;">
+        	<li><a href="http://www.inazuma-world.com/" target="_blank"><img src="img/link04.jpg" /></a></li>
+        	<li><a href="http://corocoro.tv/" target="_blank"><img src="img/link05.jpg" /></a></li>
+        	<li><a href="http://www.takaratomy.co.jp/products/inazumago " target="_blank"><img src="img/link08.jpg" /></a></li>
+        	<li><a href="http://www.up-front-works.jp/frame/" target="_blank"><img src="img/link07.jpg" /></a></li>
+            <li><a href="http://www.tv-tokyo.co.jp/anime/inazumago/" target="_blank"><img src="img/link09.jpg" /></a></li>
+		<li><a href="http://www.artemis-holyroad.jp/" target="_blank"><img src="img/link_artemis.jpg" /></a></li>
+		<li><a href="http://www.inazuma-event.com/" target="_blank"><img src="img/link01.jpg" /></a></li>
+		<li><a href="http://www.inazuma.jp/ff/index.html" target="_blank"><img src="img/link03.jpg" /></a></li> 
+		<li><a href="http://www.inazuma.jp/everyday/" target="_blank"><img src="img/link_everyday.jpg" /></a></li>
+        </ul>
+        </div>
+        
+    </div>
+<!-- バナー領域ここまで -->
+</div>
+</div>
+</div>
+
+
+<!-- フッダーここから -->
+<div id="footer">
+	<div id="footer_in">
+		<div id="footer_L">
+            <h4><a href="http://www.level5.co.jp" target="_blank">株式会社レベルファイブ&nbsp;企業サイトはこちら</a></h4>
+        </div>
+        
+        <div id="footer_R">
+            <p id="caution1">※このサイトに<ruby><rb>掲載</rb><rp>（</rp><rt>けいさい</rt><rp>）</rp></ruby>する<ruby><rb>全</rb><rp>（</rp><rt>すべ</rt><rp>）</rp></ruby>ての<ruby><rb>文章</rb><rp>（</rp><rt>ぶんしょう</rt><rp>）</rp></ruby>・<ruby><rb>画像</rb><rp>（</rp><rt>がぞう</rt><rp>）</rp></ruby>・<ruby><rb>動画</rb><rp>（</rp><rt>どうが</rt><rp>）</rp></ruby>の<ruby><rb>無断転載</rb><rp>（</rp><rt>むだんてんさい</rt><rp>）</rp></ruby>を<ruby><rb>禁</rb><rp>（</rp><rt>きん</rt><rp>）</rp></ruby>じます。<ruby><rb>画面</rb><rp>（</rp><rt>がめん</rt><rp>）</rp></ruby>は<ruby><rb>開発中</rb><rp>（</rp><rt>かいはつちゅう</rt><rp>）</rp></ruby>のものです。</p>
+            <p id="caution2">※ゲーム<ruby><rb>中</rb><rp>（</rp><rt>ちゅう</rt><rp>）</rp></ruby>に<ruby><rb>登場</rb><rp>（</rp><rt>とうじょう</rt><rp>）</rp></ruby>する<ruby><rb>必殺技</rb><rp>（</rp><rt>ひっさつわざ</rt><rp>）</rp></ruby>や<ruby><rb>特訓</rb><rp>（</rp><rt>とっくん</rt><rp>）</rp></ruby>は、<ruby><rb>架空</rb><rp>（</rp><rt>かくう</rt><rp>）</rp></ruby>のものです。<ruby><rb>危険</rb><rp>（</rp><rt>きけん</rt><rp>）</rp></ruby>ですので、<ruby><rb>絶対</rb><rp>（</rp><rt>ぜったい</rt><rp>）</rp></ruby>に<ruby><rb>真似</rb><rp>（</rp><rt>まね</rt><rp>）</rp></ruby>をしないてください。</p>
+            <p id="caution3">ニンテンドーDS&reg;<ruby><rb>任天堂</rb><rp>（</rp><rt>にんてんどう</rt><rp>）</rp></ruby>の<ruby><rb>登録商標</rb><rp>（</rp><rt>とうろくしょうひょう</rt><rp>）</rp></ruby>です。
+            Wii&reg;は<ruby><rb>任天堂</rb><rp>（</rp><rt>にんてんどう</rt><rp>）</rp></ruby>の<ruby><rb>登録商標</rb><rp>（</rp><rt>とうろくしょうひょう</rt><rp>）</rp></ruby>です。</p>
+        </div>
+        
+        <p id="copy">&copy;LEVEL-5&nbsp;Inc.</p>
+    </div>
+    
+    <!-- Google Code for &#12452;&#12490;&#12474;&#12510;&#12452;&#12524;&#12502;&#12531;&#12473;&#12488;&#12521;&#12452;&#12459;&#12540;&#12474; Remarketing List -->
+<script type="text/javascript">
+/* <![CDATA[ */
+var google_conversion_id = 968227271;
+var google_conversion_language = "en";
+var google_conversion_format = "3";
+var google_conversion_color = "666666";
+var google_conversion_label = "meRVCJGpxgIQx_PXzQM";
+var google_conversion_value = 0;
+/* ]]> */
+</script>
+<script type="text/javascript" src="http://www.googleadservices.com/pagead/conversion.js">
+</script>
+<noscript>
+<div style="display:inline;">
+<img height="1" width="1" style="border-style:none;" alt="" src="http://www.googleadservices.com/pagead/conversion/968227271/?label=meRVCJGpxgIQx_PXzQM&amp;guid=ON&amp;script=0"/>
+</div>
+</noscript>
+
+
+<!-- Google Code for &#12471;&#12531;&#12487;&#12524;&#12521;&#12452;&#12501; Remarketing List -->
+<script type="text/javascript">
+/* <![CDATA[ */
+var google_conversion_id = 968227271;
+var google_conversion_language = "en";
+var google_conversion_format = "3";
+var google_conversion_color = "ffffff";
+var google_conversion_label = "ST8xCMnXrgMQx_PXzQM";
+var google_conversion_value = 0;
+/* ]]> */
+</script>
+<script type="text/javascript" src="http://www.googleadservices.com/pagead/conversion.js">
+</script>
+<noscript>
+<div style="display:inline;">
+<img height="1" width="1" style="border-style:none;" alt="" src="http://www.googleadservices.com/pagead/conversion/968227271/?label=ST8xCMnXrgMQx_PXzQM&amp;guid=ON&amp;script=0"/>
+</div>
+</noscript>
+
+
+
+
+    
+</div>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-12586424-2");
+pageTracker._setDomainName(".inazuma.jp");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+</body>
+</html>

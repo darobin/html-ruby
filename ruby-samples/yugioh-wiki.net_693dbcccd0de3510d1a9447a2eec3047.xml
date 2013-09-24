@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="EUC-JP" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja">
+
+<!--a href=""><img id="logo" src="image/pukiwiki.png" width="80" height="80" alt="[PukiWiki]" /></a-->
+<head><meta http-equiv="content-type" content="application/xhtml+xml; charset=EUC-JP" />
+<meta http-equiv="content-style-type" content="text/css" /><meta http-equiv="content-script-type" content="text/javascript" /><meta name="keywords" content="遊戯王,カード,Wiki,カードリスト,遊戯王OCG,Yu-Gi-Oh,トップページ" /><meta name="description" content="遊戯王OCGの全カードリストやデッキ集、用語集など。" /><meta http-equiv="Content-Script-Type" content="text/javascript" /><title>遊戯王カードWiki - トップページ</title><link rel="stylesheet" href="skin/pukiwiki.css" type="text/css" /></head>
+<body>
+<div id="header"><h1 class="title"><a href="http://yugioh-wiki.net/index.php?plugin=related&amp;page=%A5%C8%A5%C3%A5%D7%A5%DA%A1%BC%A5%B8">トップページ</a>  <span style="font-size:small">-遊戯王カードWiki</span></h1></div>
+<div id="navigator"><br />
+    <span class="small">
+      </span>
+ 
+ [
+ 	<a href="http://yugioh-wiki.net/index.php?cmd=edit&amp;page=%A5%C8%A5%C3%A5%D7%A5%DA%A1%BC%A5%B8" >編集</a> |
+			<a href="http://yugioh-wiki.net/index.php?cmd=unfreeze&amp;page=%A5%C8%A5%C3%A5%D7%A5%DA%A1%BC%A5%B8" >凍結解除</a> |
+	  <a href="http://yugioh-wiki.net/index.php?cmd=diff&amp;page=%A5%C8%A5%C3%A5%D7%A5%DA%A1%BC%A5%B8" >差分</a> 	| <a href="http://yugioh-wiki.net/index.php?cmd=backup&amp;page=%A5%C8%A5%C3%A5%D7%A5%DA%A1%BC%A5%B8" >バックアップ</a>    | <a href="http://yugioh-wiki.net/index.php?%A5%C8%A5%C3%A5%D7%A5%DA%A1%BC%A5%B8" >リロード</a> | <a href="http://yugioh-wiki.net/index.php?plugin=newpage&amp;refer=%A5%C8%A5%C3%A5%D7%A5%DA%A1%BC%A5%B8" >新規</a> | <a href="http://yugioh-wiki.net/index.php?RecentChanges" >最終更新</a> ] &nbsp;
+Last-modified: 2013-08-20 (火) 10:29:37  (12d)</div>
+<hr class="full_hr" />
+<table border="0" style="width:100%">
+ <tr>
+  <td class="menubar">
+   <div id="menubar">
+<h4 id="content_3_0">サイト内検索</h4>
+<p><form action="./?cmd=search" method="post"> 
+<div><input type="hidden" name="encode_hint" value="ぷ" /></div>
+<div><input type="hidden" name="encode_hint" value="ぷ" /></div>
+ <div>
+  <input type="text"  name="word" value="" id="search-word" size="20" /><br /><input type="submit" value="検索" />
+  　<input type="button" name="fake" value="直飛び" onclick='location.href=(document.all)? "./kamaseinu.cgi?zikatobi"+encodeURI(document.getElementById("search-word").value) : "./?"+document.getElementById("search-word").value;'>
+ </div>
+</form>
+<form action="http://www.google.co.jp/search" method="get"> 
+<div><input type="hidden" name="encode_hint" value="ぷ" /></div>
+<p>
+<input type="hidden" name="hl" value="ja" />
+<input type="hidden" name="ie" value="EUC-JP" />
+<input type="hidden" name="oe" value="EUC-JP" />
+<input type="hidden" name="sitesearch" value="yugioh-wiki.net" />
+<input type="hidden" name="domains" value="yugioh-wiki.net" />
+<input type="text" name="q" size="20" id="search-word-google" value="" /><br /><input type="submit" value="Google検索"></p>
+</form></p>
+
+<div class="jumpmenu"><a href="#navigator">&uarr;</a></div><h4 id="content_3_1"><a href="http://yugioh-wiki.net/index.php?%A5%E1%A5%CB%A5%E5%A1%BC" title="メニュー (4h)">メニュー</a></h4>
+<ul><li><a href="http://yugioh-wiki.net/index.php?%A5%C8%A5%C3%A5%D7%A5%DA%A1%BC%A5%B8" title="トップページ (12d)">トップページ</a></li>
+<li><a href="http://yugioh-wiki.net/index.php?%A4%CF%A4%B8%A4%E1%A4%CB%A4%AA%C6%C9%A4%DF%B2%BC%A4%B5%A4%A4" title="はじめにお読み下さい (1370d)">はじめにお読み下さい</a></li>
+<li><a href="http://yugioh-wiki.net/index.php?%A5%AB%A1%BC%A5%C9%A5%EA%A5%B9%A5%C8" title="カードリスト (12d)">カードリスト</a>
+<ul><li>(<a href="http://yugioh-wiki.net/index.php?%B1%D1%B8%EC%C8%C7%A5%AB%A1%BC%A5%C9%A5%EA%A5%B9%A5%C8" title="英語版カードリスト (18d)">英語版</a>)(<a href="http://yugioh-wiki.net/index.php?%B4%DA%B9%F1%C8%C7%A5%AB%A1%BC%A5%C9%A5%EA%A5%B9%A5%C8" title="韓国版カードリスト (18d)">韓国版</a>)</li>
+<li><a href="http://yugioh-wiki.net/index.php?%CE%AC%BE%CE%B0%EC%CD%F7" title="略称一覧 (4d)">略称一覧</a></li></ul></li>
+<li><a href="http://yugioh-wiki.net/index.php?%A5%C7%A5%C3%A5%AD%BD%B8" title="デッキ集 (47d)">デッキ集</a></li>
+<li><a href="http://yugioh-wiki.net/index.php?%A5%C7%A5%C3%A5%AD%A1%A6%A5%AB%A1%BC%A5%C9%A5%D7%A1%BC%A5%EB%A4%CE%CA%D1%C1%AB" title="デッキ・カードプールの変遷 (4d)">デッキ・カードプールの変遷</a></li>
+<li><a href="http://yugioh-wiki.net/index.php?%CD%B7%B5%BA%B2%A6%A3%CF%A3%C3%A3%C7%A4%CE%CE%F2%BB%CB" title="遊戯王ＯＣＧの歴史 (4d)">遊戯王ＯＣＧの歴史</a></li>
+<li><a href="http://yugioh-wiki.net/index.php?%A5%EA%A5%DF%A5%C3%A5%C8%A5%EC%A5%AE%A5%E5%A5%EC%A1%BC%A5%B7%A5%E7%A5%F3" title="リミットレギュレーション (20h)">リミットレギュレーション</a><br />
+(旧:<a href="http://yugioh-wiki.net/index.php?%B6%D8%BB%DF%A1%A6%C0%A9%B8%C2%A5%AB%A1%BC%A5%C9" title="禁止・制限カード (1d)">禁止・制限カード</a>)
+<ul><li><a href="http://yugioh-wiki.net/index.php?%B3%A4%B3%B0%A4%CE%B6%D8%BB%DF%A1%A6%C0%A9%B8%C2%A5%AB%A1%BC%A5%C9" title="海外の禁止・制限カード (20h)">海外版</a></li></ul></li>
+<li><a href="http://yugioh-wiki.net/index.php?%CD%D1%B8%EC%BD%B8" title="用語集 (56d)">用語集</a>・<a href="http://yugioh-wiki.net/index.php?%B8%F8%BC%B0%CD%D1%B8%EC%BD%B8" title="公式用語集 (8h)">公式用語集</a></li>
+<li><a href="http://yugioh-wiki.net/index.php?%A5%C7%A1%BC%A5%BF%A5%D9%A1%BC%A5%B9" title="データベース (9h)">データベース</a>
+<ul><li><a href="http://yugioh-wiki.net/index.php?%B4%D6%B0%E3%A4%A8%A4%E4%A4%B9%A4%A4%A5%EB%A1%BC%A5%EB" title="間違えやすいルール (56d)">間違えやすいルール</a></li></ul></li>
+<li><a href="http://yugioh-wiki.net/index.php?%BA%EF%BD%FC%A5%AC%A5%A4%A5%C9%A5%E9%A5%A4%A5%F3" title="削除ガイドライン (2294d)">削除ガイドライン</a></li>
+<li><a href="http://yugioh-wiki.net/index.php?%BA%C7%B6%E1%BA%EF%BD%FC%A4%B5%A4%EC%A4%BF%A5%DA%A1%BC%A5%B8" title="最近削除されたページ (3d)">最近削除されたページ</a></li>
+<li><a href="http://yugioh-wiki.net/index.php?%A5%DA%A1%BC%A5%B8%BA%EF%BD%FC%B9%F0%C3%CE" title="ページ削除告知 (18d)">ページ削除告知</a></li>
+<li><a href="http://yugioh-wiki.net/index.php?%B7%C7%BC%A8%C8%C4" title="掲示板 (56d)">掲示板</a>
+<ul><li><a href="http://yugioh-wiki.net/wikibbs/yybbs.cgi" rel="nofollow">連絡用</a></li>
+<li><a href="http://yowiki.yugioh-portal.net/bbs/patio.cgi" rel="nofollow">議論用</a>
+<ul><li><a href="http://yugioh-wiki.net/index.php?%B5%C4%CF%C0%A4%C7%A4%CE%B7%E8%C4%EA%BB%F6%B9%E0" title="議論での決定事項 (1d)">議論での決定事項</a></li></ul></li>
+<li><a href="http://yowiki.yugioh-portal.net/rule/patio.cgi" rel="nofollow">ルール質問</a>
+<br />
+<br /></li></ul></li></ul>
+<p><script type="text/javascript"><!--
+google_ad_client = "ca-pub-7635294600250600";
+/* wiki-left */
+google_ad_slot = "9826572446";
+google_ad_width = 160;
+google_ad_height = 600;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></p>
+<h5>最新の15件</h5>
+<div><strong>2013-09-02</strong>
+<ul>
+ <li><a href="http://yugioh-wiki.net/index.php?%A1%D4%A5%B4%A1%BC%A5%B9%A5%C8%A5%EA%A5%C3%A5%AF%A4%CE%C0%E3%BD%F7%A1%D5" title="《ゴーストリックの雪女》 (3m)">《ゴーストリックの雪女》</a></li>
+ <li><a href="http://yugioh-wiki.net/index.php?%A1%D4%A3%C6%A3%C1%A1%DD%A5%D6%A5%E9%A5%C3%A5%AF%A1%A6%A5%EC%A5%A4%A1%A6%A5%E9%A5%F3%A5%B5%A1%BC%A1%D5" title="《ＦＡ−ブラック・レイ・ランサー》 (4m)">《ＦＡ−ブラック・レイ・ランサー》</a></li>
+ <li><a href="http://yugioh-wiki.net/index.php?%A1%D4%A5%D6%A5%E9%A5%C3%A5%AF%A1%A6%A5%EC%A5%A4%A1%A6%A5%E9%A5%F3%A5%B5%A1%BC%A1%D5" title="《ブラック・レイ・ランサー》 (6m)">《ブラック・レイ・ランサー》</a></li>
+ <li><a href="http://yugioh-wiki.net/index.php?%A1%D4%A3%CE%A3%EF.%A3%B9%A3%B4%20%B6%CB%C9%B9%C9%B1%A5%AF%A5%EA%A5%B9%A5%BF%A5%EB%A1%A6%A5%BC%A5%ED%A1%D5" title="《Ｎｏ.９４ 極氷姫クリスタル・ゼロ》 (20m)">《Ｎｏ.９４ 極氷姫クリスタル・ゼロ》</a></li>
+ <li><a href="http://yugioh-wiki.net/index.php?%A1%D4%A5%C8%A1%BC%A5%AF%A5%F3%BC%D5%C6%F9%BA%D7%A1%D5" title="《トークン謝肉祭》 (1h)">《トークン謝肉祭》</a></li>
+ <li><a href="http://yugioh-wiki.net/index.php?%A1%D4%BF%C0%CE%B5%B5%B3%BB%CE%A5%D5%A5%A7%A5%EB%A5%B0%A5%E9%A5%F3%A5%C8%A1%D5" title="《神竜騎士フェルグラント》 (1h)">《神竜騎士フェルグラント》</a></li>
+ <li><a href="http://yugioh-wiki.net/index.php?%A5%C7%A5%C3%A5%AD%A5%D1%A5%EF%A1%BC" title="デッキパワー (1h)">デッキパワー</a></li>
+ <li><a href="http://yugioh-wiki.net/index.php?%A1%D4%CB%E2%C6%B3%BD%F1%C0%B0%CD%FD%A1%D5" title="《魔導書整理》 (1h)">《魔導書整理》</a></li>
+ <li><a href="http://yugioh-wiki.net/index.php?%C1%C9%C0%B8" title="蘇生 (1h)">蘇生</a></li>
+ <li><a href="http://yugioh-wiki.net/index.php?%A1%D4%C0%F8%B9%D2%CA%EC%B4%CF%A5%A8%A5%A2%A5%ED%A1%A6%A5%B7%A5%E3%A1%BC%A5%AF%A1%D5" title="《潜航母艦エアロ・シャーク》 (1h)">《潜航母艦エアロ・シャーク》</a></li>
+ <li><a href="http://yugioh-wiki.net/index.php?%A5%B2%A1%BC%A5%E0%A4%AB%A4%E9%BD%FC%B3%B0%A4%B9%A4%EB%A1%CA%BC%E8%A4%EA%BD%FC%A4%AF%A1%CB" title="ゲームから除外する（取り除く） (2h)">ゲームから除外する（取り除く）</a></li>
+ <li><a href="http://yugioh-wiki.net/index.php?%A1%D4%BB%CF%C1%C4%A4%CE%BC%E9%B8%EE%BC%D4%A5%C6%A5%A3%A5%E9%A5%B9%A1%D5" title="《始祖の守護者ティラス》 (2h)">《始祖の守護者ティラス》</a></li>
+ <li><a href="http://yugioh-wiki.net/index.php?%A1%D4%A3%C2%A3%C6%A1%DD%DF%EA%C0%B1%A4%CE%A5%B0%A5%E9%A5%E0%A1%D5" title="《ＢＦ−煌星のグラム》 (3h)">《ＢＦ−煌星のグラム》</a></li>
+ <li><a href="http://yugioh-wiki.net/index.php?%A1%D4%CA%E8%BC%E9%A4%CE%D6%E0%BD%F7%A1%D5" title="《墓守の巫女》 (3h)">《墓守の巫女》</a></li>
+ <li><a href="http://yugioh-wiki.net/index.php?%A1%D4%CB%E2%B9%EC%BF%C0%BD%C3%A5%DA%A5%AC%A5%E9%A5%B5%A5%B9%A1%D5" title="《魔轟神獣ペガラサス》 (3h)">《魔轟神獣ペガラサス》</a></li>
+</ul>
+</div>
+</div>
+  </td>
+  <td valign="top">
+   <div id="body">
+   <!-- google_ad_section_start --><!-- bodycache not created (dynamic page) -->
+<h2 id="content_1_0">遊戯王カードWiki  <a class="anchor_super" id="v327d294" href="http://yugioh-wiki.net/index.php?%A5%C8%A5%C3%A5%D7%A5%DA%A1%BC%A5%B8#v327d294" title="v327d294">&dagger;</a></h2>
+<pre>遊戯王カードWikiにようこそ！
+だれでもページの作成・更新が可能なサイトです。
+荒らしは他の利用者の迷惑になります。ご遠慮ください。
+※荒らすと一切Wikiを閲覧出来なくなります。
+※またプロバイダーの方に通報します。</pre>
+
+<div class="jumpmenu"><a href="#navigator">&uarr;</a></div><h3 id="content_1_1">注意事項  <a class="anchor_super" id="fb7f6601" href="http://yugioh-wiki.net/index.php?%A5%C8%A5%C3%A5%D7%A5%DA%A1%BC%A5%B8#fb7f6601" title="fb7f6601">&dagger;</a></h3>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li><strong><span style="font-size:20px;display:inline-block;line-height:130%;text-indent:0px">カードのページのFAQ・このページのコメントでルールやカードの処理等についての質問を投稿しないでください。</span></strong></li>
+<li><strong><span style="font-size:20px;display:inline-block;line-height:130%;text-indent:0px">ルールやカードの処理等についての質問がございましたら<a href="http://home.att.ne.jp/moon/puppiy/rule/" rel="nofollow">遊戯王エキスパートルールHP</a>で調べるか、<a href="http://yowiki.yugioh-portal.net/rule/patio.cgi" rel="nofollow">ルール質問 BBS</a>を利用してください。</span></strong></li></ul>
+
+<div class="jumpmenu"><a href="#navigator">&uarr;</a></div><h3 id="content_1_2">★お知らせ★  <a class="anchor_super" id="vd539a60" href="http://yugioh-wiki.net/index.php?%A5%C8%A5%C3%A5%D7%A5%DA%A1%BC%A5%B8#vd539a60" title="vd539a60">&dagger;</a></h3>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>（13.08.20）
+<ul class="list2" style="padding-left:16px;margin-left:16px"><li>サーバー機器のメンテナンスにより、<strong>8/26 11:00〜20:00の間、一時的に当サイトにアクセスできなくなります</strong>。</li></ul></li>
+<li>（08.04.14）
+<ul class="list2" style="padding-left:16px;margin-left:16px"><li>各カードページにおける新ルールでの用語の変更（リリース、アドバンス召喚等）はカードが再録された場合のみ書き換え、それ以外は原則として旧用語のままでお願いします。</li></ul></li>
+<li>（07.10.18）
+<ul class="list2" style="padding-left:16px;margin-left:16px"><li><a href="http://yugioh-wiki.net/index.php?%A4%CF%A4%B8%A4%E1%A4%CB%A4%AA%C6%C9%A4%DF%B2%BC%A4%B5%A4%A4" title="はじめにお読み下さい (1370d)">はじめにお読み下さい</a>に次の文章を加えました。<br />
+「画像ソースが無い/本誌のフラゲ情報によるカードページ作成は禁止です。<br />
+発売されていないカードの効果は、はっきりと本誌で目視できない場合は記述するのを控えてください。」</li></ul></li>
+<li>（07.01.02）
+<ul class="list2" style="padding-left:16px;margin-left:16px"><li>非OCGカードの名前を書くのは構いませんが、「<strong>非OCGカード</strong>」の「<strong>効果の全文</strong>」を記すのは文章を書く上でどうしても必要な時のみにして下さい。
+<ul class="list3" style="padding-left:16px;margin-left:16px"><li>（OCG化されているカードの原作版効果やアニメ版効果やゲーム版効果は削除すべき記述ではありません）</li></ul></li>
+<li>非OCGカード単体のページは削除対象ですが、非OCGカードの記述自体は削除対象ではありません。</li></ul></li>
+<li>（06.11.17）
+<ul class="list2" style="padding-left:16px;margin-left:16px"><li>自分の気に入らない事や自分に必要のない事が書かれていても、削除しないようにしましょう。</li></ul></li>
+<li>（06.07.16）
+<ul class="list2" style="padding-left:16px;margin-left:16px"><li>「遊戯王wikiオートリンク」が導入されました。<br />
+カード名を《》でくくることでWikiへのリンクが自動で張られます。<br />
+詳しくは下のＵＲＬにて。<br />
+<a href="http://aitsu.skr.jp/2006/07/15/120.html" rel="nofollow">http://aitsu.skr.jp/2006/07/15/120.html</a><br />
+また<a href="http://www.metatubo.com/" rel="nofollow">めたぽの壺の中。</a>で配布されている<a href="http://www.metatubo.com/dictionary/" rel="nofollow">カード辞書</a>をあわせて使用する ことをお勧めします。<br />
+（当wiki内でのカード名は上記の辞書データを基に書かれています）<br /></li></ul></li>
+<li>（06.07.05）
+<ul class="list2" style="padding-left:16px;margin-left:16px"><li>新制限については公式発表および確定ソースが出るまでは編集しないでください。</li></ul></li>
+<li>（06.06.18）
+<ul class="list2" style="padding-left:16px;margin-left:16px"><li>現在、利用者の増加に伴いオンライン事典として不適切な表現が各所で見受けられます。<br />
+編集の際には｢主観意見（自分の考え、予測、想像、願望など）｣を書き込まないよう、各自で配慮をお願いします。<br /></li></ul></li></ul>
+
+<div class="jumpmenu"><a href="#navigator">&uarr;</a></div><h3 id="content_1_3">Wikiの使い方  <a class="anchor_super" id="wd67c20f" href="http://yugioh-wiki.net/index.php?%A5%C8%A5%C3%A5%D7%A5%DA%A1%BC%A5%B8#wd67c20f" title="wd67c20f">&dagger;</a></h3>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>Wiki独特の書き方がありますので、<a href="http://yugioh-wiki.net/index.php?%C0%B0%B7%C1%A5%EB%A1%BC%A5%EB" title="整形ルール (2294d)">整形ルール</a>と<a href="http://yugioh-wiki.net/index.php?%A4%CF%A4%B8%A4%E1%A4%CB%A4%AA%C6%C9%A4%DF%B2%BC%A4%B5%A4%A4" title="はじめにお読み下さい (1370d)">はじめにお読み下さい</a>をよく読んでから編集してください。</li>
+<li><a href="http://www.mozilla-japan.org/products/firefox/" rel="nofollow">Firefox</a>をお使いの方は<a href="https://addons.mozilla.org/ja/firefox/addon/html-ruby/" rel="nofollow">HTML Ruby</a>を導入すると<ruby><rb>読み仮名</rb><rp>(</rp><rt>ルビ</rt><rp>)</rp></ruby>が表示されるようになります。</li>
+<li>公式用語集で使われるようなルール用語は<a href="http://www.yugioh-card.com/japan/play/play01.html" rel="nofollow">公式ルールブック</a>から引用してください。<br /></li>
+<li>記述の仕方等で迷った場合や問題が起こった場合には<a href="http://wiki.yugioh-portal.net/wikibbs/yybbs.cgi" rel="nofollow">掲示板</a>をご利用ください。<br /></li>
+<li>Wiki内の全てのページへのリンクを制限しません。</li>
+<li>Wiki内の文章の無断<strong>引用</strong>は当然構いませんが、無断<strong>転載</strong>はお止め下さい。</li></ul>
+
+<div class="jumpmenu"><a href="#navigator">&uarr;</a></div><h3 id="content_1_4">一言伝言板  <a class="anchor_super" id="ta611835" href="http://yugioh-wiki.net/index.php?%A5%C8%A5%C3%A5%D7%A5%DA%A1%BC%A5%B8#ta611835" title="ta611835">&dagger;</a></h3>
+<p>簡単な意見交換に。詳しく検討する場合などは<a href="http://yowiki.yugioh-portal.net/bbs/patio.cgi" rel="nofollow">掲示板</a>をご利用ください。<br /></p>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>発言のコメントアウト・削除は荒らし・ルール質問以外禁止です。</li>
+<li>言葉遣いには気をつけましょう。</li>
+<li>空気を読んで。</li>
+<li><strong>ルールについての質問は<a href="http://yowiki.yugioh-portal.net/rule/patio.cgi" rel="nofollow">ルール質問板</a>で。</strong></li></ul>
+<div><p>最新の10件を表示しています。 <a href="http://yugioh-wiki.net/index.php?%A5%B3%A5%E1%A5%F3%A5%C8%2F%A5%C8%A5%C3%A5%D7%A5%DA%A1%BC%A5%B8" title="コメント/トップページ (5h)">コメントページを参照</a></p>
+<form action="http://yugioh-wiki.net/index.php" method="post"> 
+<div><input type="hidden" name="encode_hint" value="ぷ" /></div>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li><a href="http://yugioh-wiki.net/index.php?%A5%C8%A5%C3%A5%D7%A5%DA%A1%BC%A5%B8" title="トップページ (12d)">トップページ</a></li>
+<li><a href="http://yugioh-wiki.net/index.php?%A5%B3%A5%E1%A5%F3%A5%C8%2F%A5%C8%A5%C3%A5%D7%A5%DA%A1%BC%A5%B8%2F%A5%ED%A5%B0%CA%DD%C2%B8" title="コメント/トップページ/ログ保存 (29d)">コメント/トップページ/ログ保存</a></li></ul>
+<hr class="full_hr" />
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>ログ保存を行いました。 --  <span class="comment_date">2013-09-02 (月) 00:13:49</span></li>
+<li>乙 --  <span class="comment_date">2013-09-02 (月) 01:34:52</span></li>
+<li>乙様です --  <span class="comment_date">2013-09-02 (月) 01:36:58</span></li></ul>
+
+  <div>
+  <input type="hidden" name="digest" value="0cf275b25c8c18051475c1a78e0653b1" />
+  <input type="hidden" name="plugin" value="pcomment" />
+  <input type="hidden" name="refer"  value="トップページ" />
+  <input type="hidden" name="page"   value="[[コメント/トップページ]]" />
+  <input type="hidden" name="nodate" value="" />
+  <input type="hidden" name="dir"    value="1" />
+  <input type="hidden" name="count"  value="10" />
+   お名前:  <input type="text" name="name" size="15" /> <input type="text" name="msg" size="70" maxlength="100" />
+  <input type="submit" value="コメントの挿入" />
+  </div></form>
+</div>
+
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li><a href="http://yugioh-wiki.net/index.php?%A5%B3%A5%E1%A5%F3%A5%C8%2F%A5%C8%A5%C3%A5%D7%A5%DA%A1%BC%A5%B8%2F%A5%ED%A5%B0%CA%DD%C2%B8" title="コメント/トップページ/ログ保存 (29d)">コメント/トップページ/ログ保存</a></li></ul>
+<!-- google_ad_section_end -->
+   <p><script type="text/javascript"><!--
+google_ad_client = "ca-pub-7635294600250600";
+/* wiki-bottom */
+google_ad_slot = "3855550632";
+google_ad_width = 300;
+google_ad_height = 250;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></p>
+</div>
+  </td>
+ </tr>
+</table>
+<hr class="full_hr" /><table style="width:100%"><tr><td valign="top">
+<!--toolbar-->
+<!--div id="lastmodified">Last-modified:</div-->
+<div id="footer">
+<p>Site admin: <a href="/?Aitsu">Aitsu</a></p><strong>PukiWiki 1.4.7</strong> Copyright &copy; 2001-2006 <a href="http://pukiwiki.sourceforge.jp/">PukiWiki Developers Team</a>. License is <a href="http://www.gnu.org/licenses/gpl.html">GPL</a>.<br /> Based on "PukiWiki" 1.3 by <a href="http://factage.com/yu-ji/">yu-ji</a>.Powered by PHP 5.2.5. HTML convert time: 0.014 sec.</div>
+</td>
+<img src="a.jpg" width="25" height="25" alt="">
+<td style="width:200px">
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try{
+var pageTracker = _gat._getTracker("UA-7150441-1");
+pageTracker._trackPageview();
+} catch(err) {}
+</script></td>
+</tr></table>
+</body></html>
