@@ -37,13 +37,9 @@
   <body>
     <!--
       TODO:
-        - point more clearly to the UC document, list use cases
-        - mention usage in the wild
-        - explain how <rp> can end up in a range, it must be ignored
         - link more clearly to CSS Ruby
         - update data model to match terminology in CSS Ruby
         - default rendering as per CSS Ruby
-        - note that other changes are needed, but don't detail
         - include CC-BY license
         - make a snapshot
         - see issues
@@ -376,8 +372,8 @@
       <hr>
 
       <p>
-        Within a ruby element, content is parcelled into a series of ruby segments. Each <dfn>ruby segment</dfn>
-        is described by:
+        Within a ruby element, content is parcelled into a series of ruby segments. Each <dfn>ruby
+        segment</dfn> is described by:
       </p>
       <ul>
         <li>
@@ -451,8 +447,11 @@
           node, then increment <var>index</var> by one and jump to the step labelled <i>process a ruby child</i>.
         </li>
         <li>
-          If <var>current child</var> is an <code><a>rp</a></code> element, then increment <var>index</var> by one and 
-          jump to the step labelled <i>process a ruby child</i>.
+          If <var>current child</var> is an <code><a>rp</a></code> element, then increment
+          <var>index</var> by one and jump to the step labelled <i>process a ruby child</i>. (Note
+          that this has the effect of including this element in any range that we are currently
+          processing. This is done intentionally so that misplaced <code><a>rp</a></code> can be
+          processed correctly; semantically they are ignored all the same.)
         </li>
         <li>
           If <var>current child</var> is an <code><a>rt</a></code> element, then run these substeps:
