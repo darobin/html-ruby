@@ -302,67 +302,75 @@
             &lt;ruby>東&lt;rb>京&lt;rp>(&lt;/rp>&lt;rt>とう&lt;rt>きょう&lt;rp>)&lt;/rp>&lt;/ruby>
           </pre>
         </dd>
-       <dt>Text with both phonetic and semantic annotations (double-sided ruby)
-       <dd>
-         <p>
-          Sometimes, ruby can be used to annotate a base twice.
-         </p>
-         <div class='example'>
-           <p>
-            In the following example, the Chinese word for San Francisco (旧金山, i.e. “old gold mountain”)
-            is annotated both using pinyin to give the pronunciation, and with the original English.
-           </p>
-           <img src='group-double.png' width='113' height='84' alt='San Francisco in Chinese, with both pinyin and the original English as annotations.'>
-           <p>
+        <dt>Text with both phonetic and semantic annotations (double-sided ruby)
+        <dd>
+          <p>
+            Sometimes, ruby can be used to annotate a base twice.
+          </p>
+          <p>
+            In the following example, the Chinese word for San Francisco (旧金山, i.e. “old gold
+            mountain”) is annotated both using pinyin to give the pronunciation, and with the
+            original English.
+          </p>
+          <p>
+            <img src='group-double.png' width='113' height='84'
+                 alt='San Francisco in Chinese, with both pinyin and the original English as annotations.'>
+          </p>
+          <p>
             Which is marked up as follows:
-           </p>
-           <pre>&lt;ruby>&lt;rb>旧&lt;rb>金&lt;rb>山&lt;rt>jiù&lt;rt>jīn&lt;rt>shān&lt;rtc>San Francisco&lt;/ruby></pre>
+          </p>
+          <pre class='example highlight'>
+            &lt;ruby>&lt;rb>旧&lt;rb>金&lt;rb>山&lt;rt>jiù&lt;rt>jīn&lt;rt>shān&lt;rtc>San Francisco&lt;/ruby>
+          </pre>
           <p>
             In this example, a single base run of three base characters is annotated with three
-            pinyin ruby text segments in a first (implicit) container, and an <code>rtc</code> element
-            is introduced in order to provide a second single ruby text annotation being the city's
-            English name.
+            pinyin ruby text segments in a first (implicit) container, and an <code>rtc</code>
+            element is introduced in order to provide a second single ruby text annotation being the
+            city's English name.
           </p>
-         </div>
-         <div class='example'>
           <p>
             We can also revisit our jukugo example above with 上手 ("skill") to show how it can be
-            annotation in both kana and romaji phonetics while at the same time maintaining the pairing
-            to bases and annotation grouping information.
+            annotation in both kana and romaji phonetics while at the same time maintaining the
+            pairing to bases and annotation grouping information.
           </p>
-          <img src='mono-or-jukugo-double.png' width='185' height='120' alt='上手 ("skill") annotated in both kana and romaji, shown in both jukugo and mono styles.'>
+          <p>
+            <img src='mono-or-jukugo-double.png' width='185' height='120'
+                 alt='上手 ("skill") annotated in both kana and romaji, shown in both jukugo and mono styles.'>
+          </p>
           <p>
             Which is marked up as follows:
           </p>
-          <pre>&lt;ruby>&lt;rb>上&lt;rb>手&lt;rt>じよう&lt;rt>ず&lt;rtc>&lt;rt>jou&lt;rt>zu&lt;/ruby></pre>
-         </div>
-         
-        <div class="example">
-         <p>
-           Text that is a direct child of the <code>rtc</code> element implicitly produces
-           a ruby text segment as if it were contained in an <code>rt</code> element.
-           In this contrived example, this is shown with some symbols that are given names in 
-           English and French with annotations intended to appear on either side of the base symbol.
-         </p>
-         <pre>&lt;ruby>
-  &#x2665;&lt;rt>Heart&lt;rtc lang=fr>C&oelig;ur&lt;/rtc>
-  &#x2618;&lt;rt>Shamrock&lt;rtc lang=fr>Tr&egrave;fle&lt;/rtc>
-  &#x2736;&lt;rt>Star&lt;rtc lang=fr>&Eacute;toile
-&lt;/ruby></pre>
+          <pre class='example highlight'>
+            &lt;ruby>&lt;rb>上&lt;rb>手&lt;rt>じよう&lt;rt>ず&lt;rtc>&lt;rt>jou&lt;rt>zu&lt;/ruby>
+          </pre>
+          <p>
+            Text that is a direct child of the <code>rtc</code> element implicitly produces a ruby
+            text segment as if it were contained in an <code>rt</code> element. In this contrived
+            example, this is shown with some symbols that are given names in English and French with
+            annotations intended to appear on either side of the base symbol.
+          </p>
+          <pre class='example highlight'>
+            &lt;ruby>
+              &#x2665;&lt;rt>Heart&lt;rtc lang=fr>C&oelig;ur&lt;/rtc>
+              &#x2618;&lt;rt>Shamrock&lt;rtc lang=fr>Tr&egrave;fle&lt;/rtc>
+              &#x2736;&lt;rt>Star&lt;rtc lang=fr>&Eacute;toile
+            &lt;/ruby>
+          </pre>
           <p>
             Similarly, text directly inside a <code>ruby</code> element implicitly produces a ruby
-            base as if it were contained in an <code>rb</code> element, and <code>rt</code> children of
-            <code>ruby</code> are implicitly contained in an <code>rtc</code> container. In effect, the
-            above example is equivalent (in meaning, though not in the DOM it produces) to the
-            following:
+            base as if it were contained in an <code>rb</code> element, and <code>rt</code> children
+            of <code>ruby</code> are implicitly contained in an <code>rtc</code> container. In
+            effect, the above example is equivalent (in meaning, though not in the DOM it produces)
+            to the following:
           </p>
-         <pre>&lt;ruby>
-  &lt;rb>&#x2665;&lt;/rb>&lt;rtc>&lt;rt>Heart&lt;/rt>&lt;/rtc>&lt;rtc lang=fr>&lt;rt>C&oelig;ur&lt;/rt>&lt;/rtc>
-  &lt;rb>&#x2618;&lt;/rb>&lt;rtc>&lt;rt>Shamrock&lt;/rt>&lt;/rtc>&lt;rtc lang=fr>&lt;rt>Tr&egrave;fle&lt;/rt>&lt;/rtc>
-  &lt;rb>&#x2736;&lt;/rb>&lt;rtc>&lt;rt>Star&lt;/rt>&lt;/rtc>&lt;rtc lang=fr>&lt;rt>&Eacute;toile&lt;/rt>&lt;/rtc>
-&lt;/ruby></pre>
-        </div>
-       </dd>
+          <pre class='example highlight'>
+            &lt;ruby>
+              &lt;rb>&#x2665;&lt;/rb>&lt;rtc>&lt;rt>Heart&lt;/rt>&lt;/rtc>&lt;rtc lang=fr>&lt;rt>C&oelig;ur&lt;/rt>&lt;/rtc>
+              &lt;rb>&#x2618;&lt;/rb>&lt;rtc>&lt;rt>Shamrock&lt;/rt>&lt;/rtc>&lt;rtc lang=fr>&lt;rt>Tr&egrave;fle&lt;/rt>&lt;/rtc>
+              &lt;rb>&#x2736;&lt;/rb>&lt;rtc>&lt;rt>Star&lt;/rt>&lt;/rtc>&lt;rtc lang=fr>&lt;rt>&Eacute;toile&lt;/rt>&lt;/rtc>
+            &lt;/ruby>
+          </pre>
+        </dd>
       </dl>
 
       <hr>
