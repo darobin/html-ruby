@@ -15,6 +15,7 @@
           ,   wgPublicList: "public-html"
           ,   wgPatentURI:  "http://www.w3.org/2004/01/pp-impl/40318/status"
           ,   edDraftURI:   "http://darobin.github.com/html-ruby/"
+          ,   license:      "cc-by"
         };
     </script>
     <style>
@@ -41,6 +42,7 @@
         - note that other changes are needed, but don't detail
         - include CC-BY license
         - make a snapshot
+        - see issues
     -->
     <section id='abstract'>
       <p>
@@ -52,7 +54,8 @@
       </p>
       <p>
         This document was largely developed to address the shortcomings listed in
-        <a href="http://www.w3.org/TR/ruby-use-cases/">Use Cases &amp; Exploratory Approaches for Ruby Markup</a>.
+        <a href="http://www.w3.org/TR/ruby-use-cases/">Use Cases &amp; Exploratory 
+        Approaches for Ruby Markup</a> [[ruby-use-cases]].
       </p>
     </section>
     <section id='sotd'>
@@ -68,15 +71,26 @@
         The following changes are made to HTML by this document:
       </p>
       <ul>
-        <li><code><a>ruby</a></code> nested inside <code><a>ruby</a></code> now represents its children;</li>
-        <li>new <code><a>rb</a></code> and <code><a>rtc</a></code> elements have been introduced;</li>
+        <li>
+          <code><a>ruby</a></code> nested inside <code><a>ruby</a></code> now represents its
+          children (in other words, it is no longer meaningful, which reflects implementations);
+        </li>
+        <li>
+          new <code><a>rb</a></code> and <code><a>rtc</a></code> elements have been introduced
+          to support cases in which explicit bases and containers are needed (explicit based are
+          relatively common in existing content);
+        </li>
         <li>
           the algorithm for processing ruby markup has been changed (note that if this
           extension is rejected, the original algorithm will still need to be modified because
-          it is buggy);
+          it is buggy).
         </li>
-        <li>the HTML parsing algorithm has been changed to take the new elements into account.</li>
       </ul>
+      <p>
+        Some further changes will be required to HTML if this document is merged in. Of those, some
+        are for paraphernalia (element index and the such) while others are more involved 
+        (changes to parsing to auto-close some elements) and in some cases optional.
+      </p>
     </section>
     
     <!-- 
@@ -89,18 +103,20 @@
     <section>
       <h2>The <dfn><code>ruby</code></dfn> element</h2>
       <dl class="element">
-       <dt><span title="element-dfn-categories">Categories</span>:</dt>
-       <dd><span>Flow content</span>.</dd>
-       <dd><span>Phrasing content</span>.</dd>
-       <dd><span>Palpable content</span>.</dd>
-       <dt><span title="element-dfn-contexts">Contexts in which this element can be used</span>:</dt>
-       <dd>Where <span>phrasing content</span> is expected.</dd>
-       <dt><span title="element-dfn-content-model">Content model</span>:</dt>
-       <dd>See prose.</dd>
-       <dt><span title="element-dfn-attributes">Content attributes</span>:</dt>
-       <dd><span>Global attributes</span></dd>
-       <dt><span title="element-dfn-dom">DOM interface</span>:</dt><!--TOPIC:DOM APIs-->
-       <dd>Uses <code>HTMLElement</code>.</dd>
+        <dt><span title="element-dfn-categories">Categories</span>:</dt>
+        <dd><span>Flow content</span>.</dd>
+        <dd><span>Phrasing content</span>.</dd>
+        <dd><span>Palpable content</span>.</dd>
+        <dt>
+          <span title="element-dfn-contexts">Contexts in which this element can be used</span>:
+        </dt>
+        <dd>Where <span>phrasing content</span> is expected.</dd>
+        <dt><span title="element-dfn-content-model">Content model</span>:</dt>
+        <dd>See prose.</dd>
+        <dt><span title="element-dfn-attributes">Content attributes</span>:</dt>
+        <dd><span>Global attributes</span></dd>
+        <dt><span title="element-dfn-dom">DOM interface</span>:</dt><!--TOPIC:DOM APIs-->
+        <dd>Uses <code>HTMLElement</code>.</dd>
       </dl><!--TOPIC:HTML-->
 
       <p>The <code>ruby</code> element allows one or more spans of phrasing content to be marked with
@@ -231,7 +247,7 @@
            For more details on <a href="http://www.w3.org/TR/jlreq/#positioning_of_jukugoruby">Jukugo Ruby rendering</a>,
            see Appendix F in the <cite>Requirements for Japanese Text Layout</cite> [[JLREQ]]
            and Use Case C: Jukugo ruby in the <cite>Use Cases &amp; Exploratory Approaches for Ruby Markup</cite>
-           [[RUBY-UC]].
+           [[ruby-use-cases]].
          </p>
        </dd>
        <dt>Inline ruby</dt>
@@ -613,7 +629,9 @@
       <dl class="element">
         <dt><span title="element-dfn-categories">Categories</span>:</dt>
         <dd>None.</dd>
-        <dt><span title="element-dfn-contexts">Contexts in which this element can be used</span>:</dt>
+        <dt>
+          <span title="element-dfn-contexts">Contexts in which this element can be used</span>:
+        </dt>
         <dd>As a child of a <code>ruby</code> element.</dd>
         <dt><span title="element-dfn-content-model">Content model</span>:</dt>
         <dd><span>Phrasing content</span>.</dd>
@@ -639,7 +657,9 @@
       <dl class="element">
         <dt><span title="element-dfn-categories">Categories</span>:</dt>
         <dd>None.</dd>
-        <dt><span title="element-dfn-contexts">Contexts in which this element can be used</span>:</dt>
+        <dt>
+          <span title="element-dfn-contexts">Contexts in which this element can be used</span>:
+        </dt>
         <dd>As a child of a <code>ruby</code> or of an <code>rtc</code> element.</dd>
         <dt><span title="element-dfn-content-model">Content model</span>:</dt>
         <dd><span>Phrasing content</span>.</dd>
@@ -667,7 +687,9 @@
       <dl class="element">
         <dt><span title="element-dfn-categories">Categories</span>:</dt>
         <dd>None.</dd>
-        <dt><span title="element-dfn-contexts">Contexts in which this element can be used</span>:</dt>
+        <dt>
+          <span title="element-dfn-contexts">Contexts in which this element can be used</span>:
+        </dt>
         <dd>As a child of a <code>ruby</code> element.</dd>
         <dt><span title="element-dfn-content-model">Content model</span>:</dt>
         <dd><span>Phrasing content</span>.</dd>
@@ -753,19 +775,21 @@
     <section>
       <h2>The <dfn><code>rp</code></dfn> element</h2>
       <dl class="element">
-       <dt><span title="element-dfn-categories">Categories</span>:</dt>
-       <dd>None.</dd>
-       <dt><span title="element-dfn-contexts">Contexts in which this element can be used</span>:</dt>
-       <dd>
-         As a child of a <code>ruby</code> element, either immediately before or immediately after an 
-         <code>rt</code> or <code>rtc</code> element.
-        </dd>
-       <dt><span title="element-dfn-content-model">Content model</span>:</dt>
-       <dd><span>Phrasing content</span>.</dd>
-       <dt><span title="element-dfn-attributes">Content attributes</span>:</dt>
-       <dd><span>Global attributes</span></dd>
-       <dt><span title="element-dfn-dom">DOM interface</span>:</dt><!--TOPIC:DOM APIs-->
-       <dd>Uses <code>HTMLElement</code>.</dd>
+        <dt><span title="element-dfn-categories">Categories</span>:</dt>
+        <dd>None.</dd>
+        <dt>
+          <span title="element-dfn-contexts">Contexts in which this element can be used</span>:
+         </dt>
+        <dd>
+          As a child of a <code>ruby</code> element, either immediately before or immediately 
+          after an  <code>rt</code> or <code>rtc</code> element.
+         </dd>
+        <dt><span title="element-dfn-content-model">Content model</span>:</dt>
+        <dd><span>Phrasing content</span>.</dd>
+        <dt><span title="element-dfn-attributes">Content attributes</span>:</dt>
+        <dd><span>Global attributes</span></dd>
+        <dt><span title="element-dfn-dom">DOM interface</span>:</dt><!--TOPIC:DOM APIs-->
+        <dd>Uses <code>HTMLElement</code>.</dd>
       </dl><!--TOPIC:HTML-->
 
       <p>The <code>rp</code> element can be used to provide parentheses around a ruby text component of
