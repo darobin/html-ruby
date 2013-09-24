@@ -28,6 +28,10 @@
           position: relative;
           z-index: 1;
       }
+      .prettyprint .tag {
+          font-weight:  bolder;
+          color:        #00c;
+      }
     </style>
   </head>
   <body>
@@ -163,44 +167,53 @@
        <dt>Mono-ruby for individual base characters</dt>
        <dd>
         <p>
-          Annotations (the ruby text) are associated individually with each 
-          ideographic character (the base text). In Japanese this is typically 
-          hiragana or katakana characters used to provide readings of kanji 
-          characters.
+          Annotations (the ruby text) are associated individually with each ideographic character
+          (the base text). In Japanese this is typically hiragana or katakana characters used to
+          provide readings of kanji characters.
         </p>
-        <div class="example"> <!-- B as in BASE -->
-         <pre>&lt;ruby>B&lt;rt>annotation&lt;/ruby></pre>
-        </div>
+        <pre class="example highlight">
+          &lt;ruby>base&lt;rt>annotation&lt;/ruby>
+        </pre>
         
         <p>
-          When no <code>rb</code> element is used, the base is implied, as above. But you can also make
-          it explicit. This can be useful notably for styling, or when consecutive bases are to be treated
-          as a group, as in the jukugo ruby example further down.
+          When no <code>rb</code> element is used, the base is implied, as above. But you can also
+          make it explicit. This can be useful notably for styling, or when consecutive bases are to
+          be treated as a group, as in the jukugo ruby example further down.
         </p>
 
-        <div class="example">
-         <pre>&lt;ruby>&lt;rb>base&lt;rt>annotation&lt;/ruby></pre>
-        </div>
+        <pre class="example highlight">
+          &lt;ruby>&lt;rb>base&lt;rt>annotation&lt;/ruby>
+        </pre>
 
-        <div class="example">
-         <p>In this example, notice how each annotation corresponds to a single base character.
-         <pre>&lt;ruby>日&lt;rt>に&lt;/rt>&lt;/ruby>&lt;ruby>本&lt;rt>ほん&lt;/rt>&lt;/ruby>
-&lt;ruby>語&lt;rt>ご&lt;/rt>&lt;/ruby>で&lt;ruby>書&lt;rt>か&lt;/rt>&lt;/ruby>
-いた&lt;ruby>作&lt;rt>さく&lt;/rt>&lt;/ruby>&lt;ruby>文&lt;rt>ぶん&lt;/rt>&lt;/ruby>です。</pre>
-          <p>
-            Ruby text interspersed in regular text provides structure akin to the following image:
-          </p>
-         <p>
-           <img src='composition.png' width='390' height='87' alt='An example of ruby text mixed up with regular text.'/>
-         </p>
-         <p>This example can also be written as follows, using one <code>ruby</code> element with two
-         segments of base text and two annotations (one for each) rather than two back-to-back
-         <code>ruby</code> elements each with one base text segment and annotation (as in the markup
-         above):
-         <pre>&lt;ruby>日&lt;rt>に&lt;/rt>本&lt;rt>ほん&lt;/rt>語&lt;rt>ご&lt;/rt>&lt;/ruby>で&lt;ruby>書&lt;rt>か&lt;/rt>&lt;/ruby>
- いた&lt;ruby>作&lt;rt>さく&lt;/rt>文&lt;rt>ぶん&lt;/rt>&lt;/ruby>です。</pre>
-        </div>
+        <p>
+          In the following example, notice how each annotation corresponds to a single base
+          character.
+        </p>
+        <pre class="example highlight">
+          &lt;ruby>日&lt;rt>に&lt;/rt>&lt;/ruby>&lt;ruby>本&lt;rt>ほん&lt;/rt>&lt;/ruby>
+          &lt;ruby>語&lt;rt>ご&lt;/rt>&lt;/ruby>で&lt;ruby>書&lt;rt>か&lt;/rt>&lt;/ruby>
+          いた&lt;ruby>作&lt;rt>さく&lt;/rt>&lt;/ruby>&lt;ruby>文&lt;rt>ぶん&lt;/rt>&lt;/ruby>です。
+        </pre>
+        <p>
+          Ruby text interspersed in regular text provides structure akin to the following image:
+        </p>
+        <p>
+          <img src='composition.png' width='390' height='87'
+               alt='An example of ruby text mixed up with regular text.'>
+        </p>
+        <p>
+          This example can also be written as follows, using one <code>ruby</code> element with two
+          segments of base text and two annotations (one for each) rather than two back-to-back
+          <code>ruby</code> elements each with one base text segment and annotation (as in the
+          markup above):
+        </p>
+        <pre class='example highlight'>
+            &lt;ruby>日&lt;rt>に&lt;/rt>本&lt;rt>ほん&lt;/rt>語&lt;rt>ご&lt;/rt>&lt;/ruby>
+            で&lt;ruby>書&lt;rt>か&lt;/rt>&lt;/ruby>
+            いた&lt;ruby>作&lt;rt>さく&lt;/rt>文&lt;rt>ぶん&lt;/rt>&lt;/ruby>です。
+        </pre>
        </dd>
+       
        <dt>Group ruby</dt>
        <dd>
          <p>
