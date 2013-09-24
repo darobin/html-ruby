@@ -58,7 +58,7 @@
       </p>
       <p>
         This document was largely developed to address the shortcomings listed in
-        Use Cases &amp; Exploratory Approaches for Ruby Markup. [[ruby-use-cases]]
+        <cite>Use Cases &amp; Exploratory Approaches for Ruby Markup</cite>. [[ruby-use-cases]]
       </p>
     </section>
     <section id='sotd'>
@@ -127,9 +127,9 @@
         with ruby annotations. Ruby annotations are short runs of text presented alongside base
         text, primarily used in East Asian typography as a guide for pronunciation or to include
         other annotations. In Japanese, this form of typography is also known as
-        <i>furigana</i>. A more complete introduction to ruby can be found in the Use Cases &amp;
-        Exploratory Approaches for Ruby Markup document as well as in CSS Ruby Module Level 1.
-        [[ruby-use-cases]] [[css-ruby]]
+        <i>furigana</i>. A more complete introduction to ruby can be found in the <cite>Use Cases
+        &amp; Exploratory Approaches for Ruby Markup</cite> document as well as in <cite>CSS Ruby
+        Module Level 1</cite>. [[ruby-use-cases]] [[css-ruby]]
       </p>
 
       <p>
@@ -164,106 +164,116 @@
       -->
 
       <dl>
-       <dt>Mono-ruby for individual base characters</dt>
-       <dd>
-        <p>
-          Annotations (the ruby text) are associated individually with each ideographic character
-          (the base text). In Japanese this is typically hiragana or katakana characters used to
-          provide readings of kanji characters.
-        </p>
-        <pre class="example highlight">
-          &lt;ruby>base&lt;rt>annotation&lt;/ruby>
-        </pre>
-        
-        <p>
-          When no <code>rb</code> element is used, the base is implied, as above. But you can also
-          make it explicit. This can be useful notably for styling, or when consecutive bases are to
-          be treated as a group, as in the jukugo ruby example further down.
-        </p>
-
-        <pre class="example highlight">
-          &lt;ruby>&lt;rb>base&lt;rt>annotation&lt;/ruby>
-        </pre>
-
-        <p>
-          In the following example, notice how each annotation corresponds to a single base
-          character.
-        </p>
-        <pre class="example highlight">
-          &lt;ruby>日&lt;rt>に&lt;/rt>&lt;/ruby>&lt;ruby>本&lt;rt>ほん&lt;/rt>&lt;/ruby>
-          &lt;ruby>語&lt;rt>ご&lt;/rt>&lt;/ruby>で&lt;ruby>書&lt;rt>か&lt;/rt>&lt;/ruby>
-          いた&lt;ruby>作&lt;rt>さく&lt;/rt>&lt;/ruby>&lt;ruby>文&lt;rt>ぶん&lt;/rt>&lt;/ruby>です。
-        </pre>
-        <p>
-          Ruby text interspersed in regular text provides structure akin to the following image:
-        </p>
-        <p>
-          <img src='composition.png' width='390' height='87'
-               alt='An example of ruby text mixed up with regular text.'>
-        </p>
-        <p>
-          This example can also be written as follows, using one <code>ruby</code> element with two
-          segments of base text and two annotations (one for each) rather than two back-to-back
-          <code>ruby</code> elements each with one base text segment and annotation (as in the
-          markup above):
-        </p>
-        <pre class='example highlight'>
+        <dt>Mono-ruby for individual base characters</dt>
+        <dd>
+          <p>
+            Annotations (the ruby text) are associated individually with each ideographic character
+            (the base text). In Japanese this is typically hiragana or katakana characters used to
+            provide readings of kanji characters.
+          </p>
+          <pre class="example highlight">
+            &lt;ruby>base&lt;rt>annotation&lt;/ruby>
+          </pre>
+          <p>
+            When no <code>rb</code> element is used, the base is implied, as above. But you can also
+            make it explicit. This can be useful notably for styling, or when consecutive bases are
+            to be treated as a group, as in the jukugo ruby example further down.
+          </p>
+          <pre class="example highlight">
+            &lt;ruby>&lt;rb>base&lt;rt>annotation&lt;/ruby>
+          </pre>
+          <p>
+            In the following example, notice how each annotation corresponds to a single base
+            character.
+          </p>
+          <pre class="example highlight">
+            &lt;ruby>日&lt;rt>に&lt;/rt>&lt;/ruby>&lt;ruby>本&lt;rt>ほん&lt;/rt>&lt;/ruby>
+            &lt;ruby>語&lt;rt>ご&lt;/rt>&lt;/ruby>で&lt;ruby>書&lt;rt>か&lt;/rt>&lt;/ruby>
+            いた&lt;ruby>作&lt;rt>さく&lt;/rt>&lt;/ruby>&lt;ruby>文&lt;rt>ぶん&lt;/rt>&lt;/ruby>です。
+          </pre>
+          <p>
+            Ruby text interspersed in regular text provides structure akin to the following image:
+          </p>
+          <p>
+            <img src='composition.png' width='390' height='87'
+                 alt='An example of ruby text mixed up with regular text.'>
+          </p>
+          <p>
+            This example can also be written as follows, using one <code>ruby</code> element with
+            two segments of base text and two annotations (one for each) rather than two
+            back-to-back <code>ruby</code> elements each with one base text segment and annotation
+            (as in the markup above):
+          </p>
+          <pre class='example highlight'>
             &lt;ruby>日&lt;rt>に&lt;/rt>本&lt;rt>ほん&lt;/rt>語&lt;rt>ご&lt;/rt>&lt;/ruby>
             で&lt;ruby>書&lt;rt>か&lt;/rt>&lt;/ruby>
             いた&lt;ruby>作&lt;rt>さく&lt;/rt>文&lt;rt>ぶん&lt;/rt>&lt;/ruby>です。
-        </pre>
-       </dd>
+          </pre>
+        </dd>
        
-       <dt>Group ruby</dt>
-       <dd>
-         <p>
-           Group ruby is often used where phonetic annotations don't map to discreet base characters, or for 
-           semantic glosses that span the whole base text. For example, the word "today" is written with the 
-           characters 今日, literally "this day". But it's pronounced きょう (kyou), which can't be broken down into 
-           a "this" part and a "day" part. In typical rendering, you can't split text that is 
-           annotated with group ruby; it has to wrap as a single unit onto the next line. When a ruby text 
-           annotation maps to a base that is comprised of more than one character, then that base is grouped.
-         </p>
-         <div class='example'>
-          <img src='group.png' width='78' height='88' alt='Group ruby example with きょう annotating 今日'>
+        <dt>Group ruby</dt>
+        <dd>
           <p>
-            Which can be marked up as follows:
+            Group ruby is often used where phonetic annotations don't map to discreet base
+            characters, or for semantic glosses that span the whole base text. For example, the word
+            "today" is written with the characters 今日, literally "this day". But it's pronounced きょう
+            (kyou), which can't be broken down into a "this" part and a "day" part. In typical
+            rendering, you can't split text that is annotated with group ruby; it has to wrap as a
+            single unit onto the next line. When a ruby text annotation maps to a base that is
+            comprised of more than one character, then that base is grouped.
           </p>
-          <pre>&lt;ruby>今日&lt;rt>きょう&lt;/ruby></pre>
-         </div>
-       </dd>
-       <dt>Jukugo ruby
-       <dd>
-         <p>
-          <em>Jukugo</em> refers to a Japanese compound noun, ie. a word made up of more than one kanji character.
-          <em>Jukugo ruby</em> is a term that is used not to describe ruby annotations over jukugo text, but rather 
-          to describe ruby with a behaviour slightly different from mono or group ruby. Jukugo ruby is similar to mono
-          ruby, in that there is a strong association between ruby text and individual base characters, but the
-          ruby text is typically rendered as grouped together over multiple ideographs when they are on the same line.
-         </p>
-         <div class='example'>
+          <p>
+            The following group ruby:
+          </p>
+          <p>
+            <img src='group.png' width='78' height='88'
+                 alt='Group ruby example with きょう annotating 今日'>
+          </p>
+          <p>
+            Can be marked up as follows:
+          </p>
+          <pre class='example highlight'>
+            &lt;ruby>今日&lt;rt>きょう&lt;/ruby>
+          </pre>
+        </dd>
+        <dt>Jukugo ruby</dt>
+        <dd>
+          <p>
+            <em>Jukugo</em> refers to a Japanese compound noun, i.e. a word made up of more than one
+            kanji character. <em>Jukugo ruby</em> is a term that is used not to describe ruby
+            annotations over jukugo text, but rather to describe ruby with a behaviour slightly
+            different from mono or group ruby. Jukugo ruby is similar to mono ruby, in that there is
+            a strong association between ruby text and individual base characters, but the ruby text
+            is typically rendered as grouped together over multiple ideographs when they are on the
+            same line.
+          </p>
           <p>
             The distinction is captured in this example:
           </p>
-          <img src='hokekyou.png' width='66' height='126' alt='Example of jukugo ruby'>
+          <p>
+            <img src='hokekyou.png' width='66' height='126' alt='Example of jukugo ruby'>
+          </p>
           <p>
             Which can be marked up as follows:
           </p>
-          <pre>&lt;ruby>法&lt;rb>華&lt;rb>経&lt;rt>ほ&lt;rt>け&lt;rt>きょう&lt;/ruby></pre>
+          <pre class='example highlight'>
+            &lt;ruby>法&lt;rb>華&lt;rb>経&lt;rt>ほ&lt;rt>け&lt;rt>きょう&lt;/ruby>
+          </pre>
           <p>
             In this example, each <code>rt</code> element is paired with its respective
-            <code>rb</code> element, the difference with an interleaved <code>rb</code>/<code>rt</code>
-            approach being that the sequences of both base text and ruby annotations are
-            implicitly placed in common containers so that the grouping information is captured.
+            <code>rb</code> element, the difference with an interleaved
+            <code>rb</code>/<code>rt</code> approach being that the sequences of both base text and
+            ruby annotations are implicitly placed in common containers so that the grouping
+            information is captured.
           </p>
-         </div>
-         <p class="note">
-           For more details on <a href="http://www.w3.org/TR/jlreq/#positioning_of_jukugoruby">Jukugo Ruby rendering</a>,
-           see Appendix F in the <cite>Requirements for Japanese Text Layout</cite> [[JLREQ]]
-           and Use Case C: Jukugo ruby in the <cite>Use Cases &amp; Exploratory Approaches for Ruby Markup</cite>
-           [[ruby-use-cases]].
-         </p>
-       </dd>
+          <p class="note">
+            For more details on 
+            <a href="http://www.w3.org/TR/jlreq/#positioning_of_jukugoruby">Jukugo Ruby
+            rendering</a>, see Appendix F in the <cite>Requirements for Japanese Text Layout</cite>
+            and Use Case C: Jukugo ruby in the <cite>Use Cases &amp; Exploratory Approaches for Ruby
+            Markup</cite>. [[JLREQ]] [[ruby-use-cases]]
+          </p>
+        </dd>
        <dt>Inline ruby</dt>
        <dd>
          <p>
