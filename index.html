@@ -54,8 +54,7 @@
       </p>
       <p>
         This document was largely developed to address the shortcomings listed in
-        <a href="http://www.w3.org/TR/ruby-use-cases/">Use Cases &amp; Exploratory 
-        Approaches for Ruby Markup</a> [[ruby-use-cases]].
+        Use Cases &amp; Exploratory Approaches for Ruby Markup. [[ruby-use-cases]]
       </p>
     </section>
     <section id='sotd'>
@@ -119,37 +118,39 @@
         <dd>Uses <code>HTMLElement</code>.</dd>
       </dl><!--TOPIC:HTML-->
 
-      <p>The <code>ruby</code> element allows one or more spans of phrasing content to be marked with
-      ruby annotations. Ruby annotations are short runs of text presented alongside base text, primarily
-      used in East Asian typography as a guide for pronunciation or to include other annotations. In
-      Japanese, this form of typography is also known as <i>furigana</i>.</p>
+      <p>
+        The <code>ruby</code> element allows one or more spans of phrasing content to be marked
+        with ruby annotations. Ruby annotations are short runs of text presented alongside base
+        text, primarily used in East Asian typography as a guide for pronunciation or to include
+        other annotations. In Japanese, this form of typography is also known as
+        <i>furigana</i>. A more complete introduction to ruby can be found in the Use Cases &amp;
+        Exploratory Approaches for Ruby Markup document as well as in CSS Ruby Module Level 1.
+        [[ruby-use-cases]] [[css-ruby]]
+      </p>
 
-      <p>The content model of <code>ruby</code> elements consists of one or more of the following
-      sequences:</p>
+      <p>
+        The content model of <code>ruby</code> elements consists of one or more of the following
+        sequences:
+      </p>
 
       <ol class="brief">
         <li>
           One or more <span>phrasing content</span> nodes or <code>rb</code> elements.
         </li>
-        <li>One or the other of the following:
-          <ul class="brief">
-            <li>One or more <code>rt</code> or <code>rtc</code> elements</li>
-            <li>
-              An <code>rp</code> element followed by one or more <code>rt</code> or <code>rtc</code> elements, 
-              followed by an <code>rp</code> element.
-            </li>
-          </ul>
+        <li>
+          One or more <code>rt</code> or <code>rtc</code> elements, each of which either immediately
+          preceded or followed by an <code>rp</code> elements.
         </li>
       </ol>
 
-      <p>The <code>ruby</code>, <code>rb</code>, <code>rtc</code>, and <code>rt</code> elements can be used for 
-      a variety of kinds of annotations, including in particular (though by no means limited to) those described
-      below. For more details on Japanese Ruby in particular, and how to render Ruby for Japanese, see
-      <cite>Requirements for Japanese Text Layout</cite>. [[JLREQ]]</p>
-
-      <p class="note">At the time of writing, CSS does not yet provide a way to fully control the
-      rendering of the HTML <code>ruby</code> element. It is hoped that CSS will be extended to support
-      the styles described below in due course.</p>
+      <p>
+        The <code>ruby</code>, <code>rb</code>, <code>rtc</code>, and <code>rt</code> elements can
+        be used for a variety of kinds of annotations, including in particular (though by no means
+        limited to) those described below. For more details on Japanese Ruby in particular, and how
+        to render Ruby for Japanese, see <cite>Requirements for Japanese Text Layout</cite>.
+        [[JLREQ]] The <code>rp</code> element can be used either as fallback content when ruby 
+        rendering is not supported, or as part of inlined ruby.
+      </p>
 
       <!--
         examples in the following list are derived from:
@@ -871,7 +872,7 @@
         The CSS for <a href='http://www.w3.org/html/wg/drafts/html/master/rendering.html#phrasing-content-0'>Phrasing content</a>
         needs to include style for <code>rb</code> and <code>rtc</code>, and the following prose
         needs to take them into account. Note that the CSS Ruby Module
-        [[CSS3RUBY]] is currently in sore need of fixing such that any reliance on it is hazardous at best.
+        [[css-ruby]] is currently in sore need of fixing such that any reliance on it is hazardous at best.
       </p>
       <p>
         <code>rb</code> needs to be removed from
