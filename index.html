@@ -39,7 +39,6 @@
       TODO:
         - include CC-BY license
         - make a snapshot
-        - see issues
     -->
     <section id='abstract'>
       <p>
@@ -149,8 +148,8 @@
         be used for a variety of kinds of annotations, including in particular (though by no means
         limited to) those described below. For more details on Japanese Ruby in particular, and how
         to render Ruby for Japanese, see <cite>Requirements for Japanese Text Layout</cite>.
-        [[JLREQ]] The <code>rp</code> element can be used either as fallback content when ruby 
-        rendering is not supported, or as part of inlined ruby.
+        [[JLREQ]] The <code>rp</code> element can be used as fallback content when ruby 
+        rendering is not supported.
       </p>
 
       <!--
@@ -883,8 +882,13 @@
       </dl><!--TOPIC:HTML-->
 
       <p>
-        The <code>rp</code> element can be used to provide parentheses around a ruby text component
-        of a ruby annotation, to be shown by user agents that don't support ruby annotations.
+        The <code>rp</code> element is used to provide fallback text to be shown by user agents that
+        don't support ruby annotations. One widespread convention is to provide parentheses around
+        the ruby text component of a ruby annotation.
+      </p>
+      <p>
+        The contents of the <code>rp</code> elements are typically not displayed by user agents
+        which do support ruby annotations
       </p>
         
       <p>
