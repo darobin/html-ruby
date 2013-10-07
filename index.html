@@ -381,7 +381,8 @@
           may contain phrasing content or an <code>rb</code> element.
         </li>
         <li>
-          A base range, that is a DOM range including all the bases.
+          A base range, that is a DOM range including all the bases. This is the
+          <dfn>ruby base container</dfn>.
         </li>
         <li>
           Between zero and two <a title='ruby text container'>ruby text containers</a> which may
@@ -403,14 +404,22 @@
         agents that do not support ruby at all.
       </p>
       <p>
-        Note that the terms <a>ruby segment</a>, <a>ruby base</a>, <a>ruby text annotation</a>,
-        <a>ruby text container</a>, and <a>ruby annotation container</a> have their equivalents in
-        <cite>CSS Ruby Module Level 1</cite>. [[css3-ruby]]
+        The process of <dfn>annotation pairing</dfn> associates <a title='ruby annotation'>ruby
+        annotations</a> with <a title='ruby base'>ruby bases</a>. Within each <a>ruby segment</a>,
+        each <a>ruby base</a> in the <a>ruby base container</a> is paired with one
+        <a>ruby text annotation</a> from the <a>ruby text container</a>, in order. If there are not
+        enough <a title='ruby text annotation'>ruby text annotations</a> in a 
+        <a>ruby annotation container</a>, the last one is associated with any excess 
+        <a title='ruby base'>ruby bases</a>. (If there are not any in the 
+        <a>ruby annotation container</a>, an anonymous empty one is assumed to exist.) If there are
+        not enough <a title='ruby base'>ruby bases</a>, any remaining 
+        <a title='ruby text annotation'>ruby text annotations</a> are assumed to be associated with
+        empty, anonymous bases inserted at the end of the <a>ruby base container</a>.
       </p>
       <p>
-        The process of <dfn>annotation pairing</dfn> associates <a title='ruby annotation'>ruby
-        annotations</a> with <a title='ruby base'>ruby bases</a>. The pairing algorithm is defined
-        in <cite>CSS Ruby Module Level 1</cite>. [[css3-ruby]]
+        Note that the terms <a>ruby segment</a>, <a>ruby base</a>, <a>ruby text annotation</a>,
+        <a>ruby text container</a>, <a>ruby base container</a>, and <a>ruby annotation container</a>
+        have their equivalents in <cite>CSS Ruby Module Level 1</cite>. [[css3-ruby]]
       </p>
       <p>
         Informally, the segmentation and categorisation algorithm below performs a simple set of
