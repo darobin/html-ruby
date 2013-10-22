@@ -92,6 +92,18 @@
       </p>
     </section>
     
+    <section>
+      <h2>Terminology</h2>
+      <p>
+        The term <dfn>inter-element whitespace</dfn> is defined in the HTML specification.
+        [[!HTML5]]
+      </p>
+      <p>
+        The interfaces <dfn>Text</dfn> and <dfn>Element</dfn> are defined in the DOM specification.
+        [[!DOM]]
+      </p>
+    </section>
+    
     <!-- 
       UCs:
         - http://lists.w3.org/Archives/Public/www-style/2011Feb/0804.html
@@ -404,7 +416,7 @@
         agents that do not support ruby at all.
       </p>
       <p>
-        The process of <dfn>annotation pairing</dfn> associates <a title='ruby annotation'>ruby
+        The process of <dfn>annotation pairing</dfn> associates <a title='ruby text annotation'>ruby
         annotations</a> with <a title='ruby base'>ruby bases</a>. Within each <a>ruby segment</a>,
         each <a>ruby base</a> in the <a>ruby base container</a> is paired with one
         <a>ruby text annotation</a> from the <a>ruby text container</a>, in order. If there are not
@@ -535,7 +547,7 @@
           </ol>
         </li>
         <li>
-          If <var>current child</var> is a <code>Text</code> node and is <a>inter-element
+          If <var>current child</var> is a <a>Text</a> node and is <a>inter-element
           whitespace</a>, then run these substeps:
           <ol>
             <li>
@@ -557,7 +569,7 @@
                   <var>root</var>.
                 </li>
                 <li>
-                  If <var>peek child</var> is a <code>Text</code> node and is <a>inter-element
+                  If <var>peek child</var> is a <a>Text</a> node and is <a>inter-element
                   whitespace</a>, then jump to the step labelled <i>peek ahead</i>.
                 </li>
                 <li>
@@ -678,8 +690,8 @@
           If <var>current automatic base nodes</var> is empty, abort these steps.
         </li>
         <li>
-          If <var>current automatic base nodes</var> contains nodes that are not <code>Text</code>
-          nodes, or <code>Text</code> nodes that are not <a>inter-element whitespace</a>, then
+          If <var>current automatic base nodes</var> contains nodes that are not <a>Text</a>
+          nodes, or <a>Text</a> nodes that are not <a>inter-element whitespace</a>, then
           run these substeps:
           <ol>
             <li>
@@ -857,7 +869,7 @@
         </li>
         <li>
           If <var>current automatic annotation nodes</var> contains nodes that are not
-          <code>Text</code> nodes, or <code>Text</code> nodes that are not <a>inter-element
+          <a>Text</a> nodes, or <a>Text</a> nodes that are not <a>inter-element
           whitespace</a>, then create a new DOM range whose <span
           title="concept-range-start">start</a> is the <span title="concept-range-bp">boundary
           point</a> (<var>root</var>, <var>current automatic annotation range start</var>) and whose
