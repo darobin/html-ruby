@@ -412,7 +412,7 @@
           <dfn>ruby base container</dfn>.
         </li>
         <li>
-          Between zero and two <a title='ruby text container'>ruby text containers</a> which may
+          Zero or more <a title='ruby text container'>ruby text containers</a> which may
           correspond to explicit <code>rtc</code> elements, or to sequences of <code>rt</code>
           elements implicitly recognised as contained in an anonymous <a>ruby text container</a>.
         </li>
@@ -451,7 +451,7 @@
       <p>
         Informally, the segmentation and categorisation algorithm below performs a simple set of
         tasks. First it processes adjacent <code>rb</code> elements, text nodes, and non-ruby
-        elements into a list of bases. Then it processes up to two <code>rtc</code> elements or
+        elements into a list of bases. Then it processes any number of <code>rtc</code> elements or
         sequences of <code>rt</code> elements that are considered to automatically map to an
         anonymous <a>ruby text container</a>. Put together these data items form a <a>ruby
         segment</a> as detailed in the data model above. It will continue to produce such segments
@@ -510,10 +510,6 @@
             <li>Run the steps to <a>commit an automatic base</a>.</li>
             <li>Run the steps to <a>commit the base range</a>.</li>
             <li>
-              If <var>current annotation containers</var> contains two elements, then run the steps
-              to <a>commit a ruby segment</a>.
-            </li>
-            <li>
               If <var>current annotations</var> is empty, set <var>current annotations range
               start</var> to the value of <var>index</var>.
             </li>
@@ -538,10 +534,6 @@
             <li>Run the steps to <a>commit the base range</a>.</li>
             <li>Run the steps to <a>commit current annotations</a>.</li>
             <li>
-              If <var>current annotation containers</var> contains two elements, then run the steps
-              to <a>commit a ruby segment</a>.
-            </li>
-            <li>
               Create a new <a>ruby annotation container</a>. It is described by the list of
               annotations returned by running the steps to <a>process an <code>rtc</code>
               element</a> and a DOM range whose <span title="concept-range-start">start</a> is the
@@ -550,10 +542,6 @@
               title="concept-range-bp">boundary point</a> (<var>root</var>, <var>index</var> plus
               one). Append this new <a>ruby annotation container</a> at the end of <var>current
               annotation containers</var>.
-            </li>
-            <li>
-              If <var>current annotation containers</var> contains two elements, then run the steps
-              to <a>commit a ruby segment</a>.
             </li>
             <li>
               Increment <var>index</var> by one and jump to the step labelled <i>process a ruby
@@ -570,8 +558,7 @@
               jump to the step labelled <i>process a ruby child</i>.
             </li>
             <li>
-              If <var>current annotation containers</var> does not contain two elements, then run
-              the following substeps:
+              Run the following substeps:
               <ol>
                 <li>Let <var>lookahead index</var> be set to the value of <var>index</var>.</li>
                 <li><i>Peek ahead</i>: Increment <var>lookahead index</var> by one.</li>
