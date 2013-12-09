@@ -85,6 +85,26 @@
         Changes to [[WEBVTT]] will be required in order to match this model. Also, 
         <code><a>rb</a></code> needs to be removed from the obsolete elements.
       </p>
+      <section>
+        <h2>Parsing changes</h2>
+        <p>
+          Add <code>rb</code> and <code>rtc</code> to the list of elements in 
+          <a href='http://www.w3.org/html/wg/drafts/html/master/single-page.html#generate-implied-end-tags'>generate
+          implied end tags</a>.
+        </p>
+        <p>
+          Add <code>rb</code> and <code>rtc</code> to the step <strong>A start tag whose tag name 
+          is one of: "rp", "rt"</strong> in <a href='http://www.w3.org/html/wg/drafts/html/master/single-page.html#parsing-main-inbody'>The 
+          "in body" insertion mode</a>. Within that step, if the start tag is "rt" then generate
+          implied end tags excepting "rtc", otherwise just generate implied end tags.
+        </p>
+        <p>
+          Add <code>rb</code> and <code>rtc</code> to the elements that preclude a parse error
+          in both <strong>An end tag whose tag name is "body"</strong> and
+          <strong>An end tag whose tag name is "html"</strong> in <a href='http://www.w3.org/html/wg/drafts/html/master/single-page.html#parsing-main-inbody'>The 
+          "in body" insertion mode</a>.
+        </p>
+      </section>
     </section>
     
     <section>
